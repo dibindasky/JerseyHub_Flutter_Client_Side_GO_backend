@@ -20,38 +20,32 @@ mixin _$BottomBarCubitState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int currentIndex) initial,
-    required TResult Function(int currentIndex) changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int currentIndex)? initial,
-    TResult? Function(int currentIndex)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int currentIndex)? initial,
-    TResult Function(int currentIndex)? changed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Changed value) changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Changed value)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Changed value)? changed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,7 +155,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int currentIndex) initial,
-    required TResult Function(int currentIndex) changed,
   }) {
     return initial(currentIndex);
   }
@@ -170,7 +163,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int currentIndex)? initial,
-    TResult? Function(int currentIndex)? changed,
   }) {
     return initial?.call(currentIndex);
   }
@@ -179,7 +171,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int currentIndex)? initial,
-    TResult Function(int currentIndex)? changed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -192,7 +183,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Changed value) changed,
   }) {
     return initial(this);
   }
@@ -201,7 +191,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Changed value)? changed,
   }) {
     return initial?.call(this);
   }
@@ -210,7 +199,6 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Changed value)? changed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -228,142 +216,5 @@ abstract class _Initial implements BottomBarCubitState {
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ChangedCopyWith<$Res>
-    implements $BottomBarCubitStateCopyWith<$Res> {
-  factory _$$_ChangedCopyWith(
-          _$_Changed value, $Res Function(_$_Changed) then) =
-      __$$_ChangedCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int currentIndex});
-}
-
-/// @nodoc
-class __$$_ChangedCopyWithImpl<$Res>
-    extends _$BottomBarCubitStateCopyWithImpl<$Res, _$_Changed>
-    implements _$$_ChangedCopyWith<$Res> {
-  __$$_ChangedCopyWithImpl(_$_Changed _value, $Res Function(_$_Changed) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentIndex = null,
-  }) {
-    return _then(_$_Changed(
-      null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Changed implements _Changed {
-  const _$_Changed(this.currentIndex);
-
-  @override
-  final int currentIndex;
-
-  @override
-  String toString() {
-    return 'BottomBarCubitState.changed(currentIndex: $currentIndex)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Changed &&
-            (identical(other.currentIndex, currentIndex) ||
-                other.currentIndex == currentIndex));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, currentIndex);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ChangedCopyWith<_$_Changed> get copyWith =>
-      __$$_ChangedCopyWithImpl<_$_Changed>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int currentIndex) initial,
-    required TResult Function(int currentIndex) changed,
-  }) {
-    return changed(currentIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int currentIndex)? initial,
-    TResult? Function(int currentIndex)? changed,
-  }) {
-    return changed?.call(currentIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int currentIndex)? initial,
-    TResult Function(int currentIndex)? changed,
-    required TResult orElse(),
-  }) {
-    if (changed != null) {
-      return changed(currentIndex);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Changed value) changed,
-  }) {
-    return changed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Changed value)? changed,
-  }) {
-    return changed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Changed value)? changed,
-    required TResult orElse(),
-  }) {
-    if (changed != null) {
-      return changed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Changed implements BottomBarCubitState {
-  const factory _Changed(final int currentIndex) = _$_Changed;
-
-  @override
-  int get currentIndex;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ChangedCopyWith<_$_Changed> get copyWith =>
       throw _privateConstructorUsedError;
 }

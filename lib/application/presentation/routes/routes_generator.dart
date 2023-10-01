@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jerseyhub/application/presentation/screens/api_test_page.dart/api_test.dart';
 import 'package:jerseyhub/application/presentation/screens/bottom_bar/bottom_bar_screen.dart';
-import 'package:jerseyhub/application/presentation/screens/sign_in/otp_screen.dart';
-import 'package:jerseyhub/application/presentation/screens/sign_in/sigin_up_screen.dart';
+import 'package:jerseyhub/application/presentation/screens/auth/otp_screen.dart';
+import 'package:jerseyhub/application/presentation/screens/auth/sigin_up_screen.dart';
 
-import '../screens/sign_in/sign_in_screen.dart';
+import '../screens/auth/sign_in_screen.dart';
 import '../screens/splash_screen/splash_screen.dart';
 import 'routes.dart';
 
@@ -19,9 +19,10 @@ class RouteGenerator {
       case Routes.signInPage:
         return MaterialPageRoute(builder: (ctx) => const ScreenSignIn());
       case Routes.otpVerification:
-        return MaterialPageRoute(builder: (ctx) => const ScreenOTPVerification());
+        return MaterialPageRoute(
+            builder: (ctx) => const ScreenOTPVerification());
       case Routes.bottomBar:
-        return MaterialPageRoute(builder: (ctx) => ScreenBottombar());
+        return MaterialPageRoute(builder: (ctx) =>const ScreenBottombar());
       case Routes.testScreen:
         return MaterialPageRoute(builder: (ctx) => ApiTestScreen());
       default:

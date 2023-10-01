@@ -6,8 +6,10 @@ import '../../../utils/constant.dart';
 
 class OTPNumberTIle extends StatelessWidget {
   const OTPNumberTIle({
-    super.key,
+    super.key, required this.controller,
   });
+
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:jerseyhub/application/presentation/utils/constant.dart';
 
 import '../../../utils/colors.dart';
 
@@ -10,12 +11,25 @@ class CartIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: kGrey,
-      child: IconButton(
-        onPressed: () {},
-        icon: const Icon(Iconsax.shopping_bag),
-      ),
+    return Stack(
+      children: [
+        CircleAvatar(
+          backgroundColor: kGrey,
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(Iconsax.shopping_bag),
+          ),
+        ),
+        const Positioned(
+          top: 0,
+          right: 0,
+          child: Icon(
+            Icons.circle,
+            size: 15,
+            color: kBlack,
+          ),
+        ),
+      ],
     );
   }
 }
