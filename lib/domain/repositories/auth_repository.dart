@@ -6,6 +6,8 @@ import 'package:jerseyhub/domain/models/auth/sign_in_model/sign_in_model.dart';
 import 'package:jerseyhub/domain/models/auth/sign_in_response_model/sign_in_response_model.dart';
 import 'package:jerseyhub/domain/models/auth/sign_up_model/sign_up_model.dart';
 import 'package:jerseyhub/domain/models/auth/sign_up_response_model/sign_up_response_model.dart';
+import 'package:jerseyhub/domain/models/auth/verify_otp_model/verify_otp_model.dart';
+import 'package:jerseyhub/domain/models/auth/verify_otp_response_model/verify_otp_response_model.dart';
 
 abstract class AuthRepository {
   Future<Either<ErrorMsg, SignInResponseModel>> signIn(
@@ -14,5 +16,6 @@ abstract class AuthRepository {
       {required SignUpModel signUpModel});
   Future<Either<ErrorMsg, PhoneNumberOtpResponseModel>> otpLogin(
       {required PhoneNumberModel phoneNumberModel});
-  // Future<Either<Failure, >> otpVerify();
+  Future<Either<ErrorMsg, VerifyOtpResponseModel>> otpVerify(
+      {required VerifyOtpModel verifyOtpModel});
 }

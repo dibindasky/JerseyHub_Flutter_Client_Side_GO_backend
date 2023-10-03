@@ -11,6 +11,8 @@ import 'package:jerseyhub/domain/models/auth/sign_in_model/sign_in_model.dart';
 import 'package:jerseyhub/domain/models/auth/sign_in_response_model/sign_in_response_model.dart';
 import 'package:jerseyhub/domain/models/auth/sign_up_model/sign_up_model.dart';
 import 'package:jerseyhub/domain/models/auth/sign_up_response_model/sign_up_response_model.dart';
+import 'package:jerseyhub/domain/models/auth/verify_otp_model/verify_otp_model.dart';
+import 'package:jerseyhub/domain/models/auth/verify_otp_response_model/verify_otp_response_model.dart';
 import 'package:jerseyhub/domain/repositories/auth_repository.dart';
 
 class AuthApi extends AuthRepository {
@@ -20,8 +22,8 @@ class AuthApi extends AuthRepository {
   Future<Either<ErrorMsg, PhoneNumberOtpResponseModel>> otpLogin(
       {required PhoneNumberModel phoneNumberModel}) async {
     try {
-      final response =
-          await dio.post(ApiEndPoints.loginOtp, data: phoneNumberModel.toJson());
+      final response = await dio.post(ApiEndPoints.loginOtp,
+          data: phoneNumberModel.toJson());
       if (response.statusCode == 200 || response.statusCode == 201) {
         log('message => ${response.data['message']}');
         return Right(PhoneNumberOtpResponseModel.fromJson(response.data));
@@ -42,13 +44,11 @@ class AuthApi extends AuthRepository {
   @override
   Future<Either<ErrorMsg, SignInResponseModel>> signIn(
       {required SignInModel signInModel}) async {
-        print(signInModel.toJson().toString());
+    print(signInModel.toJson().toString());
     try {
       final response =
           await dio.post(ApiEndPoints.login, data: signInModel.toJson());
-          print('starus => .........${response.statusCode}');
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print('response sucesss');
         return Right(SignInResponseModel.fromJson(response.data));
       } else {
         return Left(ErrorMsg(
@@ -74,6 +74,26 @@ class AuthApi extends AuthRepository {
       } else {
         return Left(ErrorMsg(
             message: SignUpResponseModel.fromJson(response.data).message!));
+      }
+    } on DioException catch (dioError) {
+      log('dio error => ${dioError.message.toString()}');
+      return Left(ErrorMsg(message: errorMsg));
+    } catch (e) {
+      log('dio error => ${e.toString()}');
+      return Left(ErrorMsg(message: errorMsg));
+    }
+  }
+
+  @override
+  Future<Either<ErrorMsg, VerifyOtpResponseModel>> otpVerify({required VerifyOtpModel verifyOtpModel}) async{
+    try {
+      final response =
+          await dio.post(ApiEndPoints.verifyOtp, data: verifyOtpModel.toJson());
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return Right(VerifyOtpResponseModel.fromJson(response.data));
+      } else {
+        return Left(ErrorMsg(
+            message: VerifyOtpResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
       log('dio error => ${dioError.message.toString()}');

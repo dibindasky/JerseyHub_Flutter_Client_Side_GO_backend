@@ -74,7 +74,7 @@ class CoustomTextField extends StatelessWidget {
                   enabledBorder: InputBorder.none,
                   errorBorder: const OutlineInputBorder(
                       borderSide: BorderSide(width: 3, color: Colors.red)),
-                  focusedErrorBorder:  const OutlineInputBorder(
+                  focusedErrorBorder: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1, color: Colors.red)),
                   prefixText:
                       keyboardType == TextInputType.number ? '+91 - ' : null,

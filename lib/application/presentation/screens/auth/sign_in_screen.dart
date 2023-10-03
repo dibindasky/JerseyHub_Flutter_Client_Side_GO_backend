@@ -27,15 +27,14 @@ class ScreenSignIn extends StatelessWidget {
             children: [
               BlocConsumer<AuthBloc, AuthState>(
                 listener: (context, state) {
-                  print('in listner');
                   if (state.otpHasError) {
                     showSnack(context: context, message: 'cannot send otp');
                   } else if (state.signInHasError) {
                     showSnack(context: context, message: state.message!);
-                  }else if(state.isLoggedIn){
-                    print('inside navigation');
-                    Navigator.pushNamedAndRemoveUntil(context, Routes.bottomBar, (route) => false);
-                  }else if(state.phoneNumberOtpResponseModel != null){
+                  } else if (state.isLoggedIn) {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, Routes.bottomBar, (route) => false);
+                  } else if (state.phoneNumberOtpResponseModel != null) {
                     Navigator.pushNamed(context, Routes.otpVerification);
                   }
                 },
@@ -139,7 +138,8 @@ class ScreenSignIn extends StatelessWidget {
                               .read<AuthBloc>()
                               .phoneKey
                               .currentState!
-                              .validate()) {FocusScope.of(context).unfocus();
+                              .validate()) {
+                            FocusScope.of(context).unfocus();
                             context.read<AuthBloc>().add(AuthEvent.otpLogin(
                                     phoneNumberModel: PhoneNumberModel(
                                   phone: context

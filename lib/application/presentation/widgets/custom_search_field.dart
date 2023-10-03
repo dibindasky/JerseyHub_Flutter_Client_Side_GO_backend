@@ -14,10 +14,9 @@ class CoustomSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(bottom: 20),
         decoration: const BoxDecoration(
             color: kGrey, borderRadius: BorderRadius.all(kRadius50)),
-        width: sWidth * 0.90,
+        width: double.infinity,
         height: sWidth * 0.10,
         child: TextField(
           readOnly: context.read<BottomBarCubitCubit>().state.currentIndex == 0,

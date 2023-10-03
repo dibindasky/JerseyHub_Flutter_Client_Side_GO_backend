@@ -4,18 +4,18 @@ part 'sign_up_model.g.dart';
 
 @JsonSerializable()
 class SignUpModel {
-  String? confirmpassword;
-  String? email;
-  String? name;
-  String? password;
-  String? phone;
+  String confirmpassword;
+  String email;
+  String name;
+  String password;
+  String phone;
 
   SignUpModel({
-    this.confirmpassword,
-    this.email,
-    this.name,
-    this.password,
-    this.phone,
+    required this.confirmpassword,
+    required this.email,
+    required this.name,
+    required this.password,
+    required this.phone,
   });
 
   @override

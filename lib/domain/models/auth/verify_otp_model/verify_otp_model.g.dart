@@ -8,8 +8,8 @@ part of 'verify_otp_model.dart';
 
 VerifyOtpModel _$VerifyOtpModelFromJson(Map<String, dynamic> json) =>
     VerifyOtpModel(
-      code: json['code'] as String?,
-      phone: json['phone'] as String?,
+      code: json['code'] as String,
+      phone: json['phone'] as String,
     );
 
 Map<String, dynamic> _$VerifyOtpModelToJson(VerifyOtpModel instance) =>

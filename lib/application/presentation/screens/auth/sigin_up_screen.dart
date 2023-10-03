@@ -43,10 +43,9 @@ class ScreenSignUP extends StatelessWidget {
                 ),
                 kHeight20,
                 CoustomTextField(
-                  label: 'phone',
-                  controller: context.read<AuthBloc>().poneController,
-                  keyboardType: TextInputType.number
-                ),
+                    label: 'phone',
+                    controller: context.read<AuthBloc>().poneController,
+                    keyboardType: TextInputType.number),
                 kHeight20,
                 CoustomTextField(
                   label: 'password',
@@ -64,8 +63,11 @@ class ScreenSignUP extends StatelessWidget {
                 BlocConsumer<AuthBloc, AuthState>(
                   listener: (context, state) {
                     if (state.signIUPHasError) {
-                      showSnack(context: context, message: state.message!,color: Colors.red);
-                    }else if(state.signUpResponseModel != null){
+                      showSnack(
+                          context: context,
+                          message: state.message!,
+                          color: Colors.red);
+                    } else if (state.signUpResponseModel != null) {
                       Navigator.pushNamed(context, Routes.signInPage);
                     }
                   },
@@ -82,7 +84,7 @@ class ScreenSignUP extends StatelessWidget {
                                 .signUpKey
                                 .currentState!
                                 .validate()) {
-                                  FocusScope.of(context).unfocus();
+                              FocusScope.of(context).unfocus();
                               context.read<AuthBloc>().add(
                                     AuthEvent.signUP(
                                       signUpModel: SignUpModel(
@@ -133,7 +135,10 @@ class ScreenSignUP extends StatelessWidget {
                     TextButton(
                         onPressed: () {
                           context.read<AuthBloc>().passwordController.clear();
-                          context.read<AuthBloc>().confirmPasswordController.clear();
+                          context
+                              .read<AuthBloc>()
+                              .confirmPasswordController
+                              .clear();
                           context.read<AuthBloc>().userNameController.clear();
                           context.read<AuthBloc>().poneController.clear();
                           context.read<AuthBloc>().emailController.clear();

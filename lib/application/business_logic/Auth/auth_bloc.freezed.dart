@@ -22,8 +22,8 @@ mixin _$AuthEvent {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) =>
@@ -34,8 +34,8 @@ mixin _$AuthEvent {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) =>
@@ -46,8 +46,8 @@ mixin _$AuthEvent {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
@@ -59,7 +59,7 @@ mixin _$AuthEvent {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
@@ -71,7 +71,7 @@ mixin _$AuthEvent {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
@@ -83,7 +83,7 @@ mixin _$AuthEvent {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
@@ -176,8 +176,8 @@ class _$_SignUP implements _SignUP {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) {
@@ -191,8 +191,8 @@ class _$_SignUP implements _SignUP {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) {
@@ -206,8 +206,8 @@ class _$_SignUP implements _SignUP {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
@@ -225,7 +225,7 @@ class _$_SignUP implements _SignUP {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
@@ -240,7 +240,7 @@ class _$_SignUP implements _SignUP {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
@@ -255,7 +255,7 @@ class _$_SignUP implements _SignUP {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
@@ -344,8 +344,8 @@ class _$_SignIn implements _SignIn {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) {
@@ -359,8 +359,8 @@ class _$_SignIn implements _SignIn {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) {
@@ -374,8 +374,8 @@ class _$_SignIn implements _SignIn {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
@@ -393,7 +393,7 @@ class _$_SignIn implements _SignIn {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
@@ -408,7 +408,7 @@ class _$_SignIn implements _SignIn {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
@@ -423,7 +423,7 @@ class _$_SignIn implements _SignIn {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
@@ -486,8 +486,8 @@ class _$_SignOut implements _SignOut {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) {
@@ -501,8 +501,8 @@ class _$_SignOut implements _SignOut {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) {
@@ -516,8 +516,8 @@ class _$_SignOut implements _SignOut {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
@@ -535,7 +535,7 @@ class _$_SignOut implements _SignOut {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
@@ -550,7 +550,7 @@ class _$_SignOut implements _SignOut {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
@@ -565,7 +565,7 @@ class _$_SignOut implements _SignOut {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
@@ -651,8 +651,8 @@ class _$_OtpLogin implements _OtpLogin {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) {
@@ -666,8 +666,8 @@ class _$_OtpLogin implements _OtpLogin {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) {
@@ -681,8 +681,8 @@ class _$_OtpLogin implements _OtpLogin {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
@@ -700,7 +700,7 @@ class _$_OtpLogin implements _OtpLogin {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
@@ -715,7 +715,7 @@ class _$_OtpLogin implements _OtpLogin {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
@@ -730,7 +730,7 @@ class _$_OtpLogin implements _OtpLogin {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
@@ -754,20 +754,19 @@ abstract class _OtpLogin implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$$_ResendOtpCopyWith<$Res> {
-  factory _$$_ResendOtpCopyWith(
-          _$_ResendOtp value, $Res Function(_$_ResendOtp) then) =
-      __$$_ResendOtpCopyWithImpl<$Res>;
+abstract class _$$_SendOtpCopyWith<$Res> {
+  factory _$$_SendOtpCopyWith(
+          _$_SendOtp value, $Res Function(_$_SendOtp) then) =
+      __$$_SendOtpCopyWithImpl<$Res>;
   @useResult
   $Res call({PhoneNumberModel phoneNumberModel});
 }
 
 /// @nodoc
-class __$$_ResendOtpCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$_ResendOtp>
-    implements _$$_ResendOtpCopyWith<$Res> {
-  __$$_ResendOtpCopyWithImpl(
-      _$_ResendOtp _value, $Res Function(_$_ResendOtp) _then)
+class __$$_SendOtpCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_SendOtp>
+    implements _$$_SendOtpCopyWith<$Res> {
+  __$$_SendOtpCopyWithImpl(_$_SendOtp _value, $Res Function(_$_SendOtp) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -775,7 +774,7 @@ class __$$_ResendOtpCopyWithImpl<$Res>
   $Res call({
     Object? phoneNumberModel = null,
   }) {
-    return _then(_$_ResendOtp(
+    return _then(_$_SendOtp(
       phoneNumberModel: null == phoneNumberModel
           ? _value.phoneNumberModel
           : phoneNumberModel // ignore: cast_nullable_to_non_nullable
@@ -786,22 +785,22 @@ class __$$_ResendOtpCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResendOtp implements _ResendOtp {
-  const _$_ResendOtp({required this.phoneNumberModel});
+class _$_SendOtp implements _SendOtp {
+  const _$_SendOtp({required this.phoneNumberModel});
 
   @override
   final PhoneNumberModel phoneNumberModel;
 
   @override
   String toString() {
-    return 'AuthEvent.resendOtp(phoneNumberModel: $phoneNumberModel)';
+    return 'AuthEvent.sendOtp(phoneNumberModel: $phoneNumberModel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ResendOtp &&
+            other is _$_SendOtp &&
             (identical(other.phoneNumberModel, phoneNumberModel) ||
                 other.phoneNumberModel == phoneNumberModel));
   }
@@ -812,8 +811,8 @@ class _$_ResendOtp implements _ResendOtp {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResendOtpCopyWith<_$_ResendOtp> get copyWith =>
-      __$$_ResendOtpCopyWithImpl<_$_ResendOtp>(this, _$identity);
+  _$$_SendOtpCopyWith<_$_SendOtp> get copyWith =>
+      __$$_SendOtpCopyWithImpl<_$_SendOtp>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -822,12 +821,12 @@ class _$_ResendOtp implements _ResendOtp {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) {
-    return resendOtp(phoneNumberModel);
+    return sendOtp(phoneNumberModel);
   }
 
   @override
@@ -837,12 +836,12 @@ class _$_ResendOtp implements _ResendOtp {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) {
-    return resendOtp?.call(phoneNumberModel);
+    return sendOtp?.call(phoneNumberModel);
   }
 
   @override
@@ -852,14 +851,14 @@ class _$_ResendOtp implements _ResendOtp {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
   }) {
-    if (resendOtp != null) {
-      return resendOtp(phoneNumberModel);
+    if (sendOtp != null) {
+      return sendOtp(phoneNumberModel);
     }
     return orElse();
   }
@@ -871,12 +870,12 @@ class _$_ResendOtp implements _ResendOtp {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
   }) {
-    return resendOtp(this);
+    return sendOtp(this);
   }
 
   @override
@@ -886,12 +885,12 @@ class _$_ResendOtp implements _ResendOtp {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
   }) {
-    return resendOtp?.call(this);
+    return sendOtp?.call(this);
   }
 
   @override
@@ -901,26 +900,26 @@ class _$_ResendOtp implements _ResendOtp {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
     required TResult orElse(),
   }) {
-    if (resendOtp != null) {
-      return resendOtp(this);
+    if (sendOtp != null) {
+      return sendOtp(this);
     }
     return orElse();
   }
 }
 
-abstract class _ResendOtp implements AuthEvent {
-  const factory _ResendOtp({required final PhoneNumberModel phoneNumberModel}) =
-      _$_ResendOtp;
+abstract class _SendOtp implements AuthEvent {
+  const factory _SendOtp({required final PhoneNumberModel phoneNumberModel}) =
+      _$_SendOtp;
 
   PhoneNumberModel get phoneNumberModel;
   @JsonKey(ignore: true)
-  _$$_ResendOtpCopyWith<_$_ResendOtp> get copyWith =>
+  _$$_SendOtpCopyWith<_$_SendOtp> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -929,6 +928,8 @@ abstract class _$$_VerifyOtpCopyWith<$Res> {
   factory _$$_VerifyOtpCopyWith(
           _$_VerifyOtp value, $Res Function(_$_VerifyOtp) then) =
       __$$_VerifyOtpCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VerifyOtpModel verifyOtpModel});
 }
 
 /// @nodoc
@@ -938,26 +939,51 @@ class __$$_VerifyOtpCopyWithImpl<$Res>
   __$$_VerifyOtpCopyWithImpl(
       _$_VerifyOtp _value, $Res Function(_$_VerifyOtp) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? verifyOtpModel = null,
+  }) {
+    return _then(_$_VerifyOtp(
+      verifyOtpModel: null == verifyOtpModel
+          ? _value.verifyOtpModel
+          : verifyOtpModel // ignore: cast_nullable_to_non_nullable
+              as VerifyOtpModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_VerifyOtp implements _VerifyOtp {
-  const _$_VerifyOtp();
+  const _$_VerifyOtp({required this.verifyOtpModel});
+
+  @override
+  final VerifyOtpModel verifyOtpModel;
 
   @override
   String toString() {
-    return 'AuthEvent.verifyOtp()';
+    return 'AuthEvent.verifyOtp(verifyOtpModel: $verifyOtpModel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_VerifyOtp);
+        (other.runtimeType == runtimeType &&
+            other is _$_VerifyOtp &&
+            (identical(other.verifyOtpModel, verifyOtpModel) ||
+                other.verifyOtpModel == verifyOtpModel));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, verifyOtpModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_VerifyOtpCopyWith<_$_VerifyOtp> get copyWith =>
+      __$$_VerifyOtpCopyWithImpl<_$_VerifyOtp>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -966,12 +992,12 @@ class _$_VerifyOtp implements _VerifyOtp {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) {
-    return verifyOtp();
+    return verifyOtp(verifyOtpModel);
   }
 
   @override
@@ -981,12 +1007,12 @@ class _$_VerifyOtp implements _VerifyOtp {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) {
-    return verifyOtp?.call();
+    return verifyOtp?.call(verifyOtpModel);
   }
 
   @override
@@ -996,14 +1022,14 @@ class _$_VerifyOtp implements _VerifyOtp {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
   }) {
     if (verifyOtp != null) {
-      return verifyOtp();
+      return verifyOtp(verifyOtpModel);
     }
     return orElse();
   }
@@ -1015,7 +1041,7 @@ class _$_VerifyOtp implements _VerifyOtp {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
@@ -1030,7 +1056,7 @@ class _$_VerifyOtp implements _VerifyOtp {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
@@ -1045,7 +1071,7 @@ class _$_VerifyOtp implements _VerifyOtp {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
@@ -1059,7 +1085,13 @@ class _$_VerifyOtp implements _VerifyOtp {
 }
 
 abstract class _VerifyOtp implements AuthEvent {
-  const factory _VerifyOtp() = _$_VerifyOtp;
+  const factory _VerifyOtp({required final VerifyOtpModel verifyOtpModel}) =
+      _$_VerifyOtp;
+
+  VerifyOtpModel get verifyOtpModel;
+  @JsonKey(ignore: true)
+  _$$_VerifyOtpCopyWith<_$_VerifyOtp> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1103,8 +1135,8 @@ class _$_Obscure implements _Obscure {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) {
@@ -1118,8 +1150,8 @@ class _$_Obscure implements _Obscure {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) {
@@ -1133,8 +1165,8 @@ class _$_Obscure implements _Obscure {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
@@ -1152,7 +1184,7 @@ class _$_Obscure implements _Obscure {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
@@ -1167,7 +1199,7 @@ class _$_Obscure implements _Obscure {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
@@ -1182,7 +1214,7 @@ class _$_Obscure implements _Obscure {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
@@ -1238,8 +1270,8 @@ class _$_Log implements _Log {
     required TResult Function(SignInModel signInModel) signIn,
     required TResult Function() signOut,
     required TResult Function(PhoneNumberModel phoneNumberModel) otpLogin,
-    required TResult Function(PhoneNumberModel phoneNumberModel) resendOtp,
-    required TResult Function() verifyOtp,
+    required TResult Function(PhoneNumberModel phoneNumberModel) sendOtp,
+    required TResult Function(VerifyOtpModel verifyOtpModel) verifyOtp,
     required TResult Function() obscure,
     required TResult Function() log,
   }) {
@@ -1253,8 +1285,8 @@ class _$_Log implements _Log {
     TResult? Function(SignInModel signInModel)? signIn,
     TResult? Function()? signOut,
     TResult? Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult? Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult? Function()? verifyOtp,
+    TResult? Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult? Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult? Function()? obscure,
     TResult? Function()? log,
   }) {
@@ -1268,8 +1300,8 @@ class _$_Log implements _Log {
     TResult Function(SignInModel signInModel)? signIn,
     TResult Function()? signOut,
     TResult Function(PhoneNumberModel phoneNumberModel)? otpLogin,
-    TResult Function(PhoneNumberModel phoneNumberModel)? resendOtp,
-    TResult Function()? verifyOtp,
+    TResult Function(PhoneNumberModel phoneNumberModel)? sendOtp,
+    TResult Function(VerifyOtpModel verifyOtpModel)? verifyOtp,
     TResult Function()? obscure,
     TResult Function()? log,
     required TResult orElse(),
@@ -1287,7 +1319,7 @@ class _$_Log implements _Log {
     required TResult Function(_SignIn value) signIn,
     required TResult Function(_SignOut value) signOut,
     required TResult Function(_OtpLogin value) otpLogin,
-    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
     required TResult Function(_VerifyOtp value) verifyOtp,
     required TResult Function(_Obscure value) obscure,
     required TResult Function(_Log value) log,
@@ -1302,7 +1334,7 @@ class _$_Log implements _Log {
     TResult? Function(_SignIn value)? signIn,
     TResult? Function(_SignOut value)? signOut,
     TResult? Function(_OtpLogin value)? otpLogin,
-    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
     TResult? Function(_VerifyOtp value)? verifyOtp,
     TResult? Function(_Obscure value)? obscure,
     TResult? Function(_Log value)? log,
@@ -1317,7 +1349,7 @@ class _$_Log implements _Log {
     TResult Function(_SignIn value)? signIn,
     TResult Function(_SignOut value)? signOut,
     TResult Function(_OtpLogin value)? otpLogin,
-    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     TResult Function(_VerifyOtp value)? verifyOtp,
     TResult Function(_Obscure value)? obscure,
     TResult Function(_Log value)? log,
@@ -1344,12 +1376,16 @@ mixin _$AuthState {
   bool get otpHasError => throw _privateConstructorUsedError;
   bool get isObscure => throw _privateConstructorUsedError;
   bool get isLoggedIn => throw _privateConstructorUsedError;
+  bool get verifyOtpIsLoading => throw _privateConstructorUsedError;
+  bool get verifyOtpHasError => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   PhoneNumberOtpResponseModel? get phoneNumberOtpResponseModel =>
       throw _privateConstructorUsedError;
   SignInResponseModel? get signInResponseModel =>
       throw _privateConstructorUsedError;
   SignUpResponseModel? get signUpResponseModel =>
+      throw _privateConstructorUsedError;
+  VerifyOtpResponseModel? get verifyOtpResponseModel =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1371,10 +1407,13 @@ abstract class $AuthStateCopyWith<$Res> {
       bool otpHasError,
       bool isObscure,
       bool isLoggedIn,
+      bool verifyOtpIsLoading,
+      bool verifyOtpHasError,
       String? message,
       PhoneNumberOtpResponseModel? phoneNumberOtpResponseModel,
       SignInResponseModel? signInResponseModel,
-      SignUpResponseModel? signUpResponseModel});
+      SignUpResponseModel? signUpResponseModel,
+      VerifyOtpResponseModel? verifyOtpResponseModel});
 }
 
 /// @nodoc
@@ -1398,10 +1437,13 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? otpHasError = null,
     Object? isObscure = null,
     Object? isLoggedIn = null,
+    Object? verifyOtpIsLoading = null,
+    Object? verifyOtpHasError = null,
     Object? message = freezed,
     Object? phoneNumberOtpResponseModel = freezed,
     Object? signInResponseModel = freezed,
     Object? signUpResponseModel = freezed,
+    Object? verifyOtpResponseModel = freezed,
   }) {
     return _then(_value.copyWith(
       signInIsLoading: null == signInIsLoading
@@ -1436,6 +1478,14 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.isLoggedIn
           : isLoggedIn // ignore: cast_nullable_to_non_nullable
               as bool,
+      verifyOtpIsLoading: null == verifyOtpIsLoading
+          ? _value.verifyOtpIsLoading
+          : verifyOtpIsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      verifyOtpHasError: null == verifyOtpHasError
+          ? _value.verifyOtpHasError
+          : verifyOtpHasError // ignore: cast_nullable_to_non_nullable
+              as bool,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1452,6 +1502,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.signUpResponseModel
           : signUpResponseModel // ignore: cast_nullable_to_non_nullable
               as SignUpResponseModel?,
+      verifyOtpResponseModel: freezed == verifyOtpResponseModel
+          ? _value.verifyOtpResponseModel
+          : verifyOtpResponseModel // ignore: cast_nullable_to_non_nullable
+              as VerifyOtpResponseModel?,
     ) as $Val);
   }
 }
@@ -1472,10 +1526,13 @@ abstract class _$$_InitialCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       bool otpHasError,
       bool isObscure,
       bool isLoggedIn,
+      bool verifyOtpIsLoading,
+      bool verifyOtpHasError,
       String? message,
       PhoneNumberOtpResponseModel? phoneNumberOtpResponseModel,
       SignInResponseModel? signInResponseModel,
-      SignUpResponseModel? signUpResponseModel});
+      SignUpResponseModel? signUpResponseModel,
+      VerifyOtpResponseModel? verifyOtpResponseModel});
 }
 
 /// @nodoc
@@ -1496,10 +1553,13 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? otpHasError = null,
     Object? isObscure = null,
     Object? isLoggedIn = null,
+    Object? verifyOtpIsLoading = null,
+    Object? verifyOtpHasError = null,
     Object? message = freezed,
     Object? phoneNumberOtpResponseModel = freezed,
     Object? signInResponseModel = freezed,
     Object? signUpResponseModel = freezed,
+    Object? verifyOtpResponseModel = freezed,
   }) {
     return _then(_$_Initial(
       signInIsLoading: null == signInIsLoading
@@ -1534,6 +1594,14 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.isLoggedIn
           : isLoggedIn // ignore: cast_nullable_to_non_nullable
               as bool,
+      verifyOtpIsLoading: null == verifyOtpIsLoading
+          ? _value.verifyOtpIsLoading
+          : verifyOtpIsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      verifyOtpHasError: null == verifyOtpHasError
+          ? _value.verifyOtpHasError
+          : verifyOtpHasError // ignore: cast_nullable_to_non_nullable
+              as bool,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1550,6 +1618,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.signUpResponseModel
           : signUpResponseModel // ignore: cast_nullable_to_non_nullable
               as SignUpResponseModel?,
+      verifyOtpResponseModel: freezed == verifyOtpResponseModel
+          ? _value.verifyOtpResponseModel
+          : verifyOtpResponseModel // ignore: cast_nullable_to_non_nullable
+              as VerifyOtpResponseModel?,
     ));
   }
 }
@@ -1566,10 +1638,13 @@ class _$_Initial implements _Initial {
       required this.otpHasError,
       required this.isObscure,
       required this.isLoggedIn,
+      required this.verifyOtpIsLoading,
+      required this.verifyOtpHasError,
       this.message,
       this.phoneNumberOtpResponseModel,
       this.signInResponseModel,
-      this.signUpResponseModel});
+      this.signUpResponseModel,
+      this.verifyOtpResponseModel});
 
   @override
   final bool signInIsLoading;
@@ -1588,6 +1663,10 @@ class _$_Initial implements _Initial {
   @override
   final bool isLoggedIn;
   @override
+  final bool verifyOtpIsLoading;
+  @override
+  final bool verifyOtpHasError;
+  @override
   final String? message;
   @override
   final PhoneNumberOtpResponseModel? phoneNumberOtpResponseModel;
@@ -1595,10 +1674,12 @@ class _$_Initial implements _Initial {
   final SignInResponseModel? signInResponseModel;
   @override
   final SignUpResponseModel? signUpResponseModel;
+  @override
+  final VerifyOtpResponseModel? verifyOtpResponseModel;
 
   @override
   String toString() {
-    return 'AuthState(signInIsLoading: $signInIsLoading, signInHasError: $signInHasError, signUpIsLoading: $signUpIsLoading, signIUPHasError: $signIUPHasError, otpIsLoading: $otpIsLoading, otpHasError: $otpHasError, isObscure: $isObscure, isLoggedIn: $isLoggedIn, message: $message, phoneNumberOtpResponseModel: $phoneNumberOtpResponseModel, signInResponseModel: $signInResponseModel, signUpResponseModel: $signUpResponseModel)';
+    return 'AuthState(signInIsLoading: $signInIsLoading, signInHasError: $signInHasError, signUpIsLoading: $signUpIsLoading, signIUPHasError: $signIUPHasError, otpIsLoading: $otpIsLoading, otpHasError: $otpHasError, isObscure: $isObscure, isLoggedIn: $isLoggedIn, verifyOtpIsLoading: $verifyOtpIsLoading, verifyOtpHasError: $verifyOtpHasError, message: $message, phoneNumberOtpResponseModel: $phoneNumberOtpResponseModel, signInResponseModel: $signInResponseModel, signUpResponseModel: $signUpResponseModel, verifyOtpResponseModel: $verifyOtpResponseModel)';
   }
 
   @override
@@ -1622,6 +1703,10 @@ class _$_Initial implements _Initial {
                 other.isObscure == isObscure) &&
             (identical(other.isLoggedIn, isLoggedIn) ||
                 other.isLoggedIn == isLoggedIn) &&
+            (identical(other.verifyOtpIsLoading, verifyOtpIsLoading) ||
+                other.verifyOtpIsLoading == verifyOtpIsLoading) &&
+            (identical(other.verifyOtpHasError, verifyOtpHasError) ||
+                other.verifyOtpHasError == verifyOtpHasError) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.phoneNumberOtpResponseModel,
                     phoneNumberOtpResponseModel) ||
@@ -1630,7 +1715,9 @@ class _$_Initial implements _Initial {
             (identical(other.signInResponseModel, signInResponseModel) ||
                 other.signInResponseModel == signInResponseModel) &&
             (identical(other.signUpResponseModel, signUpResponseModel) ||
-                other.signUpResponseModel == signUpResponseModel));
+                other.signUpResponseModel == signUpResponseModel) &&
+            (identical(other.verifyOtpResponseModel, verifyOtpResponseModel) ||
+                other.verifyOtpResponseModel == verifyOtpResponseModel));
   }
 
   @override
@@ -1644,10 +1731,13 @@ class _$_Initial implements _Initial {
       otpHasError,
       isObscure,
       isLoggedIn,
+      verifyOtpIsLoading,
+      verifyOtpHasError,
       message,
       phoneNumberOtpResponseModel,
       signInResponseModel,
-      signUpResponseModel);
+      signUpResponseModel,
+      verifyOtpResponseModel);
 
   @JsonKey(ignore: true)
   @override
@@ -1666,10 +1756,13 @@ abstract class _Initial implements AuthState {
       required final bool otpHasError,
       required final bool isObscure,
       required final bool isLoggedIn,
+      required final bool verifyOtpIsLoading,
+      required final bool verifyOtpHasError,
       final String? message,
       final PhoneNumberOtpResponseModel? phoneNumberOtpResponseModel,
       final SignInResponseModel? signInResponseModel,
-      final SignUpResponseModel? signUpResponseModel}) = _$_Initial;
+      final SignUpResponseModel? signUpResponseModel,
+      final VerifyOtpResponseModel? verifyOtpResponseModel}) = _$_Initial;
 
   @override
   bool get signInIsLoading;
@@ -1688,6 +1781,10 @@ abstract class _Initial implements AuthState {
   @override
   bool get isLoggedIn;
   @override
+  bool get verifyOtpIsLoading;
+  @override
+  bool get verifyOtpHasError;
+  @override
   String? get message;
   @override
   PhoneNumberOtpResponseModel? get phoneNumberOtpResponseModel;
@@ -1695,6 +1792,8 @@ abstract class _Initial implements AuthState {
   SignInResponseModel? get signInResponseModel;
   @override
   SignUpResponseModel? get signUpResponseModel;
+  @override
+  VerifyOtpResponseModel? get verifyOtpResponseModel;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

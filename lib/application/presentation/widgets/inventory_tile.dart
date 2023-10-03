@@ -18,11 +18,9 @@ class InventoryTile extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20, 30, 30, 5),
               height: sWidth * 0.50,
               decoration: const BoxDecoration(
-                  color: kGrey,
-                  borderRadius: BorderRadius.all(kRadius10)),
+                  color: kGrey, borderRadius: BorderRadius.all(kRadius10)),
               child: SizedBox(
-                  width: double.infinity,
-                  child: Image.network(manjestCity)),
+                  width: double.infinity, child: Image.network(manjestCity)),
             ),
             const Positioned(
               right: 5,
@@ -48,11 +46,9 @@ class InventoryTile extends StatelessWidget {
             ),
             const Spacer(),
             Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: const BoxDecoration(
-                  color: kGreen,
-                  borderRadius: BorderRadius.all(kRadius5)),
+                  color: kGreen, borderRadius: BorderRadius.all(kRadius5)),
               child: const Text(
                 '40% off',
                 style: TextStyle(color: kWhite),

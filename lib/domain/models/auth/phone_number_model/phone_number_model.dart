@@ -4,9 +4,9 @@ part 'phone_number_model.g.dart';
 
 @JsonSerializable()
 class PhoneNumberModel {
-  String? phone;
+  String phone;
 
-  PhoneNumberModel({this.phone});
+  PhoneNumberModel({required this.phone});
 
   @override
   String toString() => 'PhoneNumberModel(phone: $phone)';

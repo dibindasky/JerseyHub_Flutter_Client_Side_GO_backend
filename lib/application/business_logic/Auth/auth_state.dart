@@ -11,13 +11,18 @@ class AuthState with _$AuthState {
     required bool otpHasError,
     required bool isObscure,
     required bool isLoggedIn,
+        required bool verifyOtpIsLoading,
+    required bool verifyOtpHasError,
     String? message,
     PhoneNumberOtpResponseModel? phoneNumberOtpResponseModel,
     SignInResponseModel? signInResponseModel,
     SignUpResponseModel? signUpResponseModel,
+    VerifyOtpResponseModel? verifyOtpResponseModel,
   }) = _Initial;
   factory AuthState.initial() => const AuthState(
       isObscure: true,
+      verifyOtpHasError: false,
+      verifyOtpIsLoading: false,
       signInIsLoading: false,
       signInHasError: false,
       signUpIsLoading: false,

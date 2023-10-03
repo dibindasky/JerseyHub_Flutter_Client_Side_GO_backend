@@ -22,7 +22,7 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (ctx) => const ScreenOTPVerification());
       case Routes.bottomBar:
-        return MaterialPageRoute(builder: (ctx) =>const ScreenBottombar());
+        return MaterialPageRoute(builder: (ctx) => const ScreenBottombar());
       case Routes.testScreen:
         return MaterialPageRoute(builder: (ctx) => ApiTestScreen());
       default:

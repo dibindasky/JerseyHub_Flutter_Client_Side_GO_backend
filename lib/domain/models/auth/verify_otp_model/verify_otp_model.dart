@@ -4,10 +4,10 @@ part 'verify_otp_model.g.dart';
 
 @JsonSerializable()
 class VerifyOtpModel {
-  String? code;
-  String? phone;
+  String code;
+  String phone;
 
-  VerifyOtpModel({this.code, this.phone});
+  VerifyOtpModel({required this.code, required this.phone});
 
   @override
   String toString() => 'VerifyOtpModel(code: $code, phone: $phone)';

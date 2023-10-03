@@ -7,11 +7,11 @@ part of 'sign_up_model.dart';
 // **************************************************************************
 
 SignUpModel _$SignUpModelFromJson(Map<String, dynamic> json) => SignUpModel(
-      confirmpassword: json['confirmpassword'] as String?,
-      email: json['email'] as String?,
-      name: json['name'] as String?,
-      password: json['password'] as String?,
-      phone: json['phone'] as String?,
+      confirmpassword: json['confirmpassword'] as String,
+      email: json['email'] as String,
+      name: json['name'] as String,
+      password: json['password'] as String,
+      phone: json['phone'] as String,
     );
 
 Map<String, dynamic> _$SignUpModelToJson(SignUpModel instance) =>

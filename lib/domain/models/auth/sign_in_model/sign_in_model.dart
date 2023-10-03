@@ -4,10 +4,10 @@ part 'sign_in_model.g.dart';
 
 @JsonSerializable()
 class SignInModel {
-  String? email;
-  String? password;
+  String email;
+  String password;
 
-  SignInModel({this.email, this.password});
+  SignInModel({required this.email, required this.password});
 
   @override
   String toString() => 'SignInModel(email: $email, password: $password)';
