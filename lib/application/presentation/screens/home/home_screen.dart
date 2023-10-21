@@ -54,7 +54,7 @@ class ScreenHome extends StatelessWidget {
           ),
         ),
         SliverToBoxAdapter(
-          child: SizedBox(height: sWidth * 0.30),
+          child: SizedBox(height: sWidth * 0.20),
         )
       ],
     );

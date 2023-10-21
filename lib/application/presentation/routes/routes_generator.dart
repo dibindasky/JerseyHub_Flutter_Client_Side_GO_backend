@@ -3,6 +3,8 @@ import 'package:jerseyhub/application/presentation/screens/api_test_page.dart/ap
 import 'package:jerseyhub/application/presentation/screens/bottom_bar/bottom_bar_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/auth/otp_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/auth/sigin_up_screen.dart';
+import 'package:jerseyhub/application/presentation/screens/orders/order_detils.dart';
+import 'package:jerseyhub/application/presentation/screens/orders/order_screen.dart';
 
 import '../screens/auth/sign_in_screen.dart';
 import '../screens/splash_screen/splash_screen.dart';
@@ -10,7 +12,7 @@ import 'routes.dart';
 
 class RouteGenerator {
   Route onGenerateRoute(RouteSettings settings) {
-    //final arguments=settings.arguments;
+    // final arguments=settings.arguments;
     switch (settings.name) {
       case Routes.initial:
         return MaterialPageRoute(builder: (ctx) => const ScreenSplash());
@@ -23,8 +25,12 @@ class RouteGenerator {
             builder: (ctx) => const ScreenOTPVerification());
       case Routes.bottomBar:
         return MaterialPageRoute(builder: (ctx) => const ScreenBottombar());
+      case Routes.orderScreen:
+        return MaterialPageRoute(builder: (ctx) => const ScreenMyOrders());
+      case Routes.orderDetailScreen:
+        return MaterialPageRoute(builder: (ctx) => const ScreenOrderDetails());
       case Routes.testScreen:
-        return MaterialPageRoute(builder: (ctx) => ApiTestScreen());
+        return MaterialPageRoute(builder: (ctx) => const ApiTestScreen());
       default:
         return _errorScreen();
     }

@@ -11,7 +11,7 @@ class AuthState with _$AuthState {
     required bool otpHasError,
     required bool isObscure,
     required bool isLoggedIn,
-        required bool verifyOtpIsLoading,
+    required bool verifyOtpIsLoading,
     required bool verifyOtpHasError,
     String? message,
     PhoneNumberOtpResponseModel? phoneNumberOtpResponseModel,

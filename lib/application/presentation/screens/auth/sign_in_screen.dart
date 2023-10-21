@@ -32,6 +32,10 @@ class ScreenSignIn extends StatelessWidget {
                   } else if (state.signInHasError) {
                     showSnack(context: context, message: state.message!);
                   } else if (state.isLoggedIn) {
+                    showSnack(
+                        context: context,
+                        message: 'user authenticated successfully',
+                        color: kGreen);
                     Navigator.pushNamedAndRemoveUntil(
                         context, Routes.bottomBar, (route) => false);
                   } else if (state.phoneNumberOtpResponseModel != null) {

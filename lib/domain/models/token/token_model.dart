@@ -1,4 +1,5 @@
 class TokenModel {
   String accessToken;
-  TokenModel({required this.accessToken});
+  int userId;
+  TokenModel({required this.accessToken, required this.userId});
 }

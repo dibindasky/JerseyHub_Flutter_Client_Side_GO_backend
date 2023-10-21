@@ -9,7 +9,8 @@ class AuthEvent with _$AuthEvent {
       {required PhoneNumberModel phoneNumberModel}) = _OtpLogin;
   const factory AuthEvent.sendOtp(
       {required PhoneNumberModel phoneNumberModel}) = _SendOtp;
-  const factory AuthEvent.verifyOtp({required VerifyOtpModel verifyOtpModel}) = _VerifyOtp;
+  const factory AuthEvent.verifyOtp({required VerifyOtpModel verifyOtpModel}) =
+      _VerifyOtp;
   const factory AuthEvent.obscure() = _Obscure;
   const factory AuthEvent.log() = _Log;
 }

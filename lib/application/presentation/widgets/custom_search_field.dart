@@ -19,17 +19,14 @@ class CoustomSearchField extends StatelessWidget {
         width: double.infinity,
         height: sWidth * 0.10,
         child: TextField(
-          readOnly: context.read<BottomBarCubitCubit>().state.currentIndex == 0,
+          //readOnly: context.read<BottomBarCubitCubit>().state.currentIndex == 0,
           onTap: () {
             if (context.read<BottomBarCubitCubit>().state.currentIndex == 0) {
               context.read<BottomBarCubitCubit>().changeIndex(1);
             }
           },
           decoration: InputDecoration(
-            label: Text(
-              'what are you  looking for?',
-              style: TextStyle(fontSize: sWidth * 0.035),
-            ),
+            hintText: 'what are you  looking for?',
             border: InputBorder.none,
             prefixIcon: const Icon(Iconsax.search_normal_1),
           ),

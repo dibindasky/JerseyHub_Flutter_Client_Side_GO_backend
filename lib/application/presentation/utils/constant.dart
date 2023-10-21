@@ -40,6 +40,18 @@ ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
   foregroundColor: kWhite,
   shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(kRadius5)),
 );
+ButtonStyle elevatedButtonStyleBlack = ElevatedButton.styleFrom(
+  side: const BorderSide(color: kWhite),
+  backgroundColor: kBlack,
+  foregroundColor: kWhite,
+  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(kRadius5)),
+);
+ButtonStyle elevatedButtonStyleWhite = ElevatedButton.styleFrom(
+  side: const BorderSide(color: kBlack),
+  backgroundColor: kGrey,
+  foregroundColor: kBlack,
+  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(kRadius5)),
+);
 
 const TextStyle headStyle = TextStyle(fontWeight: FontWeight.w700);
 TextStyle priceStyle =

@@ -1,51 +1,166 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jerseyhub/application/business_logic/Auth/auth_bloc.dart';
-import 'package:jerseyhub/application/business_logic/bottom_bar_cubit/bottom_bar_cubit_cubit.dart';
-import 'package:jerseyhub/application/presentation/routes/routes.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:jerseyhub/application/presentation/screens/favourite/favourite_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/home/home_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/profile/profile_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/search_screen/search_screen.dart';
+import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 
-import 'widgets/bottom_bar_container.dart';
 import 'widgets/cart_icon.dart';
 
-class ScreenBottombar extends StatelessWidget {
-  const ScreenBottombar({super.key});
+class ScreenBottombar extends StatefulWidget {
+  const ScreenBottombar({Key? key}) : super(key: key);
+
+  @override
+  _ScreenBottombarState createState() => _ScreenBottombarState();
+}
+
+class _ScreenBottombarState extends State<ScreenBottombar>
+    with SingleTickerProviderStateMixin {
+  late int currentPage;
+  late TabController tabController;
+
+  @override
+  void initState() {
+    currentPage = 0;
+    tabController = TabController(length: 4, vsync: this);
+    tabController.animation!.addListener(
+      () {
+        final value = tabController.animation!.value.round();
+        if (value != currentPage && mounted) {
+          changePage(value);
+        }
+      },
+    );
+    super.initState();
+  }
+
+  void changePage(int newPage) {
+    setState(() {
+      currentPage = newPage;
+    });
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    const List<Widget> bottomScreens = [
-      ScreenHome(),
-      ScreenSearch(),
-      ScreenFavourite(),
-      ScreenProfile()
-    ];
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: InkWell(
-          onLongPress: () {
-            context.read<AuthBloc>().add(const AuthEvent.signOut());
-            Navigator.pushNamedAndRemoveUntil(
-                context, Routes.signInPage, (route) => false);
-          },
-          child: Text(
-            'Jersey Hub',
-            style: kronOne(fontSize: 0.05),
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+            systemOverlayStyle: const SystemUiOverlayStyle(
+                statusBarColor: kWhite, systemNavigationBarColor: kWhite),
+            centerTitle: true,
+            title: Text(
+              'Jersey Hub',
+              style: kronOne(fontSize: 0.05),
+            ),
+            actions: const [CartIconButton(), kWidth20],
           ),
-        ),
-        actions: const [CartIconButton(), kWidth20],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
-        child: BlocBuilder<BottomBarCubitCubit, BottomBarCubitState>(
-            builder: (context, state) => bottomScreens[state.currentIndex]),
-      ),
-      extendBody: true,
-      bottomNavigationBar: const BottomNavigationContainer(),
+          body: BottomBar(
+            fit: StackFit.expand,
+            icon: (width, height) => Center(
+              child: IconButton(
+                padding: EdgeInsets.zero,
+                onPressed: null,
+                icon: Icon(
+                  Icons.arrow_upward_rounded,
+                  color: kBlack,
+                  size: width,
+                ),
+              ),
+            ),
+            borderRadius: BorderRadius.circular(500),
+            duration: const Duration(seconds: 1),
+            curve: Curves.decelerate,
+            showIcon: true,
+            width: sWidth * 0.70,
+            barColor: kBlack,
+            start: 2,
+            end: 0,
+            offset: 10,
+            barAlignment: Alignment.bottomCenter,
+            iconHeight: 35,
+            iconWidth: 35,
+            reverse: false,
+            // barDecoration: BoxDecoration(
+            //   color: Colors.transparent,
+            //   borderRadius: BorderRadius.circular(500),
+            // ),
+            iconDecoration: BoxDecoration(
+              color: kWhite,
+              borderRadius: BorderRadius.circular(500),
+            ),
+            hideOnScroll: true,
+            scrollOpposite: false,
+            onBottomBarHidden: () {},
+            onBottomBarShown: () {},
+            body: (context, controller) => Padding(
+              padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
+              child: TabBarView(
+                  controller: tabController,
+                  dragStartBehavior: DragStartBehavior.down,
+                  physics: const BouncingScrollPhysics(),
+                  children: const [
+                    ScreenHome(),
+                    ScreenSearch(),
+                    ScreenFavourite(),
+                    ScreenProfile()
+                  ]),
+            ),
+            child: SizedBox(
+              height: sWidth * 0.17,
+              child: TabBar(
+                controller: tabController,
+                unselectedLabelColor: kGrey,
+                indicatorColor: Colors.transparent,
+                tabs: [
+                  Tab(
+                    icon: currentPage == 0
+                        ? const CircleAvatar(
+                            backgroundColor: kWhite,
+                            child: Icon(Iconsax.home),
+                          )
+                        : const Icon(Iconsax.home),
+                  ),
+                  Tab(
+                    icon: currentPage == 1
+                        ? const CircleAvatar(
+                            backgroundColor: kWhite,
+                            child: Icon(Iconsax.search_normal_1),
+                          )
+                        : const Icon(Iconsax.search_normal_1),
+                  ),
+                  Tab(
+                    icon: currentPage == 2
+                        ? const CircleAvatar(
+                            backgroundColor: kWhite,
+                            child: Icon(Iconsax.lovely),
+                          )
+                        : const Icon(Iconsax.lovely),
+                  ),
+                  Tab(
+                    icon: currentPage == 3
+                        ? const CircleAvatar(
+                            backgroundColor: kWhite,
+                            child: Icon(Iconsax.profile_circle),
+                          )
+                        : const Icon(Iconsax.profile_circle),
+                  )
+                ],
+              ),
+            ),
+          )),
     );
   }
 }

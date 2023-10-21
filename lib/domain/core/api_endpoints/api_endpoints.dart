@@ -1,6 +1,6 @@
 class ApiEndPoints {
-  static String baseUrl = 'http://192.168.195.227:3000/users';
- // static String baseUrl = 'http://192.168.1.5:3000/users';
+  static String baseUrl = 'http://192.168.238.227:3000/users';
+  // static String baseUrl = 'http://192.168.1.5:3000/users';
   //  static String baseUrl = 'http://192.168.52.139:3000/users';
 
   static String removeFromCart = '/cart/remove';
@@ -13,10 +13,12 @@ class ApiEndPoints {
   static String getProducts = '/home/products';
   static String login = '/login';
   static String loginOtp = '/otplogin';
+  static String getWishList = '/wishlist';
+  static String addToWishList = '/wishlist/add';
+  static String removeFromWishList = '/wishlist/remove';
   static String userDetail = '/profile/details';
   static String productDetail = '/products/details';
   static String userAddress = '/profile/address';
-  static String addAddress = '/profile/address/add';
   static String editEmail = '/profile/edit/email';
   static String editName = '/profile/edit/name';
   static String editPhone = '/profile/edit/phone';

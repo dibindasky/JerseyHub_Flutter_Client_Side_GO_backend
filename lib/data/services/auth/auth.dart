@@ -15,7 +15,7 @@ import 'package:jerseyhub/domain/models/auth/verify_otp_model/verify_otp_model.d
 import 'package:jerseyhub/domain/models/auth/verify_otp_response_model/verify_otp_response_model.dart';
 import 'package:jerseyhub/domain/repositories/auth_repository.dart';
 
-class AuthApi extends AuthRepository {
+class AuthApi implements AuthRepository {
   final Dio dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
 
   @override
@@ -85,7 +85,8 @@ class AuthApi extends AuthRepository {
   }
 
   @override
-  Future<Either<ErrorMsg, VerifyOtpResponseModel>> otpVerify({required VerifyOtpModel verifyOtpModel}) async{
+  Future<Either<ErrorMsg, VerifyOtpResponseModel>> otpVerify(
+      {required VerifyOtpModel verifyOtpModel}) async {
     try {
       final response =
           await dio.post(ApiEndPoints.verifyOtp, data: verifyOtpModel.toJson());
