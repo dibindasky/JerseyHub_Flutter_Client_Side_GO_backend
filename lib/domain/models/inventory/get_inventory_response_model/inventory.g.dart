@@ -15,8 +15,8 @@ Inventory _$InventoryFromJson(Map<String, dynamic> json) => Inventory(
       stock: json['stock'] as int?,
       isFav: json['if_present_at_wishlist'] as bool?,
       isInCart: json['if_present_at_cart'] as bool?,
-      price: json['price'] as int?,
-      discountedPrice: json['discounted_price'] as int?,
+      price: (json['price'] as num?)?.toDouble(),
+      discountedPrice: (json['discounted_price'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$InventoryToJson(Inventory instance) => <String, dynamic>{

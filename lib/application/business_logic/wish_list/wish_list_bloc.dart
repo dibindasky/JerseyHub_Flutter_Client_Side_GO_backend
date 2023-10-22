@@ -11,9 +11,10 @@ part 'wish_list_state.dart';
 part 'wish_list_bloc.freezed.dart';
 
 class WishListBloc extends Bloc<WishListEvent, WishListState> {
-  final WishListApi wishListApi = WishListApi();
 
-  WishListBloc() : super(WishListState.initial()) {
+  final WishListApi wishListApi;
+
+  WishListBloc(this.wishListApi) : super(WishListState.initial()) {
 
     on<_GetWishList>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
@@ -24,14 +25,14 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
           (failure) => emit(state.copyWith(
               hasError: true,
               isLoading: false,
-              message: 'please reload, something went wrong')),
+              message: 'please refresh, something went wrong')),
           (getWishListResponseModel) {
         emit(state.copyWith(
             getWishlistResponseModel: getWishListResponseModel,
             isLoading: false));
       });
     });
-    
+
     on<_AddToWishList>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();

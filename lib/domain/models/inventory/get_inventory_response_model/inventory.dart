@@ -12,13 +12,13 @@ class Inventory {
   String? productName;
   String? size;
   int? stock;
-  int? price;
+  double? price;
   @JsonKey(name: 'if_present_at_wishlist')
   bool? isFav;
   @JsonKey(name: 'if_present_at_cart')
   bool? isInCart;
   @JsonKey(name: 'discounted_price')
-  int? discountedPrice;
+  double? discountedPrice;
 
   Inventory({
     this.id,
