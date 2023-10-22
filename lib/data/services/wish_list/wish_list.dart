@@ -40,7 +40,7 @@ class WishListApi implements WishListRepository {
       {required IdQurrey idQurrey, required TokenModel tokenModel}) async {
     try {
        _dio.options.headers['Authorization'] = tokenModel.accessToken;
-      final response = await _dio.get(ApiEndPoints.addToWishList,queryParameters: idQurrey.toJson());
+      final response = await _dio.get(ApiEndPoints.getWishList,queryParameters: idQurrey.toJson());
       if (response.statusCode == 200) {
         return Right(GetWishlistResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {

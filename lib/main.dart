@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jerseyhub/application/business_logic/Auth/auth_bloc.dart';
 import 'package:jerseyhub/application/business_logic/bottom_bar_cubit/bottom_bar_cubit_cubit.dart';
+import 'package:jerseyhub/application/business_logic/wish_list/wish_list_bloc.dart';
 
 import 'application/presentation/routes/routes.dart';
 import 'application/presentation/routes/routes_generator.dart';
@@ -24,6 +25,9 @@ class JerseyHubUser extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AuthBloc(),
+        ),
+        BlocProvider(
+          create: (context) => WishListBloc(),
         ),
       ],
       child: MaterialApp(

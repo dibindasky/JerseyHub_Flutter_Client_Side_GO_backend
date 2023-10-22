@@ -143,20 +143,20 @@ class _ScreenSearchState extends State<ScreenSearch>
             ),
           ]),
         )),
-        SliverGrid(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 1 / 1.5,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 20,
-            crossAxisCount: 2,
-          ),
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return const InventoryTile();
-            },
-            childCount: 10,
-          ),
-        ),
+        // SliverGrid(
+        //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        //     childAspectRatio: 1 / 1.5,
+        //     mainAxisSpacing: 10,
+        //     crossAxisSpacing: 20,
+        //     crossAxisCount: 2,
+        //   ),
+        //   delegate: SliverChildBuilderDelegate(
+        //     (context, index) {
+        //       return const InventoryTile(inventory: ,);
+        //     },
+        //     childCount: 10,
+        //   ),
+        // ),
         SliverToBoxAdapter(
           child: SizedBox(height: sWidth * 0.20),
         )
