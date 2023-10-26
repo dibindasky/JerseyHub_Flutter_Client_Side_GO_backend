@@ -1,0 +1,20 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'sign_in_model.g.dart';
+
+@JsonSerializable()
+class SignInModel {
+  String email;
+  String password;
+
+  SignInModel({required this.email, required this.password});
+
+  @override
+  String toString() => 'SignInModel(email: $email, password: $password)';
+
+  factory SignInModel.fromJson(Map<String, dynamic> json) {
+    return _$SignInModelFromJson(json);
+  }
+
+  Map<String, dynamic> toJson() => _$SignInModelToJson(this);
+}
