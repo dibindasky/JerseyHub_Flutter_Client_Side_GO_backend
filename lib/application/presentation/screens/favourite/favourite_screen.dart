@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jerseyhub/application/business_logic/inventory/inventory_bloc.dart';
 import 'package:jerseyhub/application/business_logic/wish_list/wish_list_bloc.dart';
+import 'package:jerseyhub/application/presentation/screens/favourite/widget/favourite_tile.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 import 'package:jerseyhub/application/presentation/utils/snack_show/show_snack.dart';
-import 'package:jerseyhub/application/presentation/widgets/inventory_tile.dart';
-import 'package:jerseyhub/domain/models/inventory/get_inventory_response_model/inventory.dart';
 
 class ScreenFavourite extends StatelessWidget {
   const ScreenFavourite({super.key});
@@ -45,6 +45,9 @@ class FavGridView extends StatelessWidget {
                 color: state.hasError ? kRed : kGreen,
                 time: 1000);
           }
+          if(state.isDone){
+           // context.read<InventoryBloc>().add(InventoryEvent.getInventories(pageQurreyGetInventory: pageQurreyGetInventory))
+          }
         },
         buildWhen: (previous, current) =>
             previous.getWishlistResponseModel !=
@@ -68,7 +71,8 @@ class FavGridView extends StatelessWidget {
                 crossAxisSpacing: 20,
                 crossAxisCount: 2,
               ),
-              itemBuilder: (context, index) => FavTile(inventory: state.getWishlistResponseModel!.data![index]),
+              itemBuilder: (context, index) => FavTile(
+                  inventory: state.getWishlistResponseModel!.data![index]),
               itemCount: state.getWishlistResponseModel!.data!.length,
             );
           } else {
@@ -80,24 +84,3 @@ class FavGridView extends StatelessWidget {
   }
 }
 
-class FavTile extends StatelessWidget {
-  const FavTile({
-    super.key, required this.inventory,
-  });
-
-  final Inventory inventory;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        InventoryTile(inventory: inventory),
-        ElevatedButton(
-            style: elevatedButtonStyle,
-            onPressed: () {},
-            child: const Text('Add To Bag')),
-      ],
-    );
-  }
-}

@@ -9,5 +9,6 @@ class WishListState with _$WishListState {
       String? message,
       GetWishlistResponseModel? getWishlistResponseModel}) = _Initial;
 
-  factory WishListState.initial()=>const WishListState(isLoading: false, hasError: false, isDone: false);
+  factory WishListState.initial() =>
+      const WishListState(isLoading: false, hasError: false, isDone: false);
 }

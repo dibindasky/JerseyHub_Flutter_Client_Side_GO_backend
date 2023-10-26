@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jerseyhub/application/business_logic/Auth/auth_bloc.dart';
 import 'package:jerseyhub/application/business_logic/bottom_bar_cubit/bottom_bar_cubit_cubit.dart';
 import 'package:jerseyhub/application/business_logic/inventory/inventory_bloc.dart';
+import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
 import 'package:jerseyhub/application/business_logic/wish_list/wish_list_bloc.dart';
 import 'package:jerseyhub/data/services/inventory/inventory.dart';
+import 'package:jerseyhub/data/services/user/user.dart';
 import 'package:jerseyhub/data/services/wish_list/wish_list.dart';
 
 import 'application/presentation/routes/routes.dart';
@@ -35,6 +37,9 @@ class JerseyHubUser extends StatelessWidget {
         BlocProvider(
           create: (context) => InventoryBloc(InventoryApi()),
         ),
+        BlocProvider(
+          create: (context) => UserBloc(UserApi()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -48,9 +53,3 @@ class JerseyHubUser extends StatelessWidget {
     );
   }
 }
-
-// class Solution {
-//   int sumOddLengthSubarrays(List<int> arr) {
-
-//   }
-// }

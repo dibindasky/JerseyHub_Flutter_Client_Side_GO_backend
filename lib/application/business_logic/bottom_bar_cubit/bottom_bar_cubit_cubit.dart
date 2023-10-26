@@ -9,5 +9,6 @@ class BottomBarCubitCubit extends Cubit<BottomBarCubitState> {
   void changeIndex(int index) {
     emit(BottomBarCubitState.initial(index));
   }
+
   int getCurrentIndex() => state.currentIndex;
 }

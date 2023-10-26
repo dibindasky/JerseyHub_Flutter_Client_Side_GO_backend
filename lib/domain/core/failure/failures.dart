@@ -5,5 +5,5 @@ part 'failures.freezed.dart';
 class Failure {
   factory Failure.clientFailure({String? message}) = _ClientFailure;
   factory Failure.serverFailure({String? message}) = _ServerFailure;
-  factory Failure.tokenExpire()=_TokenExpire;
+  factory Failure.tokenExpire() = _TokenExpire;
 }

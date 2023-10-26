@@ -4,13 +4,13 @@ import 'package:jerseyhub/application/business_logic/wish_list/wish_list_bloc.da
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 
 class FavButton extends StatelessWidget {
-  const FavButton({
+  FavButton({
     super.key,
     required this.isFav,
     required this.id,
   });
 
-  final bool isFav;
+  bool isFav;
   final int id;
 
   @override
@@ -24,6 +24,7 @@ class FavButton extends StatelessWidget {
             : context
                 .read<WishListBloc>()
                 .add(WishListEvent.addToWishList(id: id));
+        isFav=!isFav;
       },
       child: CircleAvatar(
         backgroundColor: kWhite,

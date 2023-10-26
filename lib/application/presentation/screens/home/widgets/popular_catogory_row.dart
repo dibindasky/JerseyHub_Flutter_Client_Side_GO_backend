@@ -16,7 +16,7 @@ class PopularCatogories extends StatelessWidget {
           children: [
             kWidth10,
             Text(
-              'Popular Catogory',
+              'Popular Category',
               style: headStyle,
             ),
           ],

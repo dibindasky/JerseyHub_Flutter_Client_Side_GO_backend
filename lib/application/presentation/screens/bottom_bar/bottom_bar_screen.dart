@@ -2,17 +2,15 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:jerseyhub/application/presentation/screens/bottom_bar/widgets/appbar.dart';
 import 'package:jerseyhub/application/presentation/screens/favourite/favourite_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/home/home_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/profile/profile_screen.dart';
-import 'package:jerseyhub/application/presentation/screens/search_screen/search_screen.dart';
+import 'package:jerseyhub/application/presentation/screens/search/search_screen.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
-
-import 'widgets/cart_icon.dart';
 
 class ScreenBottombar extends StatefulWidget {
   const ScreenBottombar({Key? key}) : super(key: key);
@@ -57,16 +55,7 @@ class _ScreenBottombarState extends State<ScreenBottombar>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
-            systemOverlayStyle: const SystemUiOverlayStyle(
-                statusBarColor: kWhite, systemNavigationBarColor: kWhite),
-            centerTitle: true,
-            title: Text(
-              'Jersey Hub',
-              style: kronOne(fontSize: 0.05),
-            ),
-            actions: const [CartIconButton(), kWidth20],
-          ),
+          appBar: mainAppbar(),
           body: BottomBar(
             fit: StackFit.expand,
             icon: (width, height) => Center(

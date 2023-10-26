@@ -16,7 +16,7 @@ class InventoryApi implements InventoryRepository {
   Future<Either<Failure, GetIndividualInventoryResponse>> getInventoryDetails(
       {required IdQurrey idQurrey, required TokenModel tokenModel}) async {
     try {
-       _dio.options.headers['Authorization'] = tokenModel.accessToken;
+      _dio.options.headers['Authorization'] = tokenModel.accessToken;
       final response = await _dio.get(ApiEndPoints.productDetail,
           queryParameters: idQurrey.toJson());
       if (response.statusCode == 200) {
@@ -40,7 +40,7 @@ class InventoryApi implements InventoryRepository {
       {required PageQurreyGetInventory pageQurreyGetInventory,
       required TokenModel tokenModel}) async {
     try {
-       _dio.options.headers['Authorization'] = tokenModel.accessToken;
+      _dio.options.headers['Authorization'] = tokenModel.accessToken;
       final response = await _dio.get(ApiEndPoints.getProducts,
           queryParameters: pageQurreyGetInventory.toJson());
       if (response.statusCode == 200) {

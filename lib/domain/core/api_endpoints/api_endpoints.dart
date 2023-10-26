@@ -14,7 +14,7 @@ class ApiEndPoints {
   static String login = '/login';
   static String loginOtp = '/otplogin';
   static String getWishList = '/wishlist';
-  static String addToWishList = '/wishlist/add';
+  static String addToWishList = '/home/wishlist/add';
   static String removeFromWishList = '/wishlist/remove';
   static String userDetail = '/profile/details';
   static String productDetail = '/products/details';

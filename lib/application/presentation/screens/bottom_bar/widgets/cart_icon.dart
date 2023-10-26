@@ -17,7 +17,7 @@ class CartIconButton extends StatelessWidget {
           backgroundColor: kGrey,
           child: IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, Routes.testScreen);
+              Navigator.pushNamed(context, Routes.cartScreen);
             },
             icon: const Icon(Iconsax.shopping_bag),
           ),

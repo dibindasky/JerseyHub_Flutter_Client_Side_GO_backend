@@ -56,6 +56,8 @@ ButtonStyle elevatedButtonStyleWhite = ElevatedButton.styleFrom(
 const TextStyle headStyle = TextStyle(fontWeight: FontWeight.w700);
 TextStyle priceStyle =
     TextStyle(fontWeight: FontWeight.w700, fontSize: sWidth * 0.050);
+TextStyle buttonStyleQuantity = TextStyle(
+    fontWeight: FontWeight.w700, fontSize: sWidth * 0.050, color: kWhite);
 TextStyle priceStyleCross = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: sWidth * 0.040,
@@ -69,6 +71,15 @@ TextStyle kronOne(
   return GoogleFonts.kronaOne(
       fontSize: fontSize * sWidth, fontWeight: fontWeight, color: color);
 }
+
+const boxborder = BoxDecoration(
+    border: Border(
+        top: BorderSide(),
+        right: BorderSide(),
+        left: BorderSide(),
+        bottom: BorderSide()),
+    borderRadius: BorderRadius.all(kRadius5),
+    color: kBlack);
 
 void sizeFinder(BuildContext context) {
   final size = MediaQuery.of(context).size;
