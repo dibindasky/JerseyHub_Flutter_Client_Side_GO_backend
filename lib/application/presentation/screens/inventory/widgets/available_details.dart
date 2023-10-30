@@ -62,4 +62,3 @@ class InventoryAvailableDetails extends StatelessWidget {
     );
   }
 }
-

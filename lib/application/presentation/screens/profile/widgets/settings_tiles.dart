@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jerseyhub/application/business_logic/Auth/auth_bloc.dart';
 import 'package:jerseyhub/application/presentation/routes/routes.dart';
+import 'package:jerseyhub/application/presentation/utils/show_dialoge/show_dialoge.dart';
 
 class SettingsList extends StatelessWidget {
   const SettingsList({
@@ -49,9 +50,13 @@ class SettingsList extends StatelessWidget {
             size: 15,
           ),
           onTap: () {
-            context.read<AuthBloc>().add(const AuthEvent.signOut());
-            Navigator.pushNamedAndRemoveUntil(
-                context, Routes.signInPage, (route) => false);
+            logout() {
+              context.read<AuthBloc>().add(const AuthEvent.signOut());
+              Navigator.pushNamedAndRemoveUntil(
+                  context, Routes.signInPage, (route) => false);
+            }
+
+            customShowDialoge(context: context, onPress: logout);
           },
         ),
         const Divider(),

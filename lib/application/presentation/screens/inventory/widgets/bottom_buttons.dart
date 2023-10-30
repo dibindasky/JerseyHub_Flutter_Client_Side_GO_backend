@@ -14,23 +14,17 @@ class BottomButtonsDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      children: [
-        const Divider(
-          color: kBlack,
-        ),
-        ListTile(
-          leading: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            decoration: const BoxDecoration(
-                color: kGrey, borderRadius: BorderRadius.all(kRadius5)),
-            child: FavButton(isFav: inventory.isFav!, id: inventory.id!),
-          ),title: ElevatedButton(
+    return ListTile(
+      leading: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        decoration: const BoxDecoration(
+            color: kGrey, borderRadius: BorderRadius.all(kRadius5)),
+        child: FavButton(isFav: inventory.isFav!, id: inventory.id!),
+      ),
+      title: ElevatedButton(
           style: elevatedButtonStyle,
           onPressed: () {},
           child: const Text('Add To Bag')),
-        )
-      ],
     );
   }
 }

@@ -22,10 +22,15 @@ class InventoryTile extends StatelessWidget {
       children: [
         Stack(
           children: [
-            InkWell(onTap: (){
-              Navigator.pushNamed(context, Routes.inventoryDetailScreen,arguments: inventory);
-            },
-              child: ImageShowContainer(image: inventory.image!,width: 0.50,),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.inventoryDetailScreen,
+                    arguments: inventory);
+              },
+              child: ImageShowContainer(
+                image: inventory.image!,
+                width: 0.50,
+              ),
             ),
             Positioned(
               right: 5,
@@ -53,11 +58,14 @@ class InventoryTile extends StatelessWidget {
               style: priceStyleCross,
             ),
             const Spacer(),
-            TextContainerOffSize(text: '${(100 - (inventory.discountedPrice! / inventory.price!) * 100).round()}% off',color: kGreen,)
+            TextContainerOffSize(
+              text:
+                  '${(100 - (inventory.discountedPrice! / inventory.price!) * 100).round()}% off',
+              color: kGreen,
+            )
           ],
         )
       ],
     );
   }
 }
-

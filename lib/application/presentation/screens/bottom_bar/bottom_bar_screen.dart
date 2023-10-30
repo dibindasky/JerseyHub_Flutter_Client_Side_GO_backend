@@ -4,13 +4,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:jerseyhub/application/presentation/screens/bottom_bar/widgets/appbar.dart';
 import 'package:jerseyhub/application/presentation/screens/favourite/favourite_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/home/home_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/profile/profile_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/search/search_screen.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
+import 'package:jerseyhub/application/presentation/widgets/appbar.dart';
 
 class ScreenBottombar extends StatefulWidget {
   const ScreenBottombar({Key? key}) : super(key: key);
@@ -55,7 +55,7 @@ class _ScreenBottombarState extends State<ScreenBottombar>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: mainAppbar(),
+          appBar: appbarMaker(title: 'Jersey Hub', cart: true),
           body: BottomBar(
             fit: StackFit.expand,
             icon: (width, height) => Center(

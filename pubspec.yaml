@@ -47,6 +47,8 @@ dependencies:
   dartz: ^0.10.1
   pinput: ^3.0.1
   flutter_floating_bottom_bar: ^1.2.0
+  order_tracker_zen: ^1.0.0+4
+  flutter_slidable: ^3.0.0
 
 dev_dependencies:
   flutter_test:

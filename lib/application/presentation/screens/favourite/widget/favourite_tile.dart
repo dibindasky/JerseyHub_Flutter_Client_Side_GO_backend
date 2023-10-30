@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/widgets/inventory_tile.dart';

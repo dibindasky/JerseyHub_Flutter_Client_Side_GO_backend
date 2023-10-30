@@ -45,8 +45,8 @@ class FavGridView extends StatelessWidget {
                 color: state.hasError ? kRed : kGreen,
                 time: 1000);
           }
-          if(state.isDone){
-           // context.read<InventoryBloc>().add(InventoryEvent.getInventories(pageQurreyGetInventory: pageQurreyGetInventory))
+          if (state.isDone) {
+            // context.read<InventoryBloc>().add(InventoryEvent.getInventories(pageQurreyGetInventory: pageQurreyGetInventory))
           }
         },
         buildWhen: (previous, current) =>
@@ -83,4 +83,3 @@ class FavGridView extends StatelessWidget {
     );
   }
 }
-

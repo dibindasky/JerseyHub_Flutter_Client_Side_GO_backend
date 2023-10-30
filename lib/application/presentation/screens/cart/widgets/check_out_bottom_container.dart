@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jerseyhub/application/presentation/routes/routes.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 
@@ -41,7 +42,9 @@ class BottomCheckOutSession extends StatelessWidget {
                         const Text('Coupon Savings'),
                         const Spacer(),
                         InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, Routes.couponScreen);
+                            },
                             child: const Text(
                               'Apply coupon',
                               style: TextStyle(color: kBlue),
@@ -92,7 +95,9 @@ class BottomCheckOutSession extends StatelessWidget {
             Text('560.00', style: priceStyle)
           ]),
           trailing: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.checkoutScreen);
+            },
             style: elevatedButtonStyleBlack,
             child: Text(
               'Proceed To Checkout',

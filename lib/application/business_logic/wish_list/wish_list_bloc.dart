@@ -53,7 +53,8 @@ class WishListBloc extends Bloc<WishListEvent, WishListState> {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
       final result = await wishListApi.removeFromWishList(
-          tokenModel: tokenModel, idQurrey: RemoveFromWishListQurrey(invId: event.id));
+          tokenModel: tokenModel,
+          idQurrey: RemoveFromWishListQurrey(invId: event.id));
       result.fold(
           (failure) => emit(state.copyWith(
               hasError: true,

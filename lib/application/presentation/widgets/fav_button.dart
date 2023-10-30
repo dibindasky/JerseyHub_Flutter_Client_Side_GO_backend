@@ -24,7 +24,7 @@ class FavButton extends StatelessWidget {
             : context
                 .read<WishListBloc>()
                 .add(WishListEvent.addToWishList(id: id));
-        isFav=!isFav;
+        isFav = !isFav;
       },
       child: CircleAvatar(
         backgroundColor: kWhite,

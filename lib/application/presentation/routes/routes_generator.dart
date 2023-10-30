@@ -5,6 +5,8 @@ import 'package:jerseyhub/application/presentation/screens/auth/otp_screen.dart'
 import 'package:jerseyhub/application/presentation/screens/auth/sigin_up_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/cart/cart_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/category/category_screen.dart';
+import 'package:jerseyhub/application/presentation/screens/checkout/checkout_screen.dart';
+import 'package:jerseyhub/application/presentation/screens/coupon/coupon_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/inventory/inventory_details.dart';
 import 'package:jerseyhub/application/presentation/screens/orders/order_detils.dart';
 import 'package:jerseyhub/application/presentation/screens/orders/order_screen.dart';
@@ -51,6 +53,10 @@ class RouteGenerator {
         }
       case Routes.categoryListScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenCategory());
+      case Routes.couponScreen:
+        return MaterialPageRoute(builder: (ctx) => const ScreenCoupon());
+      case Routes.checkoutScreen:
+        return MaterialPageRoute(builder: (ctx) => const ScreenCheckout());
       default:
         return _errorScreen();
     }

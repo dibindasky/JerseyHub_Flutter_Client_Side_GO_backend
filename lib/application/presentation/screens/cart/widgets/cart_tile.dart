@@ -3,6 +3,7 @@ import 'package:jerseyhub/application/presentation/screens/cart/widgets/bordered
 import 'package:jerseyhub/application/presentation/screens/cart/widgets/quantity_adder.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CartTile extends StatelessWidget {
   const CartTile({
@@ -22,65 +23,80 @@ class CartTile extends StatelessWidget {
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(kRadius10),
             ),
-            child: Card(
-              color: kGrey,
-              margin: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+            child: Slidable(
+              direction: Axis.horizontal,
+              endActionPane: ActionPane(
+                motion: const BehindMotion(),
                 children: [
-                  SizedBox(
-                    width: sWidth * 0.30,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Item Name',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 18),
-                      ),
-                      kHeight5,
-                      SizedBox(
-                        width: sWidth * 0.50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                const Text(
-                                  '40 % Discound',
-                                  style: TextStyle(color: kGreen),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      '100',
-                                      style: priceStyle,
-                                    ),
-                                    kWidth10,
-                                    Text(
-                                      '150',
-                                      style: priceStyleCross,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            const BorderContainer(string: 'L'),
-                          ],
-                        ),
-                      ),
-                      const QuantityAdder()
-                    ],
+                  SlidableAction(
+                    onPressed: (context) {},
+                    backgroundColor: kBlack,
+                    foregroundColor: kWhite,
+                    icon: Icons.delete,
+                    label: 'Remove',
                   ),
                 ],
+              ),
+              child: Card(
+                color: kGrey,
+                margin: const EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: sWidth * 0.30,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Item Name',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400, fontSize: 18),
+                        ),
+                        kHeight5,
+                        SizedBox(
+                          width: sWidth * 0.50,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  const Text(
+                                    '40 % Discound',
+                                    style: TextStyle(color: kGreen),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '100',
+                                        style: priceStyle,
+                                      ),
+                                      kWidth10,
+                                      Text(
+                                        '150',
+                                        style: priceStyleCross,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              const BorderContainer(string: 'L'),
+                            ],
+                          ),
+                        ),
+                        const QuantityAdder()
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

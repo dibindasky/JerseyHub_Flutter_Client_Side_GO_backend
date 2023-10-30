@@ -15,5 +15,6 @@ abstract class WishListRepository {
       {required TokenModel tokenModel, required AddToWishList addToWishList});
 
   Future<Either<Failure, SuccessResponseModel>> removeFromWishList(
-      {required TokenModel tokenModel, required RemoveFromWishListQurrey idQurrey});
+      {required TokenModel tokenModel,
+      required RemoveFromWishListQurrey idQurrey});
 }
