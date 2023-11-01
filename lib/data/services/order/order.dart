@@ -84,6 +84,7 @@ class OrderApi implements OrderRepository {
   Future<Either<Failure, GetOrderResponseModel>> getOrders(
       {required TokenModel tokenModel, required IdQurrey idQurrey}) async {
     try {
+      idQurrey.id = 1;
       _dio.options.headers['Authorization'] = tokenModel.accessToken;
       final response = await _dio.get(ApiEndPoints.getOrders,
           queryParameters: idQurrey.toJson());

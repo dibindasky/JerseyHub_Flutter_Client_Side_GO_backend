@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
+import 'package:jerseyhub/domain/models/order/get_order_details_response_model/product.dart';
 
 class OrderDetailItemTile extends StatelessWidget {
   const OrderDetailItemTile({
-    super.key,
+    super.key, required this.product,
   });
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class OrderDetailItemTile extends StatelessWidget {
           height: sWidth * 0.22,
           width: sWidth * 0.18,
           decoration: BoxDecoration(
-              image: DecorationImage(image: NetworkImage(manjestCity)),
+              image: DecorationImage(image: NetworkImage(product.image!)),
               boxShadow: [
                 BoxShadow(
                     color: kBlack.withOpacity(0.8),
@@ -27,21 +30,25 @@ class OrderDetailItemTile extends StatelessWidget {
               borderRadius: const BorderRadius.all(kRadius10)),
         ),
         kWidth20,
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Item Name',
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+            SizedBox(
+              width: sWidth * 0.60,
+              child: Text(
+                product.productName!,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+              ),
             ),
             kHeight10,
-            Text('Quantity - 1'),
+            Text('Quantity - ${product.quantity}'),
             Row(
               children: [
                 Text('Amount : '),
                 Text(
-                  '₹ 300',
+                  '₹ ${product.amount}',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                 )
               ],

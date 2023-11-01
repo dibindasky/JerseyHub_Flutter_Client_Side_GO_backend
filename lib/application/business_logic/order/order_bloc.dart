@@ -13,15 +13,37 @@ part 'order_bloc.freezed.dart';
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final OrderRepository orderRepository;
   OrderBloc(this.orderRepository) : super(OrderState.initial()) {
-
     on<_GetOrders>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
       final result = await orderRepository.getOrders(
           tokenModel: tokenModel, idQurrey: IdQurrey(id: tokenModel.userId));
-      result.fold((failure) => emit(state.copyWith(isLoading: false,hasError: true,message: '')), (getOrderResponseModel) => null);
+      result.fold(
+          (failure) => emit(state.copyWith(
+              isLoading: false,
+              hasError: true,
+              message: 'something went wrong please try agiain')),
+          (getOrderResponseModel) {
+        emit(state.copyWith(
+            isLoading: false, getOrderResponseModel: getOrderResponseModel));
+      });
     });
-    on<_GetOrderDetail>((event, emit) async {});
+    on<_GetOrderDetail>((event, emit) async {
+      emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
+      final tokenModel = await SharedPref.getToken();
+      final result = await orderRepository.getOrderDetails(
+          tokenModel: tokenModel, orderId: event.orderId);
+      result.fold((failure) {
+        emit(state.copyWith(
+            isLoading: false,
+            hasError: true,
+            message: 'something went wrong please try agiain'));
+      }, (getOrderDetailResponseModel) {
+        emit(state.copyWith(
+            isLoading: false,
+            getOrderDetailsResponseModel: getOrderDetailResponseModel));
+      });
+    });
     on<_CancelOrder>((event, emit) async {});
     on<_ReturnOrder>((event, emit) async {});
   }

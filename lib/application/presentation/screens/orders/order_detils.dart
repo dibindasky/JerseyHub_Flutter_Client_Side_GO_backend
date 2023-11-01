@@ -3,13 +3,15 @@ import 'package:jerseyhub/application/presentation/screens/orders/widgets/order_
 import 'package:jerseyhub/application/presentation/widgets/appbar.dart';
 
 class ScreenOrderDetails extends StatelessWidget {
-  const ScreenOrderDetails({super.key});
+  const ScreenOrderDetails({super.key, required this.orderID});
+
+  final int orderID;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appbarMaker(title: 'Order Details'),
-      body: const OrderDetailViews(),
+      body: OrderDetailViews(orderId: orderID),
     );
   }
 }

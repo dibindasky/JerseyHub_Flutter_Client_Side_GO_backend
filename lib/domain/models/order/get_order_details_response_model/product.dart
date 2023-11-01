@@ -11,7 +11,7 @@ class Product {
   @JsonKey(name: 'Quantity')
   int? quantity;
   @JsonKey(name: 'Amount')
-  int? amount;
+  double? amount;
 
   Product({this.productName, this.image, this.quantity, this.amount});
 

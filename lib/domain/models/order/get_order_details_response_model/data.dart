@@ -15,7 +15,7 @@ class Data {
   @JsonKey(name: 'Products')
   List<Product>? products;
   @JsonKey(name: 'TotalAmount')
-  int? totalAmount;
+  double? totalAmount;
   @JsonKey(name: 'CouponUsed')
   String? couponUsed;
   @JsonKey(name: 'OrderStatus')

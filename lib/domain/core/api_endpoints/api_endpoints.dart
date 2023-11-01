@@ -1,6 +1,6 @@
 class ApiEndPoints {
-  // static String baseUrl = 'http://192.168.47.227:3000/users';
-  static String baseUrl = 'http://10.0.2.2:3000/users';
+  static String baseUrl = 'http://192.168.47.227:3000/users';
+  // static String baseUrl = 'http://10.0.2.2:3000/users';
   //  static String baseUrl = 'http://192.168.52.139:3000/users';
 
   static String removeFromCart = '/cart/remove';

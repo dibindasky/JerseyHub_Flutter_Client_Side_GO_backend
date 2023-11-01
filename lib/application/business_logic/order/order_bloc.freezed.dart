@@ -19,7 +19,7 @@ mixin _$OrderEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getOrders,
-    required TResult Function() getOrderDetail,
+    required TResult Function(int orderId) getOrderDetail,
     required TResult Function() cancelOrder,
     required TResult Function() returnOrder,
   }) =>
@@ -27,7 +27,7 @@ mixin _$OrderEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getOrders,
-    TResult? Function()? getOrderDetail,
+    TResult? Function(int orderId)? getOrderDetail,
     TResult? Function()? cancelOrder,
     TResult? Function()? returnOrder,
   }) =>
@@ -35,7 +35,7 @@ mixin _$OrderEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getOrders,
-    TResult Function()? getOrderDetail,
+    TResult Function(int orderId)? getOrderDetail,
     TResult Function()? cancelOrder,
     TResult Function()? returnOrder,
     required TResult orElse(),
@@ -125,7 +125,7 @@ class _$_GetOrders implements _GetOrders {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getOrders,
-    required TResult Function() getOrderDetail,
+    required TResult Function(int orderId) getOrderDetail,
     required TResult Function() cancelOrder,
     required TResult Function() returnOrder,
   }) {
@@ -136,7 +136,7 @@ class _$_GetOrders implements _GetOrders {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getOrders,
-    TResult? Function()? getOrderDetail,
+    TResult? Function(int orderId)? getOrderDetail,
     TResult? Function()? cancelOrder,
     TResult? Function()? returnOrder,
   }) {
@@ -147,7 +147,7 @@ class _$_GetOrders implements _GetOrders {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getOrders,
-    TResult Function()? getOrderDetail,
+    TResult Function(int orderId)? getOrderDetail,
     TResult Function()? cancelOrder,
     TResult Function()? returnOrder,
     required TResult orElse(),
@@ -205,6 +205,8 @@ abstract class _$$_GetOrderDetailCopyWith<$Res> {
   factory _$$_GetOrderDetailCopyWith(
           _$_GetOrderDetail value, $Res Function(_$_GetOrderDetail) then) =
       __$$_GetOrderDetailCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int orderId});
 }
 
 /// @nodoc
@@ -214,60 +216,84 @@ class __$$_GetOrderDetailCopyWithImpl<$Res>
   __$$_GetOrderDetailCopyWithImpl(
       _$_GetOrderDetail _value, $Res Function(_$_GetOrderDetail) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? orderId = null,
+  }) {
+    return _then(_$_GetOrderDetail(
+      orderId: null == orderId
+          ? _value.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_GetOrderDetail implements _GetOrderDetail {
-  const _$_GetOrderDetail();
+  const _$_GetOrderDetail({required this.orderId});
+
+  @override
+  final int orderId;
 
   @override
   String toString() {
-    return 'OrderEvent.getOrderDetail()';
+    return 'OrderEvent.getOrderDetail(orderId: $orderId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetOrderDetail);
+        (other.runtimeType == runtimeType &&
+            other is _$_GetOrderDetail &&
+            (identical(other.orderId, orderId) || other.orderId == orderId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, orderId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetOrderDetailCopyWith<_$_GetOrderDetail> get copyWith =>
+      __$$_GetOrderDetailCopyWithImpl<_$_GetOrderDetail>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getOrders,
-    required TResult Function() getOrderDetail,
+    required TResult Function(int orderId) getOrderDetail,
     required TResult Function() cancelOrder,
     required TResult Function() returnOrder,
   }) {
-    return getOrderDetail();
+    return getOrderDetail(orderId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getOrders,
-    TResult? Function()? getOrderDetail,
+    TResult? Function(int orderId)? getOrderDetail,
     TResult? Function()? cancelOrder,
     TResult? Function()? returnOrder,
   }) {
-    return getOrderDetail?.call();
+    return getOrderDetail?.call(orderId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getOrders,
-    TResult Function()? getOrderDetail,
+    TResult Function(int orderId)? getOrderDetail,
     TResult Function()? cancelOrder,
     TResult Function()? returnOrder,
     required TResult orElse(),
   }) {
     if (getOrderDetail != null) {
-      return getOrderDetail();
+      return getOrderDetail(orderId);
     }
     return orElse();
   }
@@ -311,7 +337,13 @@ class _$_GetOrderDetail implements _GetOrderDetail {
 }
 
 abstract class _GetOrderDetail implements OrderEvent {
-  const factory _GetOrderDetail() = _$_GetOrderDetail;
+  const factory _GetOrderDetail({required final int orderId}) =
+      _$_GetOrderDetail;
+
+  int get orderId;
+  @JsonKey(ignore: true)
+  _$$_GetOrderDetailCopyWith<_$_GetOrderDetail> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -353,7 +385,7 @@ class _$_CancelOrder implements _CancelOrder {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getOrders,
-    required TResult Function() getOrderDetail,
+    required TResult Function(int orderId) getOrderDetail,
     required TResult Function() cancelOrder,
     required TResult Function() returnOrder,
   }) {
@@ -364,7 +396,7 @@ class _$_CancelOrder implements _CancelOrder {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getOrders,
-    TResult? Function()? getOrderDetail,
+    TResult? Function(int orderId)? getOrderDetail,
     TResult? Function()? cancelOrder,
     TResult? Function()? returnOrder,
   }) {
@@ -375,7 +407,7 @@ class _$_CancelOrder implements _CancelOrder {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getOrders,
-    TResult Function()? getOrderDetail,
+    TResult Function(int orderId)? getOrderDetail,
     TResult Function()? cancelOrder,
     TResult Function()? returnOrder,
     required TResult orElse(),
@@ -467,7 +499,7 @@ class _$_ReturnOrder implements _ReturnOrder {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getOrders,
-    required TResult Function() getOrderDetail,
+    required TResult Function(int orderId) getOrderDetail,
     required TResult Function() cancelOrder,
     required TResult Function() returnOrder,
   }) {
@@ -478,7 +510,7 @@ class _$_ReturnOrder implements _ReturnOrder {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getOrders,
-    TResult? Function()? getOrderDetail,
+    TResult? Function(int orderId)? getOrderDetail,
     TResult? Function()? cancelOrder,
     TResult? Function()? returnOrder,
   }) {
@@ -489,7 +521,7 @@ class _$_ReturnOrder implements _ReturnOrder {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getOrders,
-    TResult Function()? getOrderDetail,
+    TResult Function(int orderId)? getOrderDetail,
     TResult Function()? cancelOrder,
     TResult Function()? returnOrder,
     required TResult orElse(),

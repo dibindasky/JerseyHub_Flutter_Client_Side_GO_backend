@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:jerseyhub/application/presentation/screens/orders/widgets/stack_image_container.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
+import 'package:jerseyhub/domain/models/order/get_order_response_model/datum.dart';
 
 class MyOrderListTile extends StatelessWidget {
   const MyOrderListTile({
-    super.key,
+    super.key, required this.data,
   });
+
+  final Datum data;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class MyOrderListTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          data.images!=null && data.images!.isNotEmpty? SizedBox(
             height: sWidth * 0.22,
             width: sWidth * 0.20,
             child: Stack(
@@ -31,16 +34,16 @@ class MyOrderListTile extends StatelessWidget {
                 Positioned(
                   right: 0,
                   bottom: 0,
-                  child: StackImageContainer(image: manjestCity),
+                  child: StackImageContainer(image: data.images![0]),
                 ),
-                Positioned(
+                data.images!.length > 1 ? Positioned(
                   top: 0,
                   left: 0,
-                  child: StackImageContainer(image: manjestCity),
-                ),
+                  child: StackImageContainer(image: data.images![1]),
+                ):const SizedBox(),
               ],
             ),
-          ),
+          ):SizedBox(width: sWidth * 0.20,),
           kWidth20,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,25 +56,25 @@ class MyOrderListTile extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
                   ),
                   Text(
-                    '300',
+                    data.orderDetails!.price!.round().toString(),
                     style: priceStyle,
                   )
                 ],
               ),
               kHeight10,
-              const Row(
+               Row(
                 children: [
-                  Text('Order Status :'),
+                  const Text('Order Status :'),
                   Text(
-                    'PENDING',
+                    data.orderDetails!.orderStatus!,
                     style: headStyle,
                   )
                 ],
               ),
               kHeight5,
-              const Text(
-                'Cash on delevery',
-                style: TextStyle(fontWeight: FontWeight.w500),
+              Text(
+                data.orderDetails!.paymentmethodId.toString(),
+                style: const TextStyle(fontWeight: FontWeight.w500),
               ),
             ],
           ),

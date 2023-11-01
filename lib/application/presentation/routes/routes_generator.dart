@@ -35,7 +35,12 @@ class RouteGenerator {
       case Routes.orderScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenMyOrders());
       case Routes.orderDetailScreen:
-        return MaterialPageRoute(builder: (ctx) => const ScreenOrderDetails());
+        if (arguments is int) {
+          return MaterialPageRoute(
+              builder: (ctx) => ScreenOrderDetails(orderID: arguments));
+        } else {
+          return _errorScreen();
+        }
       case Routes.addressScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenAddress());
       case Routes.cartScreen:
