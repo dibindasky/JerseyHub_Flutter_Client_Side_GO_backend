@@ -11,6 +11,7 @@ import 'package:jerseyhub/domain/models/user/details/change_name/change_name.dar
 import 'package:jerseyhub/domain/models/user/details/change_phone_number/change_phone_number.dart';
 import 'package:jerseyhub/domain/models/user/security/change_password/change_password.dart';
 import 'package:jerseyhub/domain/models/user/user_details_response_model/user_detail.dart';
+import 'package:jerseyhub/domain/repositories/user_repository.dart';
 
 part 'user_event.dart';
 part 'user_state.dart';
@@ -22,15 +23,14 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final TextEditingController changePhoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
-  final UserApi userApi;
+  final TextEditingController confirmPasswordController = TextEditingController();
+  final UserRepository userRepository;
 
-  UserBloc(this.userApi) : super(UserState.initial()) {
+  UserBloc(this.userRepository) : super(UserState.initial()) {
     on<_GetDetails>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
-      final result = await userApi.getUserDetails(
+      final result = await userRepository.getUserDetails(
           tokenModel: tokenModel, idQurrey: IdQurrey(id: tokenModel.userId));
       result.fold(
           (failure) => emit(state.copyWith(
@@ -41,7 +41,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<_GetAddress>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
-      final result = await userApi.getAddress(
+      final result = await userRepository.getAddress(
           tokenModel: tokenModel, idQurrey: IdQurrey(id: tokenModel.userId));
       result.fold(
           (failure) => emit(state.copyWith(
@@ -52,7 +52,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<_AddAddress>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
-      final result = await userApi.addAddress(
+      final result = await userRepository.addAddress(
           tokenModel: tokenModel,
           idQurrey: IdQurrey(id: tokenModel.userId),
           addAddressModel: event.addAddressModel);
@@ -71,7 +71,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<_ChangeEmail>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
-      final result = await userApi.changeEmail(
+      final result = await userRepository.changeEmail(
           tokenModel: tokenModel,
           idQurrey: IdQurrey(id: tokenModel.userId),
           changeEmail: event.changeEmail);
@@ -90,7 +90,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<_ChangePhone>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
-      final result = await userApi.changePhone(
+      final result = await userRepository.changePhone(
           tokenModel: tokenModel,
           idQurrey: IdQurrey(id: tokenModel.userId),
           changePhoneNumber: event.changePhone);
@@ -107,7 +107,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<_ChangeName>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
-      final result = await userApi.changeName(
+      final result = await userRepository.changeName(
           tokenModel: tokenModel,
           idQurrey: IdQurrey(id: tokenModel.userId),
           changeName: event.changeName);
@@ -124,7 +124,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<_ChangePassword>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
-      final result = await userApi.changePassword(
+      final result = await userRepository.changePassword(
           tokenModel: tokenModel,
           idQurrey: IdQurrey(id: tokenModel.userId),
           changePassword: event.changePassword);

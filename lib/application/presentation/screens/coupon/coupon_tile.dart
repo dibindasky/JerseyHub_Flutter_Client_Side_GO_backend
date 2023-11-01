@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jerseyhub/application/business_logic/cart/cart_bloc.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
+import 'package:jerseyhub/domain/models/coupon/get_coupon_response_model/coupon.dart';
 
 class CouponCard extends StatelessWidget {
   const CouponCard({
     super.key,
+    required this.coupon,
   });
+
+  final Coupon coupon;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: sWidth,
-      height: sWidth * 0.229,
       child: Card(
         color: kGrey,
         child: Padding(
@@ -20,18 +25,23 @@ class CouponCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'ONAM10',
+                coupon.coupon!,
                 style: kronOne(),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    '10 % Discound',
-                    style: TextStyle(color: kGreen),
+                  Text(
+                    '${coupon.discountRate} % Discound',
+                    style: const TextStyle(color: kGreen),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context
+                          .read<CartBloc>()
+                          .add(CartEvent.chooseCoupon(coupon: coupon));
+                      Navigator.pop(context);
+                    },
                     child: const Text(
                       'Apply Coupon',
                       style: TextStyle(color: kBlue),

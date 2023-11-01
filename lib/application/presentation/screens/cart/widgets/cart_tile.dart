@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:jerseyhub/application/presentation/screens/cart/widgets/bordered_container.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jerseyhub/application/business_logic/cart/cart_bloc.dart';
 import 'package:jerseyhub/application/presentation/screens/cart/widgets/quantity_adder.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:jerseyhub/domain/models/cart/get_cart_response_model/inventory_cart.dart';
 
 class CartTile extends StatelessWidget {
   const CartTile({
     super.key,
+    required this.inventoryCart,
   });
+
+  final InventoryCart inventoryCart;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,10 @@ class CartTile extends StatelessWidget {
                 motion: const BehindMotion(),
                 children: [
                   SlidableAction(
-                    onPressed: (context) {},
+                    onPressed: (context) {
+                      context.read<CartBloc>().add(CartEvent.removeFromCart(
+                          inventoryId: inventoryCart.productId!));
+                    },
                     backgroundColor: kBlack,
                     foregroundColor: kWhite,
                     icon: Icons.delete,
@@ -50,11 +58,14 @@ class CartTile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
-                          'Item Name',
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 18),
+                        SizedBox(
+                          width: sWidth * 0.50,
+                          child: Text(
+                            inventoryCart.productName ?? 'product',
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 18),
+                          ),
                         ),
                         kHeight5,
                         SizedBox(
@@ -67,20 +78,24 @@ class CartTile extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  const Text(
-                                    '40 % Discound',
-                                    style: TextStyle(color: kGreen),
+                                  Text(
+                                    '${(100 - (inventoryCart.discountedPrice! / inventoryCart.totalPrice!) * 100).round()}% Discount',
+                                    style: const TextStyle(color: kGreen),
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Text(
-                                        '100',
+                                        inventoryCart.discountedPrice!
+                                            .round()
+                                            .toString(),
                                         style: priceStyle,
                                       ),
                                       kWidth10,
                                       Text(
-                                        '150',
+                                        inventoryCart.totalPrice!
+                                            .round()
+                                            .toString(),
                                         style: priceStyleCross,
                                       ),
                                     ],
@@ -88,11 +103,13 @@ class CartTile extends StatelessWidget {
                                 ],
                               ),
                               const Spacer(),
-                              const BorderContainer(string: 'L'),
+                              // const BorderContainer(string: inventoryCart.),
                             ],
                           ),
                         ),
-                        const QuantityAdder()
+                        QuantityAdder(
+                          inventoryCart: inventoryCart,
+                        )
                       ],
                     ),
                   ],
@@ -109,7 +126,8 @@ class CartTile extends StatelessWidget {
             width: sWidth * 0.25,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(manjestCity), fit: BoxFit.cover),
+                  image: NetworkImage(inventoryCart.image ?? manjestCity),
+                  fit: BoxFit.cover),
               borderRadius: const BorderRadius.all(kRadius10),
             ),
           ),

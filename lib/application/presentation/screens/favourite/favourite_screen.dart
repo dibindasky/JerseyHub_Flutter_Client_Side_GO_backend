@@ -7,6 +7,7 @@ import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 import 'package:jerseyhub/application/presentation/utils/snack_show/show_snack.dart';
+import 'package:jerseyhub/domain/models/inventory/page_qurrey_get_inventory/page_qurrey_get_inventory.dart';
 
 class ScreenFavourite extends StatelessWidget {
   const ScreenFavourite({super.key});
@@ -46,7 +47,7 @@ class FavGridView extends StatelessWidget {
                 time: 1000);
           }
           if (state.isDone) {
-            // context.read<InventoryBloc>().add(InventoryEvent.getInventories(pageQurreyGetInventory: pageQurreyGetInventory))
+             context.read<InventoryBloc>().add(InventoryEvent.getInventories(pageQurreyGetInventory: PageQurreyGetInventory(page: 1)));
           }
         },
         buildWhen: (previous, current) =>

@@ -30,18 +30,24 @@ class ScreenSearch extends StatelessWidget {
           // AnimatedBox(isSort: isSort),
           BlocBuilder<InventoryBloc, InventoryState>(
             builder: (context, state) {
-              return GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: state.getInventoryResponseModel!.data!.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 1 / 1.5,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 20),
-                  itemBuilder: (context, index) => InventoryTile(
-                      inventory:
-                          state.getInventoryResponseModel!.data![index]));
+              if (state.getInventoryResponseModel == null ||
+                  state.getInventoryResponseModel!.data == null ||
+                  state.getInventoryResponseModel!.data!.isEmpty){
+                    return const Center(child: Text('No data available'),);
+                  }
+                return GridView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: state.getInventoryResponseModel!.data!.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 1 / 1.5,
+                            mainAxisSpacing: 10,
+                            crossAxisSpacing: 20),
+                    itemBuilder: (context, index) => InventoryTile(
+                        inventory:
+                            state.getInventoryResponseModel!.data![index]));
             },
           ),
           SizedBox(height: sWidth * 0.20)

@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:jerseyhub/application/business_logic/cart/cart_bloc.dart';
 import 'package:jerseyhub/application/presentation/screens/coupon/coupon_tile.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
+import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 
 class ScreenCoupon extends StatelessWidget {
   const ScreenCoupon({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<CartBloc>().add(const CartEvent.getCoupon());
+    });
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -38,9 +44,23 @@ class ScreenCoupon extends StatelessWidget {
               ),
               const Divider(),
               Expanded(
-                child: ListView.builder(
-                    itemCount: 10,
-                    itemBuilder: (context, index) => const CouponCard()),
+                child: BlocBuilder<CartBloc, CartState>(
+                  buildWhen: (c, p) => c.coupons != p.coupons,
+                  builder: (context, state) {
+                    if(state.coupons == null || state.coupons!.isEmpty){
+                      return const Center(child: Text('No Coupons Available'),);
+                    }
+                    if(state.isLoading){
+                      return const LoadingAnimation(width: 0.20);
+                    }
+                    return ListView.builder(
+                      itemCount: state.coupons!.length,
+                      itemBuilder: (context, index) => CouponCard(
+                        coupon: state.coupons![index],
+                      ),
+                    );
+                  },
+                ),
               )
             ],
           ),

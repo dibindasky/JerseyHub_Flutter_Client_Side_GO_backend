@@ -53,10 +53,10 @@ class _ScreenBottombarState extends State<ScreenBottombar>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          appBar: appbarMaker(title: 'Jersey Hub', cart: true),
-          body: BottomBar(
+    return Scaffold(
+        appBar: appbarMaker(title: 'Jersey Hub', cart: true),
+        body: SafeArea(
+          child: BottomBar(
             fit: StackFit.expand,
             icon: (width, height) => Center(
               child: IconButton(
@@ -149,7 +149,7 @@ class _ScreenBottombarState extends State<ScreenBottombar>
                 ],
               ),
             ),
-          )),
-    );
+          ),
+        ));
   }
 }

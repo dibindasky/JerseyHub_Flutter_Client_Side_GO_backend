@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jerseyhub/application/business_logic/Auth/auth_bloc.dart';
 import 'package:jerseyhub/application/business_logic/bottom_bar_cubit/bottom_bar_cubit_cubit.dart';
+import 'package:jerseyhub/application/business_logic/cart/cart_bloc.dart';
 import 'package:jerseyhub/application/business_logic/inventory/inventory_bloc.dart';
 import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
 import 'package:jerseyhub/application/business_logic/wish_list/wish_list_bloc.dart';
+import 'package:jerseyhub/data/services/auth/auth.dart';
+import 'package:jerseyhub/data/services/cart/cart.dart';
 import 'package:jerseyhub/data/services/inventory/inventory.dart';
 import 'package:jerseyhub/data/services/user/user.dart';
 import 'package:jerseyhub/data/services/wish_list/wish_list.dart';
@@ -29,7 +32,7 @@ class JerseyHubUser extends StatelessWidget {
           create: (context) => BottomBarCubitCubit(),
         ),
         BlocProvider(
-          create: (context) => AuthBloc(),
+          create: (context) => AuthBloc(AuthApi()),
         ),
         BlocProvider(
           create: (context) => WishListBloc(WishListApi()),
@@ -39,6 +42,9 @@ class JerseyHubUser extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => UserBloc(UserApi()),
+        ),
+        BlocProvider(
+          create: (context) => CartBloc(CartApi()),
         ),
       ],
       child: MaterialApp(
