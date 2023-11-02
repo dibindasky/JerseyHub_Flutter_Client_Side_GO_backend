@@ -11,4 +11,6 @@ class Routes {
   static const String userDetailScreen = '/user_detail_screen';
   static const String inventoryDetailScreen = '/inventory_detail_screen';
   static const String categoryListScreen = '/category_list_screen';
+  static const String couponScreen = '/coupon_screen';
+  static const String checkoutScreen = '/checkout_screen';
 }

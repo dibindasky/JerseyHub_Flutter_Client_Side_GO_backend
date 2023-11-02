@@ -59,7 +59,8 @@ class WishListApi implements WishListRepository {
 
   @override
   Future<Either<Failure, SuccessResponseModel>> removeFromWishList(
-      {required TokenModel tokenModel, required RemoveFromWishListQurrey idQurrey}) async {
+      {required TokenModel tokenModel,
+      required RemoveFromWishListQurrey idQurrey}) async {
     try {
       _dio.options.headers['Authorization'] = tokenModel.accessToken;
       final response = await _dio.delete(ApiEndPoints.removeFromWishList,

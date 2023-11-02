@@ -33,13 +33,12 @@ class PopularGridView extends StatelessWidget {
           height: sWidth * 1.50,
           child: BlocBuilder<InventoryBloc, InventoryState>(
               buildWhen: (previous, current) =>
-                  previous.getInventoryResponseModel !=
-                  current.getInventoryResponseModel,
+                  previous.inventories != current.inventories,
               builder: (context, state) {
                 if (state.isLoading) {
                   return const LoadingAnimation(width: 0.20);
                 }
-                if (state.getInventoryResponseModel != null) {
+                if (state.inventories != null) {
                   return GridView.builder(
                       shrinkWrap: true,
                       itemCount: 4,
@@ -50,9 +49,8 @@ class PopularGridView extends StatelessWidget {
                               childAspectRatio: 1 / 1.5,
                               mainAxisSpacing: 10,
                               crossAxisSpacing: 20),
-                      itemBuilder: (context, index) => InventoryTile(
-                          inventory:
-                              state.getInventoryResponseModel!.data![index]));
+                      itemBuilder: (context, index) =>
+                          InventoryTile(inventory: state.inventories![index]));
                 } else {
                   return const Text('Nothing to show');
                 }

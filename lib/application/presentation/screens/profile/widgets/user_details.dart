@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
+import 'package:jerseyhub/application/presentation/routes/routes.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 
@@ -68,10 +69,15 @@ class UserDetailsHolder extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              const Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: 15,
-                color: kBlue,
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.addressScreen);
+                },
+                icon: const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  size: 15,
+                  color: kBlue,
+                ),
               )
             ],
           );

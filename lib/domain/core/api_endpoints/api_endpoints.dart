@@ -1,6 +1,6 @@
 class ApiEndPoints {
-  static String baseUrl = 'http://192.168.238.227:3000/users';
-  // static String baseUrl = 'http://192.168.1.5:3000/users';
+  static String baseUrl = 'http://192.168.47.227:3000/users';
+  // static String baseUrl = 'http://10.0.2.2:3000/users';
   //  static String baseUrl = 'http://192.168.52.139:3000/users';
 
   static String removeFromCart = '/cart/remove';
@@ -10,6 +10,7 @@ class ApiEndPoints {
   static String checkOutOrder = '/check-out/order';
   static String forgotPassword = '/forgot-password';
   static String addToCart = '/home/add-to-cart';
+  static String cart = '/cart';
   static String getProducts = '/home/products';
   static String login = '/login';
   static String loginOtp = '/otplogin';
@@ -24,9 +25,15 @@ class ApiEndPoints {
   static String editPhone = '/profile/edit/phone';
   static String getReferalLink = '/profile/get-link';
   static String getOrders = '/profile/orders';
+  //use order_id in the end of the url by replacing {id}
+  static String orderDetails = '/profile/orders/{id}'; 
   static String cancelOrder = '/profile/orders/return';
   static String changePassword = '/profile/security/change-password';
-  static String search = '/search';
+  static String search = '/search/';
   static String signUp = '/signup';
   static String verifyOtp = '/verifyotp';
+  static String coupon = '/coupon';
+  static String banner = '/banners';
+  static String category = '/category';
+  static String categoryProducts = '/category/products';
 }

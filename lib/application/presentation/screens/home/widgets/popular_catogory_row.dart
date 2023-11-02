@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jerseyhub/application/business_logic/home/home_bloc.dart';
 
 import '../../../utils/constant.dart';
 import 'catogory_selector_icon.dart';
@@ -10,6 +12,9 @@ class PopularCatogories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) { 
+      context.read<HomeBloc>().add(const HomeEvent.getCategory());
+    });
     return const Column(
       children: [
         Row(

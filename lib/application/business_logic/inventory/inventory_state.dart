@@ -4,11 +4,12 @@ part of 'inventory_bloc.dart';
 class InventoryState with _$InventoryState {
   const factory InventoryState(
       {required bool isLoading,
+      required bool loadMore,
       required bool hasError,
       String? message,
       GetIndividualInventoryResponse? getIndividualInventoryResponse,
-      GetInventoryResponseModel? getInventoryResponseModel}) = _Initial;
+      List<Inventory>? inventories}) = _Initial;
 
   factory InventoryState.initial() =>
-      const InventoryState(isLoading: true, hasError: false);
+      const InventoryState(isLoading: true, hasError: false, loadMore: false);
 }

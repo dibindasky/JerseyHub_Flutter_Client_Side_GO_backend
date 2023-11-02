@@ -24,4 +24,3 @@ class ScreenInventoryDetails extends StatelessWidget {
     );
   }
 }
-

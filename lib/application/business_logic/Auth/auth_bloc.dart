@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:jerseyhub/data/services/auth/auth.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/auth/phone_number_model/phone_number_model.dart';
 import 'package:jerseyhub/domain/models/auth/phone_number_otp_response_model/phone_number_otp_response_model.dart';
@@ -12,6 +11,7 @@ import 'package:jerseyhub/domain/models/auth/sign_up_response_model/sign_up_resp
 import 'package:jerseyhub/domain/models/auth/verify_otp_model/verify_otp_model.dart';
 import 'package:jerseyhub/domain/models/auth/verify_otp_response_model/verify_otp_response_model.dart';
 import 'package:jerseyhub/domain/models/token/token_model.dart';
+import 'package:jerseyhub/domain/repositories/auth_repository.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -27,17 +27,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final TextEditingController otpController = TextEditingController();
-
   final GlobalKey<FormState> signInKey = GlobalKey<FormState>();
   final GlobalKey<FormState> signUpKey = GlobalKey<FormState>();
   final GlobalKey<FormState> phoneKey = GlobalKey<FormState>();
 
-  AuthBloc() : super(AuthState.initial()) {
-    final AuthApi authApi = AuthApi();
+  final AuthRepository authRepository;
 
+  AuthBloc(this.authRepository) : super(AuthState.initial()) {
     on<_SignIn>((event, emit) async {
       emit(state.copyWith(signInIsLoading: true));
-      final result = await authApi.signIn(signInModel: event.signInModel);
+      final result =
+          await authRepository.signIn(signInModel: event.signInModel);
       result.fold((failure) {
         emit(state.copyWith(
             signInIsLoading: false,
@@ -62,7 +62,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<_SignUP>((event, emit) async {
       emit(AuthState.initial().copyWith(signUpIsLoading: true));
-      final result = await authApi.signUp(signUpModel: event.signUpModel);
+      final result =
+          await authRepository.signUp(signUpModel: event.signUpModel);
       result.fold((failure) {
         emit(state.copyWith(
             signUpIsLoading: false,
@@ -82,8 +83,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<_OtpLogin>((event, emit) async {
       emit(AuthState.initial().copyWith(otpIsLoading: true));
-      final result =
-          await authApi.otpLogin(phoneNumberModel: event.phoneNumberModel);
+      final result = await authRepository.otpLogin(
+          phoneNumberModel: event.phoneNumberModel);
       result.fold((errorMssg) {
         emit(state.copyWith(otpIsLoading: false, message: errorMssg.message));
       }, (phoneNumberResponse) {
@@ -96,7 +97,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_VerifyOtp>((event, emit) async {
       emit(AuthState.initial().copyWith(verifyOtpIsLoading: true));
       final result =
-          await authApi.otpVerify(verifyOtpModel: event.verifyOtpModel);
+          await authRepository.otpVerify(verifyOtpModel: event.verifyOtpModel);
       result.fold((errorMssg) {
         emit(state.copyWith(
             verifyOtpIsLoading: false, message: errorMssg.message));
@@ -117,6 +118,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(state.copyWith(isLoggedIn: login));
     });
 
-    on<_SignOut>((event, emit) async => await SharedPref.removeLogin());
+    on<_SignOut>((event, emit) async {
+      await SharedPref.removeLogin();
+      emit(AuthState.initial());
+    });
   }
 }

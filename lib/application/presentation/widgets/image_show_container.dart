@@ -5,7 +5,8 @@ import 'package:jerseyhub/application/presentation/utils/constant.dart';
 class ImageShowContainer extends StatelessWidget {
   const ImageShowContainer({
     super.key,
-    required this.image, required this.width,
+    required this.image,
+    required this.width,
   });
 
   final String image;
@@ -18,9 +19,7 @@ class ImageShowContainer extends StatelessWidget {
       height: sWidth * width,
       decoration: const BoxDecoration(
           color: kGrey, borderRadius: BorderRadius.all(kRadius10)),
-      child: SizedBox(
-          width: double.infinity,
-          child: Image.network(image)),
+      child: SizedBox(width: double.infinity, child: Image.network(image)),
     );
   }
 }
