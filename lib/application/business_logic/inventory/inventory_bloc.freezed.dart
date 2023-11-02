@@ -22,6 +22,7 @@ mixin _$InventoryEvent {
     required TResult Function() nextPage,
     required TResult Function(int id) getInventoryDetails,
     required TResult Function(SearchModel searchModel) searchInventories,
+    required TResult Function(IdQurrey idQurrey) getCategoryInventories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$InventoryEvent {
     TResult? Function()? nextPage,
     TResult? Function(int id)? getInventoryDetails,
     TResult? Function(SearchModel searchModel)? searchInventories,
+    TResult? Function(IdQurrey idQurrey)? getCategoryInventories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$InventoryEvent {
     TResult Function()? nextPage,
     TResult Function(int id)? getInventoryDetails,
     TResult Function(SearchModel searchModel)? searchInventories,
+    TResult Function(IdQurrey idQurrey)? getCategoryInventories,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,8 @@ mixin _$InventoryEvent {
     required TResult Function(_NextPage value) nextPage,
     required TResult Function(_GetInventoryDetails value) getInventoryDetails,
     required TResult Function(_SearchInventories value) searchInventories,
+    required TResult Function(_GetCategoryInventories value)
+        getCategoryInventories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$InventoryEvent {
     TResult? Function(_NextPage value)? nextPage,
     TResult? Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult? Function(_SearchInventories value)? searchInventories,
+    TResult? Function(_GetCategoryInventories value)? getCategoryInventories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +69,7 @@ mixin _$InventoryEvent {
     TResult Function(_NextPage value)? nextPage,
     TResult Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult Function(_SearchInventories value)? searchInventories,
+    TResult Function(_GetCategoryInventories value)? getCategoryInventories,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +135,7 @@ class _$_GetInventories implements _GetInventories {
     required TResult Function() nextPage,
     required TResult Function(int id) getInventoryDetails,
     required TResult Function(SearchModel searchModel) searchInventories,
+    required TResult Function(IdQurrey idQurrey) getCategoryInventories,
   }) {
     return getInventories();
   }
@@ -139,6 +147,7 @@ class _$_GetInventories implements _GetInventories {
     TResult? Function()? nextPage,
     TResult? Function(int id)? getInventoryDetails,
     TResult? Function(SearchModel searchModel)? searchInventories,
+    TResult? Function(IdQurrey idQurrey)? getCategoryInventories,
   }) {
     return getInventories?.call();
   }
@@ -150,6 +159,7 @@ class _$_GetInventories implements _GetInventories {
     TResult Function()? nextPage,
     TResult Function(int id)? getInventoryDetails,
     TResult Function(SearchModel searchModel)? searchInventories,
+    TResult Function(IdQurrey idQurrey)? getCategoryInventories,
     required TResult orElse(),
   }) {
     if (getInventories != null) {
@@ -165,6 +175,8 @@ class _$_GetInventories implements _GetInventories {
     required TResult Function(_NextPage value) nextPage,
     required TResult Function(_GetInventoryDetails value) getInventoryDetails,
     required TResult Function(_SearchInventories value) searchInventories,
+    required TResult Function(_GetCategoryInventories value)
+        getCategoryInventories,
   }) {
     return getInventories(this);
   }
@@ -176,6 +188,7 @@ class _$_GetInventories implements _GetInventories {
     TResult? Function(_NextPage value)? nextPage,
     TResult? Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult? Function(_SearchInventories value)? searchInventories,
+    TResult? Function(_GetCategoryInventories value)? getCategoryInventories,
   }) {
     return getInventories?.call(this);
   }
@@ -187,6 +200,7 @@ class _$_GetInventories implements _GetInventories {
     TResult Function(_NextPage value)? nextPage,
     TResult Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult Function(_SearchInventories value)? searchInventories,
+    TResult Function(_GetCategoryInventories value)? getCategoryInventories,
     required TResult orElse(),
   }) {
     if (getInventories != null) {
@@ -242,6 +256,7 @@ class _$_NextPage implements _NextPage {
     required TResult Function() nextPage,
     required TResult Function(int id) getInventoryDetails,
     required TResult Function(SearchModel searchModel) searchInventories,
+    required TResult Function(IdQurrey idQurrey) getCategoryInventories,
   }) {
     return nextPage();
   }
@@ -253,6 +268,7 @@ class _$_NextPage implements _NextPage {
     TResult? Function()? nextPage,
     TResult? Function(int id)? getInventoryDetails,
     TResult? Function(SearchModel searchModel)? searchInventories,
+    TResult? Function(IdQurrey idQurrey)? getCategoryInventories,
   }) {
     return nextPage?.call();
   }
@@ -264,6 +280,7 @@ class _$_NextPage implements _NextPage {
     TResult Function()? nextPage,
     TResult Function(int id)? getInventoryDetails,
     TResult Function(SearchModel searchModel)? searchInventories,
+    TResult Function(IdQurrey idQurrey)? getCategoryInventories,
     required TResult orElse(),
   }) {
     if (nextPage != null) {
@@ -279,6 +296,8 @@ class _$_NextPage implements _NextPage {
     required TResult Function(_NextPage value) nextPage,
     required TResult Function(_GetInventoryDetails value) getInventoryDetails,
     required TResult Function(_SearchInventories value) searchInventories,
+    required TResult Function(_GetCategoryInventories value)
+        getCategoryInventories,
   }) {
     return nextPage(this);
   }
@@ -290,6 +309,7 @@ class _$_NextPage implements _NextPage {
     TResult? Function(_NextPage value)? nextPage,
     TResult? Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult? Function(_SearchInventories value)? searchInventories,
+    TResult? Function(_GetCategoryInventories value)? getCategoryInventories,
   }) {
     return nextPage?.call(this);
   }
@@ -301,6 +321,7 @@ class _$_NextPage implements _NextPage {
     TResult Function(_NextPage value)? nextPage,
     TResult Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult Function(_SearchInventories value)? searchInventories,
+    TResult Function(_GetCategoryInventories value)? getCategoryInventories,
     required TResult orElse(),
   }) {
     if (nextPage != null) {
@@ -383,6 +404,7 @@ class _$_GetInventoryDetails implements _GetInventoryDetails {
     required TResult Function() nextPage,
     required TResult Function(int id) getInventoryDetails,
     required TResult Function(SearchModel searchModel) searchInventories,
+    required TResult Function(IdQurrey idQurrey) getCategoryInventories,
   }) {
     return getInventoryDetails(id);
   }
@@ -394,6 +416,7 @@ class _$_GetInventoryDetails implements _GetInventoryDetails {
     TResult? Function()? nextPage,
     TResult? Function(int id)? getInventoryDetails,
     TResult? Function(SearchModel searchModel)? searchInventories,
+    TResult? Function(IdQurrey idQurrey)? getCategoryInventories,
   }) {
     return getInventoryDetails?.call(id);
   }
@@ -405,6 +428,7 @@ class _$_GetInventoryDetails implements _GetInventoryDetails {
     TResult Function()? nextPage,
     TResult Function(int id)? getInventoryDetails,
     TResult Function(SearchModel searchModel)? searchInventories,
+    TResult Function(IdQurrey idQurrey)? getCategoryInventories,
     required TResult orElse(),
   }) {
     if (getInventoryDetails != null) {
@@ -420,6 +444,8 @@ class _$_GetInventoryDetails implements _GetInventoryDetails {
     required TResult Function(_NextPage value) nextPage,
     required TResult Function(_GetInventoryDetails value) getInventoryDetails,
     required TResult Function(_SearchInventories value) searchInventories,
+    required TResult Function(_GetCategoryInventories value)
+        getCategoryInventories,
   }) {
     return getInventoryDetails(this);
   }
@@ -431,6 +457,7 @@ class _$_GetInventoryDetails implements _GetInventoryDetails {
     TResult? Function(_NextPage value)? nextPage,
     TResult? Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult? Function(_SearchInventories value)? searchInventories,
+    TResult? Function(_GetCategoryInventories value)? getCategoryInventories,
   }) {
     return getInventoryDetails?.call(this);
   }
@@ -442,6 +469,7 @@ class _$_GetInventoryDetails implements _GetInventoryDetails {
     TResult Function(_NextPage value)? nextPage,
     TResult Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult Function(_SearchInventories value)? searchInventories,
+    TResult Function(_GetCategoryInventories value)? getCategoryInventories,
     required TResult orElse(),
   }) {
     if (getInventoryDetails != null) {
@@ -531,6 +559,7 @@ class _$_SearchInventories implements _SearchInventories {
     required TResult Function() nextPage,
     required TResult Function(int id) getInventoryDetails,
     required TResult Function(SearchModel searchModel) searchInventories,
+    required TResult Function(IdQurrey idQurrey) getCategoryInventories,
   }) {
     return searchInventories(searchModel);
   }
@@ -542,6 +571,7 @@ class _$_SearchInventories implements _SearchInventories {
     TResult? Function()? nextPage,
     TResult? Function(int id)? getInventoryDetails,
     TResult? Function(SearchModel searchModel)? searchInventories,
+    TResult? Function(IdQurrey idQurrey)? getCategoryInventories,
   }) {
     return searchInventories?.call(searchModel);
   }
@@ -553,6 +583,7 @@ class _$_SearchInventories implements _SearchInventories {
     TResult Function()? nextPage,
     TResult Function(int id)? getInventoryDetails,
     TResult Function(SearchModel searchModel)? searchInventories,
+    TResult Function(IdQurrey idQurrey)? getCategoryInventories,
     required TResult orElse(),
   }) {
     if (searchInventories != null) {
@@ -568,6 +599,8 @@ class _$_SearchInventories implements _SearchInventories {
     required TResult Function(_NextPage value) nextPage,
     required TResult Function(_GetInventoryDetails value) getInventoryDetails,
     required TResult Function(_SearchInventories value) searchInventories,
+    required TResult Function(_GetCategoryInventories value)
+        getCategoryInventories,
   }) {
     return searchInventories(this);
   }
@@ -579,6 +612,7 @@ class _$_SearchInventories implements _SearchInventories {
     TResult? Function(_NextPage value)? nextPage,
     TResult? Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult? Function(_SearchInventories value)? searchInventories,
+    TResult? Function(_GetCategoryInventories value)? getCategoryInventories,
   }) {
     return searchInventories?.call(this);
   }
@@ -590,6 +624,7 @@ class _$_SearchInventories implements _SearchInventories {
     TResult Function(_NextPage value)? nextPage,
     TResult Function(_GetInventoryDetails value)? getInventoryDetails,
     TResult Function(_SearchInventories value)? searchInventories,
+    TResult Function(_GetCategoryInventories value)? getCategoryInventories,
     required TResult orElse(),
   }) {
     if (searchInventories != null) {
@@ -610,8 +645,164 @@ abstract class _SearchInventories implements InventoryEvent {
 }
 
 /// @nodoc
+abstract class _$$_GetCategoryInventoriesCopyWith<$Res> {
+  factory _$$_GetCategoryInventoriesCopyWith(_$_GetCategoryInventories value,
+          $Res Function(_$_GetCategoryInventories) then) =
+      __$$_GetCategoryInventoriesCopyWithImpl<$Res>;
+  @useResult
+  $Res call({IdQurrey idQurrey});
+}
+
+/// @nodoc
+class __$$_GetCategoryInventoriesCopyWithImpl<$Res>
+    extends _$InventoryEventCopyWithImpl<$Res, _$_GetCategoryInventories>
+    implements _$$_GetCategoryInventoriesCopyWith<$Res> {
+  __$$_GetCategoryInventoriesCopyWithImpl(_$_GetCategoryInventories _value,
+      $Res Function(_$_GetCategoryInventories) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idQurrey = null,
+  }) {
+    return _then(_$_GetCategoryInventories(
+      idQurrey: null == idQurrey
+          ? _value.idQurrey
+          : idQurrey // ignore: cast_nullable_to_non_nullable
+              as IdQurrey,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetCategoryInventories implements _GetCategoryInventories {
+  const _$_GetCategoryInventories({required this.idQurrey});
+
+  @override
+  final IdQurrey idQurrey;
+
+  @override
+  String toString() {
+    return 'InventoryEvent.getCategoryInventories(idQurrey: $idQurrey)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetCategoryInventories &&
+            (identical(other.idQurrey, idQurrey) ||
+                other.idQurrey == idQurrey));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idQurrey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetCategoryInventoriesCopyWith<_$_GetCategoryInventories> get copyWith =>
+      __$$_GetCategoryInventoriesCopyWithImpl<_$_GetCategoryInventories>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getInventories,
+    required TResult Function() nextPage,
+    required TResult Function(int id) getInventoryDetails,
+    required TResult Function(SearchModel searchModel) searchInventories,
+    required TResult Function(IdQurrey idQurrey) getCategoryInventories,
+  }) {
+    return getCategoryInventories(idQurrey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getInventories,
+    TResult? Function()? nextPage,
+    TResult? Function(int id)? getInventoryDetails,
+    TResult? Function(SearchModel searchModel)? searchInventories,
+    TResult? Function(IdQurrey idQurrey)? getCategoryInventories,
+  }) {
+    return getCategoryInventories?.call(idQurrey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getInventories,
+    TResult Function()? nextPage,
+    TResult Function(int id)? getInventoryDetails,
+    TResult Function(SearchModel searchModel)? searchInventories,
+    TResult Function(IdQurrey idQurrey)? getCategoryInventories,
+    required TResult orElse(),
+  }) {
+    if (getCategoryInventories != null) {
+      return getCategoryInventories(idQurrey);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetInventories value) getInventories,
+    required TResult Function(_NextPage value) nextPage,
+    required TResult Function(_GetInventoryDetails value) getInventoryDetails,
+    required TResult Function(_SearchInventories value) searchInventories,
+    required TResult Function(_GetCategoryInventories value)
+        getCategoryInventories,
+  }) {
+    return getCategoryInventories(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetInventories value)? getInventories,
+    TResult? Function(_NextPage value)? nextPage,
+    TResult? Function(_GetInventoryDetails value)? getInventoryDetails,
+    TResult? Function(_SearchInventories value)? searchInventories,
+    TResult? Function(_GetCategoryInventories value)? getCategoryInventories,
+  }) {
+    return getCategoryInventories?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetInventories value)? getInventories,
+    TResult Function(_NextPage value)? nextPage,
+    TResult Function(_GetInventoryDetails value)? getInventoryDetails,
+    TResult Function(_SearchInventories value)? searchInventories,
+    TResult Function(_GetCategoryInventories value)? getCategoryInventories,
+    required TResult orElse(),
+  }) {
+    if (getCategoryInventories != null) {
+      return getCategoryInventories(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetCategoryInventories implements InventoryEvent {
+  const factory _GetCategoryInventories({required final IdQurrey idQurrey}) =
+      _$_GetCategoryInventories;
+
+  IdQurrey get idQurrey;
+  @JsonKey(ignore: true)
+  _$$_GetCategoryInventoriesCopyWith<_$_GetCategoryInventories> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$InventoryState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get loadMore => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   GetIndividualInventoryResponse? get getIndividualInventoryResponse =>
@@ -631,6 +822,7 @@ abstract class $InventoryStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool loadMore,
       bool hasError,
       String? message,
       GetIndividualInventoryResponse? getIndividualInventoryResponse,
@@ -651,6 +843,7 @@ class _$InventoryStateCopyWithImpl<$Res, $Val extends InventoryState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? loadMore = null,
     Object? hasError = null,
     Object? message = freezed,
     Object? getIndividualInventoryResponse = freezed,
@@ -660,6 +853,10 @@ class _$InventoryStateCopyWithImpl<$Res, $Val extends InventoryState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadMore: null == loadMore
+          ? _value.loadMore
+          : loadMore // ignore: cast_nullable_to_non_nullable
               as bool,
       hasError: null == hasError
           ? _value.hasError
@@ -691,6 +888,7 @@ abstract class _$$_InitialCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
+      bool loadMore,
       bool hasError,
       String? message,
       GetIndividualInventoryResponse? getIndividualInventoryResponse,
@@ -708,6 +906,7 @@ class __$$_InitialCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? loadMore = null,
     Object? hasError = null,
     Object? message = freezed,
     Object? getIndividualInventoryResponse = freezed,
@@ -717,6 +916,10 @@ class __$$_InitialCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadMore: null == loadMore
+          ? _value.loadMore
+          : loadMore // ignore: cast_nullable_to_non_nullable
               as bool,
       hasError: null == hasError
           ? _value.hasError
@@ -743,6 +946,7 @@ class __$$_InitialCopyWithImpl<$Res>
 class _$_Initial implements _Initial {
   const _$_Initial(
       {required this.isLoading,
+      required this.loadMore,
       required this.hasError,
       this.message,
       this.getIndividualInventoryResponse,
@@ -751,6 +955,8 @@ class _$_Initial implements _Initial {
 
   @override
   final bool isLoading;
+  @override
+  final bool loadMore;
   @override
   final bool hasError;
   @override
@@ -769,7 +975,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'InventoryState(isLoading: $isLoading, hasError: $hasError, message: $message, getIndividualInventoryResponse: $getIndividualInventoryResponse, inventories: $inventories)';
+    return 'InventoryState(isLoading: $isLoading, loadMore: $loadMore, hasError: $hasError, message: $message, getIndividualInventoryResponse: $getIndividualInventoryResponse, inventories: $inventories)';
   }
 
   @override
@@ -779,6 +985,8 @@ class _$_Initial implements _Initial {
             other is _$_Initial &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.loadMore, loadMore) ||
+                other.loadMore == loadMore) &&
             (identical(other.hasError, hasError) ||
                 other.hasError == hasError) &&
             (identical(other.message, message) || other.message == message) &&
@@ -794,6 +1002,7 @@ class _$_Initial implements _Initial {
   int get hashCode => Object.hash(
       runtimeType,
       isLoading,
+      loadMore,
       hasError,
       message,
       getIndividualInventoryResponse,
@@ -809,6 +1018,7 @@ class _$_Initial implements _Initial {
 abstract class _Initial implements InventoryState {
   const factory _Initial(
       {required final bool isLoading,
+      required final bool loadMore,
       required final bool hasError,
       final String? message,
       final GetIndividualInventoryResponse? getIndividualInventoryResponse,
@@ -816,6 +1026,8 @@ abstract class _Initial implements InventoryState {
 
   @override
   bool get isLoading;
+  @override
+  bool get loadMore;
   @override
   bool get hasError;
   @override

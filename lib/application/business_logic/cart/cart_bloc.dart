@@ -165,7 +165,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
     on<_ChooseCoupon>((event, emit) {
       usedCouponId = event.coupon.id!;
-      double newTotal = ((100-event.coupon.discountRate!)/100)*state.amountPayable!;
+      double newTotal =
+          ((100 - event.coupon.discountRate!) / 100) * state.amountPayable!;
       emit(state.copyWith(amountPayable: newTotal));
     });
   }

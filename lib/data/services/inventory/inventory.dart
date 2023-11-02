@@ -89,7 +89,7 @@ class InventoryApi implements InventoryRepository {
       {required TokenModel tokenModel, required IdQurrey idQurrey}) async {
     try {
       _dio.options.headers['Authorization'] = tokenModel.accessToken;
-      final response = await _dio.post(ApiEndPoints.addToCart,
+      final response = await _dio.get(ApiEndPoints.categoryProducts,
           queryParameters: idQurrey.toJson());
       if (response.statusCode == 200) {
         return Right(GetInventoryResponseModel.fromJson(response.data));

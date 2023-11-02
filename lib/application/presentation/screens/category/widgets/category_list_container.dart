@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:jerseyhub/application/presentation/screens/category/category_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/inventory/widgets/bottom_buttons.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/widgets/image_show_container.dart';
 import 'package:jerseyhub/application/presentation/widgets/text_container_off_size.dart';
+import 'package:jerseyhub/domain/models/inventory/get_inventory_response_model/inventory.dart';
 
 class CategoryDetailContainer extends StatelessWidget {
   const CategoryDetailContainer({
-    super.key,
+    super.key, required this.inventory,
   });
+
+  final Inventory inventory;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,9 @@ class CategoryDetailContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ImageShowContainer(image: manjestCity, width: 0.90),
-          const Text(
-            'Manjester city Home Jeersey',
+          ImageShowContainer(image: inventory.image!, width: 0.90),
+           Text(
+            inventory.productName!,
             style: headStyle,
           ),
           kHeight5,

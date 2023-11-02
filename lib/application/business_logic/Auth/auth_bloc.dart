@@ -22,20 +22,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController poneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordSignInController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController passwordSignInController =
+      TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final TextEditingController otpController = TextEditingController();
   final GlobalKey<FormState> signInKey = GlobalKey<FormState>();
   final GlobalKey<FormState> signUpKey = GlobalKey<FormState>();
   final GlobalKey<FormState> phoneKey = GlobalKey<FormState>();
-  
+
   final AuthRepository authRepository;
 
   AuthBloc(this.authRepository) : super(AuthState.initial()) {
-
     on<_SignIn>((event, emit) async {
       emit(state.copyWith(signInIsLoading: true));
-      final result = await authRepository.signIn(signInModel: event.signInModel);
+      final result =
+          await authRepository.signIn(signInModel: event.signInModel);
       result.fold((failure) {
         emit(state.copyWith(
             signInIsLoading: false,
@@ -60,7 +62,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<_SignUP>((event, emit) async {
       emit(AuthState.initial().copyWith(signUpIsLoading: true));
-      final result = await authRepository.signUp(signUpModel: event.signUpModel);
+      final result =
+          await authRepository.signUp(signUpModel: event.signUpModel);
       result.fold((failure) {
         emit(state.copyWith(
             signUpIsLoading: false,
@@ -80,8 +83,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<_OtpLogin>((event, emit) async {
       emit(AuthState.initial().copyWith(otpIsLoading: true));
-      final result =
-          await authRepository.otpLogin(phoneNumberModel: event.phoneNumberModel);
+      final result = await authRepository.otpLogin(
+          phoneNumberModel: event.phoneNumberModel);
       result.fold((errorMssg) {
         emit(state.copyWith(otpIsLoading: false, message: errorMssg.message));
       }, (phoneNumberResponse) {

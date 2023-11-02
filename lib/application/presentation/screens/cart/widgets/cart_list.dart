@@ -48,7 +48,9 @@ class CartItemsList extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(
                         height: double.infinity,
-                        child: CartTile(inventoryCart: state.getCartResponseModel!.data!.data![index]),
+                        child: CartTile(
+                            inventoryCart:
+                                state.getCartResponseModel!.data!.data![index]),
                       ),
                     ),
                   ),

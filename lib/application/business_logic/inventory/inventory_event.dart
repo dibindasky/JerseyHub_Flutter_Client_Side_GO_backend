@@ -8,4 +8,6 @@ class InventoryEvent with _$InventoryEvent {
       _GetInventoryDetails;
   const factory InventoryEvent.searchInventories(
       {required SearchModel searchModel}) = _SearchInventories;
+  const factory InventoryEvent.getCategoryInventories(
+      {required IdQurrey idQurrey}) = _GetCategoryInventories;
 }

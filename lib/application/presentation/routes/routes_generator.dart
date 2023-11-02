@@ -35,12 +35,8 @@ class RouteGenerator {
       case Routes.orderScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenMyOrders());
       case Routes.orderDetailScreen:
-        if (arguments is int) {
-          return MaterialPageRoute(
-              builder: (ctx) => ScreenOrderDetails(orderID: arguments));
-        } else {
-          return _errorScreen();
-        }
+        return arguments is int ? MaterialPageRoute(
+              builder: (ctx) => ScreenOrderDetails(orderID: arguments)) : _errorScreen();
       case Routes.addressScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenAddress());
       case Routes.cartScreen:
@@ -48,16 +44,15 @@ class RouteGenerator {
       case Routes.userDetailScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenEditProfile());
       case Routes.inventoryDetailScreen:
-        if (arguments is Inventory) {
-          return MaterialPageRoute(
-              builder: (ctx) => ScreenInventoryDetails(
-                    inventory: arguments,
-                  ));
-        } else {
-          return _errorScreen();
-        }
+        return arguments is Inventory
+            ? MaterialPageRoute(
+                builder: (ctx) => ScreenInventoryDetails(inventory: arguments))
+            : _errorScreen();
       case Routes.categoryListScreen:
-        return MaterialPageRoute(builder: (ctx) => const ScreenCategory());
+        return arguments is String
+            ? MaterialPageRoute(
+                builder: (ctx) => ScreenCategory(title: arguments))
+            : _errorScreen();
       case Routes.couponScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenCoupon());
       case Routes.checkoutScreen:

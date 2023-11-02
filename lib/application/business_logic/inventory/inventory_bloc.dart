@@ -14,23 +14,24 @@ part 'inventory_bloc.freezed.dart';
 
 class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
   final InventoryRepository inventoryRepository;
-  int page=1;
+  int page = 1;
+  bool isScrollLoading = false;
 
   InventoryBloc(this.inventoryRepository) : super(InventoryState.initial()) {
     on<_GetInventories>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false));
       final tokenModel = await SharedPref.getToken();
       final result = await inventoryRepository.getInventorys(
-          pageQurreyGetInventory: PageQurreyGetInventory(page: page),
+          pageQurreyGetInventory: PageQurreyGetInventory(page: 1),
           tokenModel: tokenModel);
+      page = 1;
       result.fold(
           (failure) => emit(state.copyWith(
               hasError: true,
               isLoading: false,
               message: 'something went wrong, refresh page again')),
           (getInventoryResponseModel) => emit(state.copyWith(
-              isLoading: false,
-              inventories: getInventoryResponseModel.data)));
+              isLoading: false, inventories: getInventoryResponseModel.data)));
     });
 
     on<_GetInventoryDetails>((event, emit) async {
@@ -58,8 +59,47 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
                 isLoading: false,
               )),
           (getInventoryResponseModel) => emit(state.copyWith(
+              isLoading: false, inventories: getInventoryResponseModel.data)));
+    });
+
+    on<_NextPage>((event, emit) async {
+      emit(state.copyWith(loadMore: true));
+      isScrollLoading = true;
+      final tokenModel = await SharedPref.getToken();
+      page += 1;
+      final result = await inventoryRepository.getInventorys(
+          pageQurreyGetInventory: PageQurreyGetInventory(page: page),
+          tokenModel: tokenModel);
+      result.fold(
+        (failure) => emit(state.copyWith(loadMore: false)),
+        (getInventoryResponseModel) {
+          if (getInventoryResponseModel.data == null) {
+            emit(state.copyWith(loadMore: false));
+            return;
+          }
+          emit(
+            state.copyWith(loadMore: false, inventories: [
+              ...state.inventories!,
+              ...getInventoryResponseModel.data!
+            ]),
+          );
+        },
+      );
+      isScrollLoading = false;
+    });
+
+    on<_GetCategoryInventories>((event, emit) async {
+      emit(state.copyWith(isLoading: true, hasError: false));
+      final tokenModel = await SharedPref.getToken();
+      final result = await inventoryRepository.getCategoryInventories(
+          tokenModel: tokenModel,idQurrey: event.idQurrey);
+      result.fold(
+          (failure) => emit(state.copyWith(
+              hasError: true,
               isLoading: false,
-               inventories: getInventoryResponseModel.data)));
+              message: 'something went wrong, refresh page again')),
+          (getInventoryResponseModel) => emit(state.copyWith(
+              isLoading: false, inventories: getInventoryResponseModel.data)));
     });
   }
 }

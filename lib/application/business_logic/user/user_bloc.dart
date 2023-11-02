@@ -23,7 +23,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final TextEditingController changePhoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final UserRepository userRepository;
 
   UserBloc(this.userRepository) : super(UserState.initial()) {

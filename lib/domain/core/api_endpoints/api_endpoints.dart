@@ -25,11 +25,15 @@ class ApiEndPoints {
   static String editPhone = '/profile/edit/phone';
   static String getReferalLink = '/profile/get-link';
   static String getOrders = '/profile/orders';
-  static String orderDetails = '/profile/orders/{id}';//use order_id in the end of the url
+  //use order_id in the end of the url by replacing {id}
+  static String orderDetails = '/profile/orders/{id}'; 
   static String cancelOrder = '/profile/orders/return';
   static String changePassword = '/profile/security/change-password';
   static String search = '/search/';
   static String signUp = '/signup';
   static String verifyOtp = '/verifyotp';
   static String coupon = '/coupon';
+  static String banner = '/banners';
+  static String category = '/category';
+  static String categoryProducts = '/category/products';
 }

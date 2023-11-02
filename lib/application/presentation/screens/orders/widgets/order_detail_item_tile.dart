@@ -5,7 +5,8 @@ import 'package:jerseyhub/domain/models/order/get_order_details_response_model/p
 
 class OrderDetailItemTile extends StatelessWidget {
   const OrderDetailItemTile({
-    super.key, required this.product,
+    super.key,
+    required this.product,
   });
 
   final Product product;
@@ -39,7 +40,8 @@ class OrderDetailItemTile extends StatelessWidget {
               child: Text(
                 product.productName!,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+                style:
+                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
               ),
             ),
             kHeight10,

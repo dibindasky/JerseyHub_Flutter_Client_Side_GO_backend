@@ -31,10 +31,10 @@ class CoustomSearchField extends StatelessWidget {
               context.read<BottomBarCubitCubit>().changeIndex(1);
             }
           },
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: 'what are you  looking for?',
             border: InputBorder.none,
-            prefixIcon: const Icon(Iconsax.search_normal_1),
+            prefixIcon: Icon(Iconsax.search_normal_1),
           ),
         ));
   }

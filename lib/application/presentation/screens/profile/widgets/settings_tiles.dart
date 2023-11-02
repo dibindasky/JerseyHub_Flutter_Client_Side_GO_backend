@@ -41,6 +41,20 @@ class SettingsList extends StatelessWidget {
             Icons.arrow_forward_ios_outlined,
             size: 15,
           ),
+        ),        const Divider(),
+        const ListTile(
+          title: Text('About'),
+          trailing: Icon(
+            Icons.arrow_forward_ios_outlined,
+            size: 15,
+          ),
+        ),        const Divider(),
+        const ListTile(
+          title: Text('Privacy Policy'),
+          trailing: Icon(
+            Icons.arrow_forward_ios_outlined,
+            size: 15,
+          ),
         ),
         const Divider(),
         ListTile(

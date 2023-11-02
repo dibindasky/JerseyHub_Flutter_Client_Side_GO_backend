@@ -47,10 +47,12 @@ class ScreenCoupon extends StatelessWidget {
                 child: BlocBuilder<CartBloc, CartState>(
                   buildWhen: (c, p) => c.coupons != p.coupons,
                   builder: (context, state) {
-                    if(state.coupons == null || state.coupons!.isEmpty){
-                      return const Center(child: Text('No Coupons Available'),);
+                    if (state.coupons == null || state.coupons!.isEmpty) {
+                      return const Center(
+                        child: Text('No Coupons Available'),
+                      );
                     }
-                    if(state.isLoading){
+                    if (state.isLoading) {
                       return const LoadingAnimation(width: 0.20);
                     }
                     return ListView.builder(

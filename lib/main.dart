@@ -3,12 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jerseyhub/application/business_logic/Auth/auth_bloc.dart';
 import 'package:jerseyhub/application/business_logic/bottom_bar_cubit/bottom_bar_cubit_cubit.dart';
 import 'package:jerseyhub/application/business_logic/cart/cart_bloc.dart';
+import 'package:jerseyhub/application/business_logic/home/home_bloc.dart';
 import 'package:jerseyhub/application/business_logic/inventory/inventory_bloc.dart';
 import 'package:jerseyhub/application/business_logic/order/order_bloc.dart';
 import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
 import 'package:jerseyhub/application/business_logic/wish_list/wish_list_bloc.dart';
 import 'package:jerseyhub/data/services/auth/auth.dart';
 import 'package:jerseyhub/data/services/cart/cart.dart';
+import 'package:jerseyhub/data/services/home/home.dart';
 import 'package:jerseyhub/data/services/inventory/inventory.dart';
 import 'package:jerseyhub/data/services/order/order.dart';
 import 'package:jerseyhub/data/services/user/user.dart';
@@ -50,6 +52,9 @@ class JerseyHubUser extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => OrderBloc(OrderApi()),
+        ),
+        BlocProvider(
+          create: (context) => HomeBloc(HomeApi()),
         ),
       ],
       child: MaterialApp(

@@ -9,17 +9,16 @@ import 'package:jerseyhub/domain/models/success_response_model/success_response_
 import 'package:jerseyhub/domain/models/token/token_model.dart';
 
 abstract class OrderRepository {
-  
   Future<Either<Failure, GetCheckoutResponseModel>> getCheckout(
       {required TokenModel tokenModel, required IdQurrey idQurrey});
 
   Future<Either<Failure, SuccessResponseModel>> placeOrder(
-      {required TokenModel tokenModel, required PlaceOrderModel placeOrderModel});
+      {required TokenModel tokenModel,
+      required PlaceOrderModel placeOrderModel});
 
   Future<Either<Failure, GetOrderResponseModel>> getOrders(
       {required TokenModel tokenModel, required IdQurrey idQurrey});
 
   Future<Either<Failure, GetOrderDetailsResponseModel>> getOrderDetails(
       {required TokenModel tokenModel, required int orderId});
-
 }

@@ -68,10 +68,14 @@ class OrderDetailViews extends StatelessWidget {
                       ]),
                       TextButton(
                           onPressed: () {
-                             data.orderStatus! == 'PENDING'
-                                ? context.read<OrderBloc>().add(const OrderEvent.cancelOrder())
+                            data.orderStatus! == 'PENDING'
+                                ? context
+                                    .read<OrderBloc>()
+                                    .add(const OrderEvent.cancelOrder())
                                 : data.orderStatus! == "DELIVERED"
-                                    ? context.read<OrderBloc>().add(const OrderEvent.returnOrder())
+                                    ? context
+                                        .read<OrderBloc>()
+                                        .add(const OrderEvent.returnOrder())
                                     : '';
                           },
                           child: Text(

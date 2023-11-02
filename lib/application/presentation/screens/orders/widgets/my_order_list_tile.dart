@@ -6,7 +6,8 @@ import 'package:jerseyhub/domain/models/order/get_order_response_model/datum.dar
 
 class MyOrderListTile extends StatelessWidget {
   const MyOrderListTile({
-    super.key, required this.data,
+    super.key,
+    required this.data,
   });
 
   final Datum data;
@@ -26,24 +27,31 @@ class MyOrderListTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          data.images!=null && data.images!.isNotEmpty? SizedBox(
-            height: sWidth * 0.22,
-            width: sWidth * 0.20,
-            child: Stack(
-              children: [
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: StackImageContainer(image: data.images![0]),
+          data.images != null && data.images!.isNotEmpty
+              ? SizedBox(
+                  height: sWidth * 0.22,
+                  width: sWidth * 0.20,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        right: 0,
+                        bottom: 0,
+                        child: StackImageContainer(image: data.images![0]),
+                      ),
+                      data.images!.length > 1
+                          ? Positioned(
+                              top: 0,
+                              left: 0,
+                              child:
+                                  StackImageContainer(image: data.images![1]),
+                            )
+                          : const SizedBox(),
+                    ],
+                  ),
+                )
+              : SizedBox(
+                  width: sWidth * 0.20,
                 ),
-                data.images!.length > 1 ? Positioned(
-                  top: 0,
-                  left: 0,
-                  child: StackImageContainer(image: data.images![1]),
-                ):const SizedBox(),
-              ],
-            ),
-          ):SizedBox(width: sWidth * 0.20,),
           kWidth20,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,7 +70,7 @@ class MyOrderListTile extends StatelessWidget {
                 ],
               ),
               kHeight10,
-               Row(
+              Row(
                 children: [
                   const Text('Order Status :'),
                   Text(

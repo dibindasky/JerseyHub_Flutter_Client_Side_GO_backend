@@ -46,7 +46,9 @@ class FavGridView extends StatelessWidget {
                 time: 1000);
           }
           if (state.isDone) {
-             context.read<InventoryBloc>().add(const InventoryEvent.getInventories());
+            context
+                .read<InventoryBloc>()
+                .add(const InventoryEvent.getInventories());
           }
         },
         buildWhen: (previous, current) =>

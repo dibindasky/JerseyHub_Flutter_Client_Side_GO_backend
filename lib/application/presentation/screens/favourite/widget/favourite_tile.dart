@@ -23,7 +23,8 @@ class FavTile extends StatelessWidget {
         InventoryTile(inventory: inventory),
         BlocBuilder<CartBloc, CartState>(
           buildWhen: (p, c) =>
-              p.cartItems.containsKey(inventory.id) != c.cartItems.containsKey(inventory.id),
+              p.cartItems.containsKey(inventory.id) !=
+              c.cartItems.containsKey(inventory.id),
           builder: (context, state) {
             return ElevatedButton(
                 style: elevatedButtonStyle,
