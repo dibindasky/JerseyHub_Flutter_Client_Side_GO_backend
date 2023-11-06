@@ -86,16 +86,12 @@ class CartTile extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Text(
-                                        inventoryCart.discountedPrice!
-                                            .round()
-                                            .toString(),
+                                        '₹ ${inventoryCart.discountedPrice!.round().toString()}',
                                         style: priceStyle,
                                       ),
                                       kWidth10,
                                       Text(
-                                        inventoryCart.totalPrice!
-                                            .round()
-                                            .toString(),
+                                        '₹ ${inventoryCart.totalPrice!.round().toString()}',
                                         style: priceStyleCross,
                                       ),
                                     ],

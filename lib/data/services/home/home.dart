@@ -16,17 +16,23 @@ class HomeApi implements HomeRepository {
     try {
       _dio.options.headers['Authorization'] = tokenModel.accessToken;
       final response = await _dio.get(ApiEndPoints.banner);
+      print(' response => ${response.statusCode}');
       if (response.statusCode == 200) {
         return Right(GetBannerResponseModel.fromJson(response.data));
+      } else if (response.statusCode == 401) {
+        return Left(Failure.tokenExpire());
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
+        return Left(Failure.serverFailure().copyWith(
             message: GetBannerResponseModel.fromJson(response.data).message));
       } else {
-        return Left(Failure.clientFailure(
+        return Left(Failure.clientFailure().copyWith(
             message: GetBannerResponseModel.fromJson(response.data).message));
       }
+    } on DioException catch (e) {
+      return Left(Failure.tokenExpire().copyWith(message: e.toString()));
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(
+          Failure.serverFailure().copyWith(message: 'something went wrong'));
     }
   }
 
@@ -39,14 +45,15 @@ class HomeApi implements HomeRepository {
       if (response.statusCode == 200) {
         return Right(GetCategoryResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
+        return Left(Failure.serverFailure().copyWith(
             message: GetCategoryResponseModel.fromJson(response.data).message));
       } else {
-        return Left(Failure.clientFailure(
+        return Left(Failure.clientFailure().copyWith(
             message: GetCategoryResponseModel.fromJson(response.data).message));
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(
+          Failure.serverFailure().copyWith(message: 'something went wrong'));
     }
   }
 }

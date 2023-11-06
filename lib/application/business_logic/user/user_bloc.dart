@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:jerseyhub/data/services/user/user.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
 import 'package:jerseyhub/domain/models/user/address/add_address_model/add_address_model.dart';
@@ -25,6 +24,16 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final TextEditingController newPasswordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController houseController = TextEditingController();
+  final TextEditingController streetController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
+  final TextEditingController stateController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController pinController = TextEditingController();
+
+  Address? defaultAddress;
+
   final UserRepository userRepository;
 
   UserBloc(this.userRepository) : super(UserState.initial()) {
@@ -47,8 +56,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       result.fold(
           (failure) => emit(state.copyWith(
               isLoading: false, hasError: true, message: 'refresh your page')),
-          (getAddressResponsModel) => emit(state.copyWith(
-              isLoading: false, address: getAddressResponsModel.data)));
+          (getAddressResponsModel) {
+            defaultAddress = getAddressResponsModel.data != null && getAddressResponsModel.data!.isNotEmpty ? getAddressResponsModel.data!.firstWhere((element)=>element.addressDefault!):null;
+            emit(state.copyWith(
+              isLoading: false, address: getAddressResponsModel.data));
+          });
     });
     on<_AddAddress>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
@@ -66,6 +78,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
             isLoading: false,
             isDone: true,
             message: 'address updated successfully'));
+        nameController.clear;
+        houseController.clear();
+        streetController.clear();
+        cityController.clear();
+        stateController.clear();
+        phoneController.clear();
+        pinController.clear();
         add(_GetAddress());
       });
     });
@@ -138,6 +157,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
               isLoading: false,
               isDone: true,
               message: 'Password updated successfully')));
+    });
+    on<_ShowList>((event, emit) => emit(state.copyWith(showList: !state.showList)));
+    on<_SetDefault>((event, emit) {
+      defaultAddress = event.address;
+      emit(state.copyWith(showList: !state.showList));
     });
   }
 }

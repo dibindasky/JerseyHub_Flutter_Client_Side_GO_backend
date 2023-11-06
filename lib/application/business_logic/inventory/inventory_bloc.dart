@@ -19,17 +19,22 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
 
   InventoryBloc(this.inventoryRepository) : super(InventoryState.initial()) {
     on<_GetInventories>((event, emit) async {
-      emit(state.copyWith(isLoading: true, hasError: false));
+      emit(state.copyWith(isLoading: true, hasError: false,expired: false));
       final tokenModel = await SharedPref.getToken();
       final result = await inventoryRepository.getInventorys(
           pageQurreyGetInventory: PageQurreyGetInventory(page: 1),
           tokenModel: tokenModel);
       page = 1;
       result.fold(
-          (failure) => emit(state.copyWith(
+          (failure) {
+            if(failure.statusCode == 401){
+              return emit(state.copyWith(expired :true));
+            }
+            emit(state.copyWith(
               hasError: true,
               isLoading: false,
-              message: 'something went wrong, refresh page again')),
+              message: 'something went wrong, refresh page again'));
+          },
           (getInventoryResponseModel) => emit(state.copyWith(
               isLoading: false, inventories: getInventoryResponseModel.data)));
     });
@@ -92,7 +97,7 @@ class InventoryBloc extends Bloc<InventoryEvent, InventoryState> {
       emit(state.copyWith(isLoading: true, hasError: false));
       final tokenModel = await SharedPref.getToken();
       final result = await inventoryRepository.getCategoryInventories(
-          tokenModel: tokenModel,idQurrey: event.idQurrey);
+          tokenModel: tokenModel, idQurrey: event.idQurrey);
       result.fold(
           (failure) => emit(state.copyWith(
               hasError: true,

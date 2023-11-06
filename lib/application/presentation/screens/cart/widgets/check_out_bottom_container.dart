@@ -42,7 +42,7 @@ class BottomCheckOutSession extends StatelessWidget {
                                   const Text('Bag Total'),
                                   const Spacer(),
                                   Text(
-                                    state.bagTotal!.round().toString(),
+                                    '₹ ${state.bagTotal!.round().toString()}',
                                     style: headStyle,
                                   )
                                 ],
@@ -76,7 +76,7 @@ class BottomCheckOutSession extends StatelessWidget {
                                   Text('Delivery fee'),
                                   Spacer(),
                                   Text(
-                                    '0.0',
+                                    '₹ 0.0',
                                     style: headStyle,
                                   )
                                 ],
@@ -90,7 +90,7 @@ class BottomCheckOutSession extends StatelessWidget {
                                   ),
                                   const Spacer(),
                                   Text(
-                                    state.amountPayable!.round().toString(),
+                                    '₹ ${state.amountPayable!.round().toString()}',
                                     style: headStyle,
                                   )
                                 ],
@@ -112,7 +112,7 @@ class BottomCheckOutSession extends StatelessWidget {
                             color: kBlack.withOpacity(0.6)),
                       ),
                       kWidth5,
-                      Text(state.amountPayable!.round().toString(),
+                      Text('₹ ${state.amountPayable!.round().toString()}',
                           style: priceStyle)
                     ]),
                     trailing: ElevatedButton(

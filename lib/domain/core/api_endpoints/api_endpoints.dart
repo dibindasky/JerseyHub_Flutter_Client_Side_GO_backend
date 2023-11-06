@@ -1,5 +1,5 @@
 class ApiEndPoints {
-  static String baseUrl = 'http://192.168.47.227:3000/users';
+  static String baseUrl = 'http://192.168.71.227:3000/users';
   // static String baseUrl = 'http://10.0.2.2:3000/users';
   //  static String baseUrl = 'http://192.168.52.139:3000/users';
 
@@ -26,7 +26,7 @@ class ApiEndPoints {
   static String getReferalLink = '/profile/get-link';
   static String getOrders = '/profile/orders';
   //use order_id in the end of the url by replacing {id}
-  static String orderDetails = '/profile/orders/{id}'; 
+  static String orderDetails = '/profile/orders/{id}';
   static String cancelOrder = '/profile/orders/return';
   static String changePassword = '/profile/security/change-password';
   static String search = '/search/';

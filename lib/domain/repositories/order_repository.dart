@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:jerseyhub/domain/core/failure/failures.dart';
-import 'package:jerseyhub/domain/models/cart/get_checkout_response_model/get_checkout_response_model.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
+import 'package:jerseyhub/domain/models/order/get_checkout_response_model/get_checkout_response_model.dart';
 import 'package:jerseyhub/domain/models/order/get_order_details_response_model/get_order_details_response_model.dart';
 import 'package:jerseyhub/domain/models/order/get_order_response_model/get_order_response_model.dart';
 import 'package:jerseyhub/domain/models/order/place_order_model/place_order_model.dart';

@@ -6,8 +6,10 @@ class HomeState with _$HomeState {
       {required bool isLoading,
       required bool hasError,
       String? message,
+      bool? expired,
       List<Banner>? banners,
       List<Category>? categoeries}) = _Initial;
 
-  factory HomeState.initial()=>const HomeState(isLoading: false, hasError: false);    
+  factory HomeState.initial() =>
+      const HomeState(isLoading: false, hasError: false,expired: false);
 }

@@ -49,12 +49,12 @@ class InventoryTile extends StatelessWidget {
         Row(
           children: [
             Text(
-              inventory.discountedPrice!.round().toString(),
+              "₹ ${inventory.discountedPrice!.round().toString()}",
               style: priceStyle,
             ),
             kWidth10,
             Text(
-              inventory.price!.round().toString(),
+              '₹ ${inventory.price!.round().toString()}',
               style: priceStyleCross,
             ),
             const Spacer(),

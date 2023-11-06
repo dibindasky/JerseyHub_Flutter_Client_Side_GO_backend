@@ -12,13 +12,13 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
           ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
       products: (json['Products'] as List<dynamic>?)
-          ?.map((e) => Inventory.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
           .toList(),
       paymentMethods: (json['PaymentMethods'] as List<dynamic>?)
           ?.map((e) => PaymentMethod.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalPrice: json['TotalPrice'] as int?,
-      discountedPrice: json['DiscountedPrice'] as int?,
+      discountedPrice: (json['DiscountedPrice'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{

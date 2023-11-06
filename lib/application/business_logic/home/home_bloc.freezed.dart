@@ -282,6 +282,7 @@ mixin _$HomeState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
+  bool? get expired => throw _privateConstructorUsedError;
   List<Banner>? get banners => throw _privateConstructorUsedError;
   List<Category>? get categoeries => throw _privateConstructorUsedError;
 
@@ -299,6 +300,7 @@ abstract class $HomeStateCopyWith<$Res> {
       {bool isLoading,
       bool hasError,
       String? message,
+      bool? expired,
       List<Banner>? banners,
       List<Category>? categoeries});
 }
@@ -319,6 +321,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? isLoading = null,
     Object? hasError = null,
     Object? message = freezed,
+    Object? expired = freezed,
     Object? banners = freezed,
     Object? categoeries = freezed,
   }) {
@@ -335,6 +338,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      expired: freezed == expired
+          ? _value.expired
+          : expired // ignore: cast_nullable_to_non_nullable
+              as bool?,
       banners: freezed == banners
           ? _value.banners
           : banners // ignore: cast_nullable_to_non_nullable
@@ -358,6 +365,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       {bool isLoading,
       bool hasError,
       String? message,
+      bool? expired,
       List<Banner>? banners,
       List<Category>? categoeries});
 }
@@ -375,6 +383,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? hasError = null,
     Object? message = freezed,
+    Object? expired = freezed,
     Object? banners = freezed,
     Object? categoeries = freezed,
   }) {
@@ -391,6 +400,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      expired: freezed == expired
+          ? _value.expired
+          : expired // ignore: cast_nullable_to_non_nullable
+              as bool?,
       banners: freezed == banners
           ? _value._banners
           : banners // ignore: cast_nullable_to_non_nullable
@@ -410,6 +423,7 @@ class _$_Initial implements _Initial {
       {required this.isLoading,
       required this.hasError,
       this.message,
+      this.expired,
       final List<Banner>? banners,
       final List<Category>? categoeries})
       : _banners = banners,
@@ -421,6 +435,8 @@ class _$_Initial implements _Initial {
   final bool hasError;
   @override
   final String? message;
+  @override
+  final bool? expired;
   final List<Banner>? _banners;
   @override
   List<Banner>? get banners {
@@ -443,7 +459,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'HomeState(isLoading: $isLoading, hasError: $hasError, message: $message, banners: $banners, categoeries: $categoeries)';
+    return 'HomeState(isLoading: $isLoading, hasError: $hasError, message: $message, expired: $expired, banners: $banners, categoeries: $categoeries)';
   }
 
   @override
@@ -456,6 +472,7 @@ class _$_Initial implements _Initial {
             (identical(other.hasError, hasError) ||
                 other.hasError == hasError) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.expired, expired) || other.expired == expired) &&
             const DeepCollectionEquality().equals(other._banners, _banners) &&
             const DeepCollectionEquality()
                 .equals(other._categoeries, _categoeries));
@@ -467,6 +484,7 @@ class _$_Initial implements _Initial {
       isLoading,
       hasError,
       message,
+      expired,
       const DeepCollectionEquality().hash(_banners),
       const DeepCollectionEquality().hash(_categoeries));
 
@@ -482,6 +500,7 @@ abstract class _Initial implements HomeState {
       {required final bool isLoading,
       required final bool hasError,
       final String? message,
+      final bool? expired,
       final List<Banner>? banners,
       final List<Category>? categoeries}) = _$_Initial;
 
@@ -491,6 +510,8 @@ abstract class _Initial implements HomeState {
   bool get hasError;
   @override
   String? get message;
+  @override
+  bool? get expired;
   @override
   List<Banner>? get banners;
   @override

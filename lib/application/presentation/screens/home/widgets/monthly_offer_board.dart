@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jerseyhub/application/business_logic/home/home_bloc.dart';
+import 'package:jerseyhub/application/presentation/routes/routes.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 
 import '../../../utils/colors.dart';
@@ -24,7 +25,12 @@ class MonthlyOfferBoard extends StatelessWidget {
         BoxShadow(
             blurRadius: 3, blurStyle: BlurStyle.outer, offset: Offset(0, 0.5))
       ], color: kBlack, borderRadius: BorderRadius.all(kRadius20)),
-      child: BlocBuilder<HomeBloc, HomeState>(
+      child: BlocConsumer<HomeBloc, HomeState>(
+        listener: (context,state){
+          if(state.expired!=null && state.expired == true){
+            Navigator.pushNamedAndRemoveUntil(context, Routes.signInPage, (route) => false);
+          }
+        },
         builder: (context, state) {
           if (state.isLoading) {
             return const LoadingAnimation(width: 0.20);
@@ -35,21 +41,21 @@ class MonthlyOfferBoard extends StatelessWidget {
               SizedBox(
                 height: sWidth * 0.35,
                 width: sWidth * 0.35,
-                child: state.hasError
+                child: state.hasError || state.banners == null
                     ? kHeight10
                     : Stack(
                         children: [
                           SizedBox(
                             height: sWidth * 0.30,
                             width: sWidth * 0.25,
-                            child: Image.network(rmRonaldo2),
+                            child: Image.network(state.banners![0].images[0]),
                           ),
                           Positioned(
                             right: 0,
                             child: SizedBox(
                               height: sWidth * 0.30,
                               width: sWidth * 0.25,
-                              child: Image.network(rmRonaldo),
+                              child: Image.network(state.banners![0].images[1]),
                             ),
                           )
                         ],
@@ -61,7 +67,7 @@ class MonthlyOfferBoard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          'Monthly Offers',
+                          '${state.banners![0].categoryName!} Jersey',
                           style: TextStyle(
                               fontSize: sWidth * 0.06,
                               color: kWhite,
@@ -75,7 +81,11 @@ class MonthlyOfferBoard extends StatelessWidget {
                               fontWeight: FontWeight.w300),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, Routes.categoryListScreen,
+                                arguments: state.banners![0].categoryName);
+                          },
                           style: ElevatedButton.styleFrom(
                               backgroundColor: kGreen, foregroundColor: kWhite),
                           child: Text(

@@ -23,16 +23,12 @@ class InventoryApi implements InventoryRepository {
       if (response.statusCode == 200) {
         return Right(GetIndividualInventoryResponse.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: GetIndividualInventoryResponse.fromJson(response.data)
-                .message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: GetIndividualInventoryResponse.fromJson(response.data)
-                .message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -47,16 +43,12 @@ class InventoryApi implements InventoryRepository {
       if (response.statusCode == 200) {
         return Right(GetInventoryResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message:
-                GetInventoryResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message:
-                GetInventoryResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -71,16 +63,12 @@ class InventoryApi implements InventoryRepository {
       if (response.statusCode == 200) {
         return Right(GetInventoryResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message:
-                GetInventoryResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message:
-                GetInventoryResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -94,16 +82,12 @@ class InventoryApi implements InventoryRepository {
       if (response.statusCode == 200) {
         return Right(GetInventoryResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message:
-                GetInventoryResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message:
-                GetInventoryResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 }
