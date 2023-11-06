@@ -4,6 +4,7 @@ import 'package:jerseyhub/application/business_logic/cart/cart_bloc.dart';
 import 'package:jerseyhub/application/presentation/screens/cart/widgets/cart_tile.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
+import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 import 'package:jerseyhub/application/presentation/utils/snack_show/show_snack.dart';
 
 class CartItemsList extends StatelessWidget {
@@ -28,10 +29,10 @@ class CartItemsList extends StatelessWidget {
                     color: state.isDone ? kGreen : kRed);
               }
             },
-            // buildWhen: (previous, current) =>
-            //     previous.getCartResponseModel != current.getCartResponseModel,
             builder: (context, state) {
-              if (state.getCartResponseModel == null ||
+              if (state.isLoading) {
+                return const LoadingAnimation(width: 0.20);
+              } else if (state.getCartResponseModel == null ||
                   state.getCartResponseModel!.data == null ||
                   state.getCartResponseModel!.data!.data == null ||
                   state.getCartResponseModel!.data!.data!.isEmpty) {

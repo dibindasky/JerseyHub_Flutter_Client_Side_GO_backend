@@ -1,8 +1,8 @@
-import 'package:jerseyhub/domain/models/inventory/get_inventory_response_model/inventory.dart';
-import 'package:jerseyhub/domain/models/user/address/get_address_response_model/address.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'address.dart';
 import 'payment_method.dart';
+import 'product.dart';
 
 part 'data.g.dart';
 
@@ -13,13 +13,13 @@ class Data {
   @JsonKey(name: 'Addresses')
   List<Address>? addresses;
   @JsonKey(name: 'Products')
-  List<Inventory>? products;
+  List<Product>? products;
   @JsonKey(name: 'PaymentMethods')
   List<PaymentMethod>? paymentMethods;
   @JsonKey(name: 'TotalPrice')
   int? totalPrice;
   @JsonKey(name: 'DiscountedPrice')
-  int? discountedPrice;
+  double? discountedPrice;
 
   Data({
     this.cartId,

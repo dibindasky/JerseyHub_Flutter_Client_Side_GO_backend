@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jerseyhub/application/business_logic/inventory/inventory_bloc.dart';
+import 'package:jerseyhub/application/presentation/routes/routes.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 import 'package:jerseyhub/application/presentation/widgets/inventory_tile.dart';
@@ -31,7 +32,13 @@ class PopularGridView extends StatelessWidget {
         ),
         SizedBox(
           height: sWidth * 1.50,
-          child: BlocBuilder<InventoryBloc, InventoryState>(
+          child: BlocConsumer<InventoryBloc, InventoryState>(
+              listener: (context, state) {
+                if (state.expired != null && state.expired == true) {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, Routes.signInPage, (route) => false);
+                }
+              },
               buildWhen: (previous, current) =>
                   previous.inventories != current.inventories,
               builder: (context, state) {

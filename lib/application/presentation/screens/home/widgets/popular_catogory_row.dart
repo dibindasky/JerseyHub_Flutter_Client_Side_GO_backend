@@ -12,7 +12,7 @@ class PopularCatogories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) { 
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<HomeBloc>().add(const HomeEvent.getCategory());
     });
     return const Column(

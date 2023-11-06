@@ -26,14 +26,12 @@ class CartApi implements CartRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -47,14 +45,14 @@ class CartApi implements CartRepository {
       if (response.statusCode == 200) {
         return Right(GetCartResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: GetCartResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: GetCartResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
+    } on DioException catch (e) {
+      return Left(Failure.tokenExpire().copyWith(message: e.toString()));
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -69,14 +67,12 @@ class CartApi implements CartRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -91,14 +87,12 @@ class CartApi implements CartRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -113,14 +107,12 @@ class CartApi implements CartRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -133,14 +125,12 @@ class CartApi implements CartRepository {
       if (response.statusCode == 200) {
         return Right(GetCouponResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: GetCouponResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: GetCouponResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 }

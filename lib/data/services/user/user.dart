@@ -29,14 +29,12 @@ class UserApi implements UserRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -52,14 +50,12 @@ class UserApi implements UserRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -75,14 +71,12 @@ class UserApi implements UserRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -98,14 +92,12 @@ class UserApi implements UserRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -121,14 +113,12 @@ class UserApi implements UserRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -142,14 +132,12 @@ class UserApi implements UserRepository {
       if (response.statusCode == 200) {
         return Right(GetAddressResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: GetAddressResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: GetAddressResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -163,14 +151,12 @@ class UserApi implements UserRepository {
       if (response.statusCode == 200) {
         return Right(UserDetailsResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: UserDetailsResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: UserDetailsResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 }

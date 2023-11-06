@@ -16,7 +16,7 @@ class CartState with _$CartState {
 
   factory CartState.initial() => const CartState(
       cartItems: {},
-      isLoading: false,
+      isLoading: true,
       hasError: false,
       isDone: false,
       quantityIndicator: false);

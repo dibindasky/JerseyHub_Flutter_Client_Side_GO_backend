@@ -804,6 +804,7 @@ mixin _$InventoryState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get loadMore => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
+  bool? get expired => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   GetIndividualInventoryResponse? get getIndividualInventoryResponse =>
       throw _privateConstructorUsedError;
@@ -824,6 +825,7 @@ abstract class $InventoryStateCopyWith<$Res> {
       {bool isLoading,
       bool loadMore,
       bool hasError,
+      bool? expired,
       String? message,
       GetIndividualInventoryResponse? getIndividualInventoryResponse,
       List<Inventory>? inventories});
@@ -845,6 +847,7 @@ class _$InventoryStateCopyWithImpl<$Res, $Val extends InventoryState>
     Object? isLoading = null,
     Object? loadMore = null,
     Object? hasError = null,
+    Object? expired = freezed,
     Object? message = freezed,
     Object? getIndividualInventoryResponse = freezed,
     Object? inventories = freezed,
@@ -862,6 +865,10 @@ class _$InventoryStateCopyWithImpl<$Res, $Val extends InventoryState>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      expired: freezed == expired
+          ? _value.expired
+          : expired // ignore: cast_nullable_to_non_nullable
+              as bool?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -890,6 +897,7 @@ abstract class _$$_InitialCopyWith<$Res>
       {bool isLoading,
       bool loadMore,
       bool hasError,
+      bool? expired,
       String? message,
       GetIndividualInventoryResponse? getIndividualInventoryResponse,
       List<Inventory>? inventories});
@@ -908,6 +916,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? loadMore = null,
     Object? hasError = null,
+    Object? expired = freezed,
     Object? message = freezed,
     Object? getIndividualInventoryResponse = freezed,
     Object? inventories = freezed,
@@ -925,6 +934,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      expired: freezed == expired
+          ? _value.expired
+          : expired // ignore: cast_nullable_to_non_nullable
+              as bool?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -948,6 +961,7 @@ class _$_Initial implements _Initial {
       {required this.isLoading,
       required this.loadMore,
       required this.hasError,
+      this.expired,
       this.message,
       this.getIndividualInventoryResponse,
       final List<Inventory>? inventories})
@@ -959,6 +973,8 @@ class _$_Initial implements _Initial {
   final bool loadMore;
   @override
   final bool hasError;
+  @override
+  final bool? expired;
   @override
   final String? message;
   @override
@@ -975,7 +991,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'InventoryState(isLoading: $isLoading, loadMore: $loadMore, hasError: $hasError, message: $message, getIndividualInventoryResponse: $getIndividualInventoryResponse, inventories: $inventories)';
+    return 'InventoryState(isLoading: $isLoading, loadMore: $loadMore, hasError: $hasError, expired: $expired, message: $message, getIndividualInventoryResponse: $getIndividualInventoryResponse, inventories: $inventories)';
   }
 
   @override
@@ -989,6 +1005,7 @@ class _$_Initial implements _Initial {
                 other.loadMore == loadMore) &&
             (identical(other.hasError, hasError) ||
                 other.hasError == hasError) &&
+            (identical(other.expired, expired) || other.expired == expired) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.getIndividualInventoryResponse,
                     getIndividualInventoryResponse) ||
@@ -1004,6 +1021,7 @@ class _$_Initial implements _Initial {
       isLoading,
       loadMore,
       hasError,
+      expired,
       message,
       getIndividualInventoryResponse,
       const DeepCollectionEquality().hash(_inventories));
@@ -1020,6 +1038,7 @@ abstract class _Initial implements InventoryState {
       {required final bool isLoading,
       required final bool loadMore,
       required final bool hasError,
+      final bool? expired,
       final String? message,
       final GetIndividualInventoryResponse? getIndividualInventoryResponse,
       final List<Inventory>? inventories}) = _$_Initial;
@@ -1030,6 +1049,8 @@ abstract class _Initial implements InventoryState {
   bool get loadMore;
   @override
   bool get hasError;
+  @override
+  bool? get expired;
   @override
   String? get message;
   @override

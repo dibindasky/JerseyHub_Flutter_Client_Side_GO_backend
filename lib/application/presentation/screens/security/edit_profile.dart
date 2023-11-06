@@ -13,4 +13,3 @@ class ScreenEditProfile extends StatelessWidget {
     );
   }
 }
-

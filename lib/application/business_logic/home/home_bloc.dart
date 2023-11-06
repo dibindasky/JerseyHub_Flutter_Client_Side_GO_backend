@@ -15,15 +15,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc(this.homeRepository) : super(HomeState.initial()) {
     on<_GetBanner>((event, emit) async {
-      emit(state.copyWith(isLoading: true, hasError: false));
+      emit(state.copyWith(isLoading: true, hasError: false, expired: false));
       final tokenModel = await SharedPref.getToken();
       final result = await homeRepository.getBanners(tokenModel: tokenModel);
-      result.fold(
-          (failure) => emit(state.copyWith(
-              isLoading: false,
-              hasError: true,
-              message: 'please refresh your application')),
-          (getBannerResponseModel) {
+      result.fold((failure) {
+        print('failure => () ${failure.statusCode}');
+        if (failure.statusCode == 401) {
+          return emit(state.copyWith(expired: true));
+        }
+        emit(state.copyWith(
+            isLoading: false,
+            hasError: true,
+            message: 'please refresh your application'));
+      }, (getBannerResponseModel) {
         emit(state.copyWith(
             isLoading: false, banners: getBannerResponseModel.data));
       });

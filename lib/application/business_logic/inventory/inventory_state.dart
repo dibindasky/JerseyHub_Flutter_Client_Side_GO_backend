@@ -6,10 +6,11 @@ class InventoryState with _$InventoryState {
       {required bool isLoading,
       required bool loadMore,
       required bool hasError,
+      bool? expired,
       String? message,
       GetIndividualInventoryResponse? getIndividualInventoryResponse,
       List<Inventory>? inventories}) = _Initial;
 
   factory InventoryState.initial() =>
-      const InventoryState(isLoading: true, hasError: false, loadMore: false);
+      const InventoryState(isLoading: true, hasError: false, loadMore: false,expired: false);
 }

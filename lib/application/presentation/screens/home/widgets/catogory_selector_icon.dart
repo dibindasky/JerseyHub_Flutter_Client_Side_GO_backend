@@ -18,7 +18,8 @@ class CatogorySelectorIcon extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            Navigator.pushNamed(context, Routes.categoryListScreen,arguments: sport);
+            Navigator.pushNamed(context, Routes.categoryListScreen,
+                arguments: sport);
           },
           child: CircleAvatar(
             radius: sWidth * 0.06,

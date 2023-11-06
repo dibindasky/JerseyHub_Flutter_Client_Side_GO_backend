@@ -25,14 +25,12 @@ class WishListApi implements WishListRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 
@@ -45,15 +43,17 @@ class WishListApi implements WishListRepository {
           queryParameters: idQurrey.toJson());
       if (response.statusCode == 200) {
         return Right(GetWishlistResponseModel.fromJson(response.data));
+      } else if (response.statusCode == 401) {
+        return Left(Failure.tokenExpire());
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
+        return Left(Failure.serverFailure().copyWith(
             message: GetWishlistResponseModel.fromJson(response.data).message));
       } else {
-        return Left(Failure.clientFailure(
+        return Left(Failure.clientFailure().copyWith(
             message: GetWishlistResponseModel.fromJson(response.data).message));
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure().copyWith(message: e.toString()));
     }
   }
 
@@ -68,14 +68,12 @@ class WishListApi implements WishListRepository {
       if (response.statusCode == 200) {
         return Right(SuccessResponseModel.fromJson(response.data));
       } else if (response.statusCode == 500) {
-        return Left(Failure.serverFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.serverFailure());
       } else {
-        return Left(Failure.clientFailure(
-            message: SuccessResponseModel.fromJson(response.data).message));
+        return Left(Failure.clientFailure());
       }
     } catch (e) {
-      return Left(Failure.serverFailure(message: 'something went wrong'));
+      return Left(Failure.serverFailure());
     }
   }
 }

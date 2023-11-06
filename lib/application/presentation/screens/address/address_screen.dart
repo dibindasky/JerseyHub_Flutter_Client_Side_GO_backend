@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:jerseyhub/application/presentation/utils/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
+import 'package:jerseyhub/application/presentation/screens/address/widget/address_custom_textfield.dart';
+import 'package:jerseyhub/application/presentation/screens/address/widget/address_list.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/widgets/appbar.dart';
+import 'package:jerseyhub/domain/models/user/address/add_address_model/add_address_model.dart';
+
+final GlobalKey<FormState> addressKey = GlobalKey<FormState>();
 
 class ScreenAddress extends StatelessWidget {
   const ScreenAddress({super.key});
@@ -9,63 +15,97 @@ class ScreenAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: appbarMaker(title: 'Add Address'),
-      body:  Padding(
+      body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            const DetailAdderTextField(text: 'Name'),
-            const DetailAdderTextField(text: 'House'),
-            const DetailAdderTextField(text: 'Street'),
-            const DetailAdderTextField(text: 'City'),
-            const DetailAdderTextField(text: 'State'),
-            const DetailAdderTextField(text: 'Phone'),
-            const DetailAdderTextField(text: 'Pin'),
-            kHeight10,
-            ElevatedButton(onPressed: (){},style: elevatedButtonStyleBlack, child: const Text('Add Address'),)
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class DetailAdderTextField extends StatelessWidget {
-  const DetailAdderTextField({
-    super.key,
-    required this.text,
-  });
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 20),
-          width: sWidth * 0.20,
-          height: sWidth * 0.08,
-          decoration: const BoxDecoration(
-              color: kBlack, borderRadius: BorderRadius.all(kRadius5)),
-          child: Center(
-            child: Text(
-              text,
-              style: kronOne(color: kWhite),
+        child: Form(
+          key: addressKey,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                DetailAdderTextField(
+                    text: 'Name',
+                    keyboardType: TextInputType.name,
+                    controller: context.read<UserBloc>().nameController),
+                DetailAdderTextField(
+                    text: 'House',
+                    controller: context.read<UserBloc>().houseController),
+                DetailAdderTextField(
+                    text: 'Street',
+                    controller: context.read<UserBloc>().streetController),
+                DetailAdderTextField(
+                    text: 'City',
+                    controller: context.read<UserBloc>().cityController),
+                DetailAdderTextField(
+                    text: 'State',
+                    keyboardType: TextInputType.name,
+                    controller: context.read<UserBloc>().stateController),
+                DetailAdderTextField(
+                    text: 'Phone',
+                    maxLength: 10,
+                    keyboardType: TextInputType.number,
+                    controller: context.read<UserBloc>().phoneController),
+                DetailAdderTextField(
+                    text: 'Pin',
+                    maxLength: 6,
+                    keyboardType: TextInputType.number,
+                    controller: context.read<UserBloc>().pinController),
+                kHeight10,
+                ElevatedButton(
+                  onPressed: () {
+                    if (addressKey.currentState!.validate()) {
+                      final model = AddAddressModel(
+                          city: context
+                              .read<UserBloc>()
+                              .cityController
+                              .text
+                              .trim(),
+                          houseName: context
+                              .read<UserBloc>()
+                              .houseController
+                              .text
+                              .trim(),
+                          name: context
+                              .read<UserBloc>()
+                              .nameController
+                              .text
+                              .trim(),
+                          pin: context
+                              .read<UserBloc>()
+                              .pinController
+                              .text
+                              .trim(),
+                          state: context
+                              .read<UserBloc>()
+                              .stateController
+                              .text
+                              .trim(),
+                          street: context
+                              .read<UserBloc>()
+                              .streetController
+                              .text
+                              .trim(),
+                          phone: context
+                              .read<UserBloc>()
+                              .phoneController
+                              .text
+                              .trim());
+                      context
+                          .read<UserBloc>()
+                          .add(UserEvent.addAddress(addAddressModel: model));
+                    }
+                  },
+                  style: elevatedButtonStyleBlack,
+                  child: const Text('Add Address'),
+                ),
+                const Divider(),
+                const AddressList()
+              ],
             ),
           ),
         ),
-        kWidth10,
-        Container(
-          margin: const EdgeInsets.only(top: 20),
-          height: sWidth * 0.08,
-          width: sWidth * 0.65,
-          decoration: const BoxDecoration(
-              color: kGrey, borderRadius: BorderRadius.all(kRadius5)),
-          child: TextFormField(),
-        )
-      ],
+      ),
     );
   }
 }

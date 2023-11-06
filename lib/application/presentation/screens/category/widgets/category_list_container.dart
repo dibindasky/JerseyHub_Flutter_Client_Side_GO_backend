@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jerseyhub/application/presentation/routes/routes.dart';
 import 'package:jerseyhub/application/presentation/screens/inventory/widgets/bottom_buttons.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
@@ -8,7 +9,8 @@ import 'package:jerseyhub/domain/models/inventory/get_inventory_response_model/i
 
 class CategoryDetailContainer extends StatelessWidget {
   const CategoryDetailContainer({
-    super.key, required this.inventory,
+    super.key,
+    required this.inventory,
   });
 
   final Inventory inventory;
@@ -23,8 +25,13 @@ class CategoryDetailContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ImageShowContainer(image: inventory.image!, width: 0.90),
-           Text(
+          InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.inventoryDetailScreen,
+                    arguments: inventory);
+              },
+              child: ImageShowContainer(image: inventory.image!, width: 0.90)),
+          Text(
             inventory.productName!,
             style: headStyle,
           ),

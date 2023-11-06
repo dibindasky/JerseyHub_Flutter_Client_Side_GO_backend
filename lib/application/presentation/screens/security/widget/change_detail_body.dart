@@ -36,8 +36,7 @@ class ChangeDetailBody extends StatelessWidget {
                 kHeight10,
                 PasswordEditWidget(
                     text: 'New password',
-                    controller:
-                        context.read<UserBloc>().newPasswordController),
+                    controller: context.read<UserBloc>().newPasswordController),
                 kHeight10,
                 PasswordEditWidget(
                     text: 'Confirm password',
@@ -60,4 +59,3 @@ class ChangeDetailBody extends StatelessWidget {
     );
   }
 }
-

@@ -16,15 +16,17 @@ class CatogoryListViews extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: BlocBuilder<InventoryBloc, InventoryState>(
           builder: (context, state) {
-            if(state.isLoading){
+            if (state.isLoading) {
               return const LoadingAnimation(width: 0.20);
-            }if(state.hasError || state.inventories == null){
+            }
+            if (state.hasError || state.inventories == null) {
               return const Center(child: Text('Nothing to show '));
             }
             return ListView.builder(
                 itemCount: state.inventories!.length,
-                itemBuilder: (context, index) =>
-                    CategoryDetailContainer(inventory: state.inventories![index],));
+                itemBuilder: (context, index) => CategoryDetailContainer(
+                      inventory: state.inventories![index],
+                    ));
           },
         ),
       ),

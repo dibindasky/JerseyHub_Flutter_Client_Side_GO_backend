@@ -3,6 +3,8 @@ part of 'user_bloc.dart';
 @freezed
 class UserEvent with _$UserEvent {
   const factory UserEvent.getDetails() = _GetDetails;
+  const factory UserEvent.showList() = _ShowList;
+  const factory UserEvent.setDefault({required Address address}) = _SetDefault;
   factory UserEvent.getAddress() = _GetAddress;
   factory UserEvent.addAddress({required AddAddressModel addAddressModel}) =
       _AddAddress;

@@ -19,6 +19,8 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
     required TResult Function() getAddress,
     required TResult Function(AddAddressModel addAddressModel) addAddress,
     required TResult Function(ChangeEmail changeEmail) changeEmail,
@@ -30,6 +32,8 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
     TResult? Function()? getAddress,
     TResult? Function(AddAddressModel addAddressModel)? addAddress,
     TResult? Function(ChangeEmail changeEmail)? changeEmail,
@@ -41,6 +45,8 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
     TResult Function()? getAddress,
     TResult Function(AddAddressModel addAddressModel)? addAddress,
     TResult Function(ChangeEmail changeEmail)? changeEmail,
@@ -53,6 +59,8 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_AddAddress value) addAddress,
     required TResult Function(_ChangeEmail value) changeEmail,
@@ -64,6 +72,8 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_AddAddress value)? addAddress,
     TResult? Function(_ChangeEmail value)? changeEmail,
@@ -75,6 +85,8 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_AddAddress value)? addAddress,
     TResult Function(_ChangeEmail value)? changeEmail,
@@ -142,6 +154,8 @@ class _$_GetDetails implements _GetDetails {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
     required TResult Function() getAddress,
     required TResult Function(AddAddressModel addAddressModel) addAddress,
     required TResult Function(ChangeEmail changeEmail) changeEmail,
@@ -156,6 +170,8 @@ class _$_GetDetails implements _GetDetails {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
     TResult? Function()? getAddress,
     TResult? Function(AddAddressModel addAddressModel)? addAddress,
     TResult? Function(ChangeEmail changeEmail)? changeEmail,
@@ -170,6 +186,8 @@ class _$_GetDetails implements _GetDetails {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
     TResult Function()? getAddress,
     TResult Function(AddAddressModel addAddressModel)? addAddress,
     TResult Function(ChangeEmail changeEmail)? changeEmail,
@@ -188,6 +206,8 @@ class _$_GetDetails implements _GetDetails {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_AddAddress value) addAddress,
     required TResult Function(_ChangeEmail value) changeEmail,
@@ -202,6 +222,8 @@ class _$_GetDetails implements _GetDetails {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_AddAddress value)? addAddress,
     TResult? Function(_ChangeEmail value)? changeEmail,
@@ -216,6 +238,8 @@ class _$_GetDetails implements _GetDetails {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_AddAddress value)? addAddress,
     TResult Function(_ChangeEmail value)? changeEmail,
@@ -233,6 +257,325 @@ class _$_GetDetails implements _GetDetails {
 
 abstract class _GetDetails implements UserEvent {
   const factory _GetDetails() = _$_GetDetails;
+}
+
+/// @nodoc
+abstract class _$$_ShowListCopyWith<$Res> {
+  factory _$$_ShowListCopyWith(
+          _$_ShowList value, $Res Function(_$_ShowList) then) =
+      __$$_ShowListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ShowListCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$_ShowList>
+    implements _$$_ShowListCopyWith<$Res> {
+  __$$_ShowListCopyWithImpl(
+      _$_ShowList _value, $Res Function(_$_ShowList) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ShowList implements _ShowList {
+  const _$_ShowList();
+
+  @override
+  String toString() {
+    return 'UserEvent.showList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ShowList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
+    required TResult Function() getAddress,
+    required TResult Function(AddAddressModel addAddressModel) addAddress,
+    required TResult Function(ChangeEmail changeEmail) changeEmail,
+    required TResult Function(ChangeName changeName) changeName,
+    required TResult Function(ChangePhoneNumber changePhone) changePhone,
+    required TResult Function(ChangePassword changePassword) changePassword,
+  }) {
+    return showList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
+    TResult? Function()? getAddress,
+    TResult? Function(AddAddressModel addAddressModel)? addAddress,
+    TResult? Function(ChangeEmail changeEmail)? changeEmail,
+    TResult? Function(ChangeName changeName)? changeName,
+    TResult? Function(ChangePhoneNumber changePhone)? changePhone,
+    TResult? Function(ChangePassword changePassword)? changePassword,
+  }) {
+    return showList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
+    TResult Function()? getAddress,
+    TResult Function(AddAddressModel addAddressModel)? addAddress,
+    TResult Function(ChangeEmail changeEmail)? changeEmail,
+    TResult Function(ChangeName changeName)? changeName,
+    TResult Function(ChangePhoneNumber changePhone)? changePhone,
+    TResult Function(ChangePassword changePassword)? changePassword,
+    required TResult orElse(),
+  }) {
+    if (showList != null) {
+      return showList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
+    required TResult Function(_GetAddress value) getAddress,
+    required TResult Function(_AddAddress value) addAddress,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_ChangePhone value) changePhone,
+    required TResult Function(_ChangePassword value) changePassword,
+  }) {
+    return showList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
+    TResult? Function(_GetAddress value)? getAddress,
+    TResult? Function(_AddAddress value)? addAddress,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_ChangePassword value)? changePassword,
+  }) {
+    return showList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
+    TResult Function(_GetAddress value)? getAddress,
+    TResult Function(_AddAddress value)? addAddress,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_ChangePhone value)? changePhone,
+    TResult Function(_ChangePassword value)? changePassword,
+    required TResult orElse(),
+  }) {
+    if (showList != null) {
+      return showList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShowList implements UserEvent {
+  const factory _ShowList() = _$_ShowList;
+}
+
+/// @nodoc
+abstract class _$$_SetDefaultCopyWith<$Res> {
+  factory _$$_SetDefaultCopyWith(
+          _$_SetDefault value, $Res Function(_$_SetDefault) then) =
+      __$$_SetDefaultCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Address address});
+}
+
+/// @nodoc
+class __$$_SetDefaultCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$_SetDefault>
+    implements _$$_SetDefaultCopyWith<$Res> {
+  __$$_SetDefaultCopyWithImpl(
+      _$_SetDefault _value, $Res Function(_$_SetDefault) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? address = null,
+  }) {
+    return _then(_$_SetDefault(
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Address,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetDefault implements _SetDefault {
+  const _$_SetDefault({required this.address});
+
+  @override
+  final Address address;
+
+  @override
+  String toString() {
+    return 'UserEvent.setDefault(address: $address)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetDefault &&
+            (identical(other.address, address) || other.address == address));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, address);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SetDefaultCopyWith<_$_SetDefault> get copyWith =>
+      __$$_SetDefaultCopyWithImpl<_$_SetDefault>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
+    required TResult Function() getAddress,
+    required TResult Function(AddAddressModel addAddressModel) addAddress,
+    required TResult Function(ChangeEmail changeEmail) changeEmail,
+    required TResult Function(ChangeName changeName) changeName,
+    required TResult Function(ChangePhoneNumber changePhone) changePhone,
+    required TResult Function(ChangePassword changePassword) changePassword,
+  }) {
+    return setDefault(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
+    TResult? Function()? getAddress,
+    TResult? Function(AddAddressModel addAddressModel)? addAddress,
+    TResult? Function(ChangeEmail changeEmail)? changeEmail,
+    TResult? Function(ChangeName changeName)? changeName,
+    TResult? Function(ChangePhoneNumber changePhone)? changePhone,
+    TResult? Function(ChangePassword changePassword)? changePassword,
+  }) {
+    return setDefault?.call(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
+    TResult Function()? getAddress,
+    TResult Function(AddAddressModel addAddressModel)? addAddress,
+    TResult Function(ChangeEmail changeEmail)? changeEmail,
+    TResult Function(ChangeName changeName)? changeName,
+    TResult Function(ChangePhoneNumber changePhone)? changePhone,
+    TResult Function(ChangePassword changePassword)? changePassword,
+    required TResult orElse(),
+  }) {
+    if (setDefault != null) {
+      return setDefault(address);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
+    required TResult Function(_GetAddress value) getAddress,
+    required TResult Function(_AddAddress value) addAddress,
+    required TResult Function(_ChangeEmail value) changeEmail,
+    required TResult Function(_ChangeName value) changeName,
+    required TResult Function(_ChangePhone value) changePhone,
+    required TResult Function(_ChangePassword value) changePassword,
+  }) {
+    return setDefault(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
+    TResult? Function(_GetAddress value)? getAddress,
+    TResult? Function(_AddAddress value)? addAddress,
+    TResult? Function(_ChangeEmail value)? changeEmail,
+    TResult? Function(_ChangeName value)? changeName,
+    TResult? Function(_ChangePhone value)? changePhone,
+    TResult? Function(_ChangePassword value)? changePassword,
+  }) {
+    return setDefault?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
+    TResult Function(_GetAddress value)? getAddress,
+    TResult Function(_AddAddress value)? addAddress,
+    TResult Function(_ChangeEmail value)? changeEmail,
+    TResult Function(_ChangeName value)? changeName,
+    TResult Function(_ChangePhone value)? changePhone,
+    TResult Function(_ChangePassword value)? changePassword,
+    required TResult orElse(),
+  }) {
+    if (setDefault != null) {
+      return setDefault(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetDefault implements UserEvent {
+  const factory _SetDefault({required final Address address}) = _$_SetDefault;
+
+  Address get address;
+  @JsonKey(ignore: true)
+  _$$_SetDefaultCopyWith<_$_SetDefault> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -274,6 +617,8 @@ class _$_GetAddress implements _GetAddress {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
     required TResult Function() getAddress,
     required TResult Function(AddAddressModel addAddressModel) addAddress,
     required TResult Function(ChangeEmail changeEmail) changeEmail,
@@ -288,6 +633,8 @@ class _$_GetAddress implements _GetAddress {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
     TResult? Function()? getAddress,
     TResult? Function(AddAddressModel addAddressModel)? addAddress,
     TResult? Function(ChangeEmail changeEmail)? changeEmail,
@@ -302,6 +649,8 @@ class _$_GetAddress implements _GetAddress {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
     TResult Function()? getAddress,
     TResult Function(AddAddressModel addAddressModel)? addAddress,
     TResult Function(ChangeEmail changeEmail)? changeEmail,
@@ -320,6 +669,8 @@ class _$_GetAddress implements _GetAddress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_AddAddress value) addAddress,
     required TResult Function(_ChangeEmail value) changeEmail,
@@ -334,6 +685,8 @@ class _$_GetAddress implements _GetAddress {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_AddAddress value)? addAddress,
     TResult? Function(_ChangeEmail value)? changeEmail,
@@ -348,6 +701,8 @@ class _$_GetAddress implements _GetAddress {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_AddAddress value)? addAddress,
     TResult Function(_ChangeEmail value)? changeEmail,
@@ -433,6 +788,8 @@ class _$_AddAddress implements _AddAddress {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
     required TResult Function() getAddress,
     required TResult Function(AddAddressModel addAddressModel) addAddress,
     required TResult Function(ChangeEmail changeEmail) changeEmail,
@@ -447,6 +804,8 @@ class _$_AddAddress implements _AddAddress {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
     TResult? Function()? getAddress,
     TResult? Function(AddAddressModel addAddressModel)? addAddress,
     TResult? Function(ChangeEmail changeEmail)? changeEmail,
@@ -461,6 +820,8 @@ class _$_AddAddress implements _AddAddress {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
     TResult Function()? getAddress,
     TResult Function(AddAddressModel addAddressModel)? addAddress,
     TResult Function(ChangeEmail changeEmail)? changeEmail,
@@ -479,6 +840,8 @@ class _$_AddAddress implements _AddAddress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_AddAddress value) addAddress,
     required TResult Function(_ChangeEmail value) changeEmail,
@@ -493,6 +856,8 @@ class _$_AddAddress implements _AddAddress {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_AddAddress value)? addAddress,
     TResult? Function(_ChangeEmail value)? changeEmail,
@@ -507,6 +872,8 @@ class _$_AddAddress implements _AddAddress {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_AddAddress value)? addAddress,
     TResult Function(_ChangeEmail value)? changeEmail,
@@ -598,6 +965,8 @@ class _$_ChangeEmail implements _ChangeEmail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
     required TResult Function() getAddress,
     required TResult Function(AddAddressModel addAddressModel) addAddress,
     required TResult Function(ChangeEmail changeEmail) changeEmail,
@@ -612,6 +981,8 @@ class _$_ChangeEmail implements _ChangeEmail {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
     TResult? Function()? getAddress,
     TResult? Function(AddAddressModel addAddressModel)? addAddress,
     TResult? Function(ChangeEmail changeEmail)? changeEmail,
@@ -626,6 +997,8 @@ class _$_ChangeEmail implements _ChangeEmail {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
     TResult Function()? getAddress,
     TResult Function(AddAddressModel addAddressModel)? addAddress,
     TResult Function(ChangeEmail changeEmail)? changeEmail,
@@ -644,6 +1017,8 @@ class _$_ChangeEmail implements _ChangeEmail {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_AddAddress value) addAddress,
     required TResult Function(_ChangeEmail value) changeEmail,
@@ -658,6 +1033,8 @@ class _$_ChangeEmail implements _ChangeEmail {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_AddAddress value)? addAddress,
     TResult? Function(_ChangeEmail value)? changeEmail,
@@ -672,6 +1049,8 @@ class _$_ChangeEmail implements _ChangeEmail {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_AddAddress value)? addAddress,
     TResult Function(_ChangeEmail value)? changeEmail,
@@ -763,6 +1142,8 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
     required TResult Function() getAddress,
     required TResult Function(AddAddressModel addAddressModel) addAddress,
     required TResult Function(ChangeEmail changeEmail) changeEmail,
@@ -777,6 +1158,8 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
     TResult? Function()? getAddress,
     TResult? Function(AddAddressModel addAddressModel)? addAddress,
     TResult? Function(ChangeEmail changeEmail)? changeEmail,
@@ -791,6 +1174,8 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
     TResult Function()? getAddress,
     TResult Function(AddAddressModel addAddressModel)? addAddress,
     TResult Function(ChangeEmail changeEmail)? changeEmail,
@@ -809,6 +1194,8 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_AddAddress value) addAddress,
     required TResult Function(_ChangeEmail value) changeEmail,
@@ -823,6 +1210,8 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_AddAddress value)? addAddress,
     TResult? Function(_ChangeEmail value)? changeEmail,
@@ -837,6 +1226,8 @@ class _$_ChangeName implements _ChangeName {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_AddAddress value)? addAddress,
     TResult Function(_ChangeEmail value)? changeEmail,
@@ -927,6 +1318,8 @@ class _$_ChangePhone implements _ChangePhone {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
     required TResult Function() getAddress,
     required TResult Function(AddAddressModel addAddressModel) addAddress,
     required TResult Function(ChangeEmail changeEmail) changeEmail,
@@ -941,6 +1334,8 @@ class _$_ChangePhone implements _ChangePhone {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
     TResult? Function()? getAddress,
     TResult? Function(AddAddressModel addAddressModel)? addAddress,
     TResult? Function(ChangeEmail changeEmail)? changeEmail,
@@ -955,6 +1350,8 @@ class _$_ChangePhone implements _ChangePhone {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
     TResult Function()? getAddress,
     TResult Function(AddAddressModel addAddressModel)? addAddress,
     TResult Function(ChangeEmail changeEmail)? changeEmail,
@@ -973,6 +1370,8 @@ class _$_ChangePhone implements _ChangePhone {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_AddAddress value) addAddress,
     required TResult Function(_ChangeEmail value) changeEmail,
@@ -987,6 +1386,8 @@ class _$_ChangePhone implements _ChangePhone {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_AddAddress value)? addAddress,
     TResult? Function(_ChangeEmail value)? changeEmail,
@@ -1001,6 +1402,8 @@ class _$_ChangePhone implements _ChangePhone {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_AddAddress value)? addAddress,
     TResult Function(_ChangeEmail value)? changeEmail,
@@ -1092,6 +1495,8 @@ class _$_ChangePassword implements _ChangePassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getDetails,
+    required TResult Function() showList,
+    required TResult Function(Address address) setDefault,
     required TResult Function() getAddress,
     required TResult Function(AddAddressModel addAddressModel) addAddress,
     required TResult Function(ChangeEmail changeEmail) changeEmail,
@@ -1106,6 +1511,8 @@ class _$_ChangePassword implements _ChangePassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDetails,
+    TResult? Function()? showList,
+    TResult? Function(Address address)? setDefault,
     TResult? Function()? getAddress,
     TResult? Function(AddAddressModel addAddressModel)? addAddress,
     TResult? Function(ChangeEmail changeEmail)? changeEmail,
@@ -1120,6 +1527,8 @@ class _$_ChangePassword implements _ChangePassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDetails,
+    TResult Function()? showList,
+    TResult Function(Address address)? setDefault,
     TResult Function()? getAddress,
     TResult Function(AddAddressModel addAddressModel)? addAddress,
     TResult Function(ChangeEmail changeEmail)? changeEmail,
@@ -1138,6 +1547,8 @@ class _$_ChangePassword implements _ChangePassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetDetails value) getDetails,
+    required TResult Function(_ShowList value) showList,
+    required TResult Function(_SetDefault value) setDefault,
     required TResult Function(_GetAddress value) getAddress,
     required TResult Function(_AddAddress value) addAddress,
     required TResult Function(_ChangeEmail value) changeEmail,
@@ -1152,6 +1563,8 @@ class _$_ChangePassword implements _ChangePassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDetails value)? getDetails,
+    TResult? Function(_ShowList value)? showList,
+    TResult? Function(_SetDefault value)? setDefault,
     TResult? Function(_GetAddress value)? getAddress,
     TResult? Function(_AddAddress value)? addAddress,
     TResult? Function(_ChangeEmail value)? changeEmail,
@@ -1166,6 +1579,8 @@ class _$_ChangePassword implements _ChangePassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDetails value)? getDetails,
+    TResult Function(_ShowList value)? showList,
+    TResult Function(_SetDefault value)? setDefault,
     TResult Function(_GetAddress value)? getAddress,
     TResult Function(_AddAddress value)? addAddress,
     TResult Function(_ChangeEmail value)? changeEmail,
@@ -1197,6 +1612,7 @@ mixin _$UserState {
   bool get hasError => throw _privateConstructorUsedError;
   bool get isDone => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
+  bool get showList => throw _privateConstructorUsedError;
   UserDetail? get userDetail => throw _privateConstructorUsedError;
   List<Address?>? get address => throw _privateConstructorUsedError;
 
@@ -1215,6 +1631,7 @@ abstract class $UserStateCopyWith<$Res> {
       bool hasError,
       bool isDone,
       String? message,
+      bool showList,
       UserDetail? userDetail,
       List<Address?>? address});
 }
@@ -1236,6 +1653,7 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     Object? hasError = null,
     Object? isDone = null,
     Object? message = freezed,
+    Object? showList = null,
     Object? userDetail = freezed,
     Object? address = freezed,
   }) {
@@ -1256,6 +1674,10 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      showList: null == showList
+          ? _value.showList
+          : showList // ignore: cast_nullable_to_non_nullable
+              as bool,
       userDetail: freezed == userDetail
           ? _value.userDetail
           : userDetail // ignore: cast_nullable_to_non_nullable
@@ -1280,6 +1702,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $UserStateCopyWith<$Res> {
       bool hasError,
       bool isDone,
       String? message,
+      bool showList,
       UserDetail? userDetail,
       List<Address?>? address});
 }
@@ -1298,6 +1721,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? hasError = null,
     Object? isDone = null,
     Object? message = freezed,
+    Object? showList = null,
     Object? userDetail = freezed,
     Object? address = freezed,
   }) {
@@ -1318,6 +1742,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      showList: null == showList
+          ? _value.showList
+          : showList // ignore: cast_nullable_to_non_nullable
+              as bool,
       userDetail: freezed == userDetail
           ? _value.userDetail
           : userDetail // ignore: cast_nullable_to_non_nullable
@@ -1338,6 +1766,7 @@ class _$_Initial implements _Initial {
       required this.hasError,
       required this.isDone,
       this.message,
+      required this.showList,
       this.userDetail,
       final List<Address?>? address})
       : _address = address;
@@ -1350,6 +1779,8 @@ class _$_Initial implements _Initial {
   final bool isDone;
   @override
   final String? message;
+  @override
+  final bool showList;
   @override
   final UserDetail? userDetail;
   final List<Address?>? _address;
@@ -1364,7 +1795,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'UserState(isLoading: $isLoading, hasError: $hasError, isDone: $isDone, message: $message, userDetail: $userDetail, address: $address)';
+    return 'UserState(isLoading: $isLoading, hasError: $hasError, isDone: $isDone, message: $message, showList: $showList, userDetail: $userDetail, address: $address)';
   }
 
   @override
@@ -1378,14 +1809,23 @@ class _$_Initial implements _Initial {
                 other.hasError == hasError) &&
             (identical(other.isDone, isDone) || other.isDone == isDone) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.showList, showList) ||
+                other.showList == showList) &&
             (identical(other.userDetail, userDetail) ||
                 other.userDetail == userDetail) &&
             const DeepCollectionEquality().equals(other._address, _address));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, hasError, isDone,
-      message, userDetail, const DeepCollectionEquality().hash(_address));
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      hasError,
+      isDone,
+      message,
+      showList,
+      userDetail,
+      const DeepCollectionEquality().hash(_address));
 
   @JsonKey(ignore: true)
   @override
@@ -1400,6 +1840,7 @@ abstract class _Initial implements UserState {
       required final bool hasError,
       required final bool isDone,
       final String? message,
+      required final bool showList,
       final UserDetail? userDetail,
       final List<Address?>? address}) = _$_Initial;
 
@@ -1411,6 +1852,8 @@ abstract class _Initial implements UserState {
   bool get isDone;
   @override
   String? get message;
+  @override
+  bool get showList;
   @override
   UserDetail? get userDetail;
   @override
