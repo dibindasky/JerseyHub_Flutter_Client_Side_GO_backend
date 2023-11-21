@@ -4,7 +4,8 @@ import 'package:jerseyhub/application/business_logic/cart/cart_bloc.dart';
 import 'package:jerseyhub/application/business_logic/order/order_bloc.dart';
 import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
 import 'package:jerseyhub/application/presentation/routes/routes.dart';
-import 'package:jerseyhub/application/presentation/screens/address/widget/address_list.dart';
+import 'package:jerseyhub/application/presentation/screens/checkout/widgets/checkout_address_tile.dart';
+import 'package:jerseyhub/application/presentation/screens/checkout/widgets/choose_payment_method.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
@@ -114,7 +115,7 @@ class ScreenCheckout extends StatelessWidget {
         child: BlocBuilder<OrderBloc, OrderState>(
           builder: (context, state) {
             return ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 if (context.read<UserBloc>().defaultAddress == null) {
                   showSnack(
                       context: context, message: 'Add address and try again');
@@ -123,6 +124,13 @@ class ScreenCheckout extends StatelessWidget {
                   showSnack(
                       context: context, message: 'Choose a payment option');
                   return;
+                } else if (state.selectedPaymentmethod == 5) {
+                  context.read<OrderBloc>().add(OrderEvent.callRazorpay(
+                      placeOrderModel: PlaceOrderModel(
+                          addressId:
+                              context.read<UserBloc>().defaultAddress!.id!,
+                          couponId: context.read<CartBloc>().usedCouponId,
+                          paymentId: state.selectedPaymentmethod)));
                 } else {
                   context.read<OrderBloc>().add(OrderEvent.placeOrder(
                       placeOrderModel: PlaceOrderModel(
@@ -138,133 +146,6 @@ class ScreenCheckout extends StatelessWidget {
           },
         ),
       ),
-    );
-  }
-}
-
-class ChoosePaymentMethod extends StatelessWidget {
-  const ChoosePaymentMethod({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Divider(),
-        const Text(
-          'Payment method',
-          style: headStyle,
-        ),
-        BlocBuilder<OrderBloc, OrderState>(
-          builder: (context, state) {
-            if (state.isLoading) {
-              return const LoadingAnimation(width: 0.20);
-            }
-            if (state.getCheckoutResponseModel == null ||
-                state.getCheckoutResponseModel!.data == null ||
-                state.getCheckoutResponseModel!.data!.paymentMethods == null ||
-                state.getCheckoutResponseModel!.data!.paymentMethods!.isEmpty) {
-              return const Text('network error');
-            }
-            final methods =
-                state.getCheckoutResponseModel!.data!.paymentMethods;
-            return Wrap(
-              children: List.generate(
-                methods!.length,
-                (int index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: ChoiceChip(
-                      padding: const EdgeInsets.all(8),
-                      label: Text(methods[index].paymentName!),
-                      selectedColor: kGreen,
-                      selected: methods[index].id != null &&
-                          state.selectedPaymentmethod == methods[index].id,
-                      onSelected: (bool selected) {
-                        context.read<OrderBloc>().add(
-                            OrderEvent.setPaymnetMethod(
-                                paymentMethodId: methods[index].id!));
-                      },
-                    ),
-                  );
-                },
-              ).toList(),
-            );
-          },
-        ),
-      ],
-    );
-  }
-}
-
-class CheckOutAddressTile extends StatelessWidget {
-  const CheckOutAddressTile({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
-      builder: (context, state) {
-        final defaultAddress = context.read<UserBloc>().defaultAddress;
-        return Column(
-          children: [
-            SizedBox(
-              width: sWidth,
-              child: Card(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      defaultAddress == null
-                          ? kHeight50
-                          : Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  'Address',
-                                  style: TextStyle(fontWeight: FontWeight.w700),
-                                ),
-                                kHeight5,
-                                Text(
-                                    '${defaultAddress.name}\n${defaultAddress.houseName},\n${defaultAddress.street},\n${defaultAddress.city},\n${defaultAddress.state} \npin: ${defaultAddress.pin}'),
-                              ],
-                            ),
-                      const Spacer(),
-                      Column(
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                Navigator.pushNamed(
-                                    context, Routes.addressScreen);
-                              },
-                              icon: const Icon(Icons.add)),
-                          IconButton(
-                              onPressed: () {
-                                context
-                                    .read<UserBloc>()
-                                    .add(const UserEvent.showList());
-                              },
-                              icon: const Icon(
-                                  Icons.arrow_drop_down_circle_sharp)),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Visibility(
-              visible: state.showList,
-              child: const AddressList(fromCheckout: true),
-            )
-          ],
-        );
-      },
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:jerseyhub/application/business_logic/inventory/inventory_bloc.da
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 import 'package:jerseyhub/application/presentation/widgets/inventory_tile.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../widgets/custom_search_field.dart';
 
@@ -56,10 +57,9 @@ class _ScreenSearchState extends State<ScreenSearch> {
           BlocBuilder<InventoryBloc, InventoryState>(
             builder: (context, state) {
               if (state.inventories == null ||
-                  state.inventories == null ||
                   state.inventories!.isEmpty) {
-                return const Center(
-                  child: Text('No data available'),
+                return Center(
+                  child:  Lottie.asset('assets/animation/empty.json'),
                 );
               }
               return GridView.builder(

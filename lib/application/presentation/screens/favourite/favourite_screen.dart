@@ -7,6 +7,7 @@ import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 import 'package:jerseyhub/application/presentation/utils/snack_show/show_snack.dart';
+import 'package:lottie/lottie.dart';
 
 class ScreenFavourite extends StatelessWidget {
   const ScreenFavourite({super.key});
@@ -62,7 +63,7 @@ class FavGridView extends StatelessWidget {
           } else if (state.getWishlistResponseModel != null) {
             if (state.getWishlistResponseModel!.data == null ||
                 state.getWishlistResponseModel!.data!.isEmpty) {
-              return const Text('Nothing to show in WishList');
+              return Center(child: Lottie.asset('assets/animation/empty_fav.json'),);
             }
             return GridView.builder(
               shrinkWrap: true,

@@ -22,8 +22,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final TextEditingController changePhoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController houseController = TextEditingController();
   final TextEditingController streetController = TextEditingController();
@@ -55,12 +54,17 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           tokenModel: tokenModel, idQurrey: IdQurrey(id: tokenModel.userId));
       result.fold(
           (failure) => emit(state.copyWith(
-              isLoading: false, hasError: true, message: 'refresh your page')),
-          (getAddressResponsModel) {
-            defaultAddress = getAddressResponsModel.data != null && getAddressResponsModel.data!.isNotEmpty ? getAddressResponsModel.data!.firstWhere((element)=>element.addressDefault!):null;
-            emit(state.copyWith(
-              isLoading: false, address: getAddressResponsModel.data));
-          });
+              isLoading: false,
+              hasError: true,
+              message: 'refresh your page')), (getAddressResponsModel) {
+        defaultAddress = getAddressResponsModel.data != null &&
+                getAddressResponsModel.data!.isNotEmpty
+            ? getAddressResponsModel.data!
+                .firstWhere((element) => element.addressDefault!)
+            : null;
+        emit(state.copyWith(
+            isLoading: false, address: getAddressResponsModel.data));
+      });
     });
     on<_AddAddress>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
@@ -100,6 +104,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
               isLoading: false,
               hasError: true,
               message: 'Email not updated, try again')), (success) {
+        changeEmailController.clear();
         emit(state.copyWith(
             isLoading: false,
             isDone: true,
@@ -119,6 +124,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
               isLoading: false,
               hasError: true,
               message: 'Phone Number not updated, try again')), (success) {
+        changePhoneController.clear();
         emit(state.copyWith(
             isDone: true, message: 'Phone Number updated successfully'));
         add(const _GetDetails());
@@ -136,6 +142,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
               isLoading: false,
               hasError: true,
               message: 'Name not updated, try again')), (success) {
+        changeNameController.clear();
         emit(
             state.copyWith(isDone: true, message: 'Name updated successfully'));
         add(const _GetDetails());
@@ -158,7 +165,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
               isDone: true,
               message: 'Password updated successfully')));
     });
-    on<_ShowList>((event, emit) => emit(state.copyWith(showList: !state.showList)));
+    on<_ShowList>(
+        (event, emit) => emit(state.copyWith(showList: !state.showList)));
     on<_SetDefault>((event, emit) {
       defaultAddress = event.address;
       emit(state.copyWith(showList: !state.showList));

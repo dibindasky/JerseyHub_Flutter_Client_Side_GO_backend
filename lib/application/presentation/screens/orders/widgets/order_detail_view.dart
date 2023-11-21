@@ -6,6 +6,7 @@ import 'package:jerseyhub/application/presentation/screens/orders/widgets/order_
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
+import 'package:jerseyhub/application/presentation/utils/snack_show/show_snack.dart';
 
 class OrderDetailViews extends StatelessWidget {
   const OrderDetailViews({
@@ -26,7 +27,15 @@ class OrderDetailViews extends StatelessWidget {
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25),
-          child: BlocBuilder<OrderBloc, OrderState>(
+          child: BlocConsumer<OrderBloc, OrderState>(
+            listener: (context, state) {
+              if (state.hasError || state.isDone) {
+                showSnack(
+                    context: context,
+                    message: state.message!,
+                    color: state.hasError ? kRed : kGreen);
+              }
+            },
             builder: (context, state) {
               if (state.getOrderDetailsResponseModel != null) {
                 final data = state.getOrderDetailsResponseModel!.data;
@@ -69,13 +78,12 @@ class OrderDetailViews extends StatelessWidget {
                       TextButton(
                           onPressed: () {
                             data.orderStatus! == 'PENDING'
-                                ? context
-                                    .read<OrderBloc>()
-                                    .add(const OrderEvent.cancelOrder())
+                                ? context.read<OrderBloc>().add(
+                                    OrderEvent.cancelOrder(orderId: orderId))
                                 : data.orderStatus! == "DELIVERED"
-                                    ? context
-                                        .read<OrderBloc>()
-                                        .add(const OrderEvent.returnOrder())
+                                    ? context.read<OrderBloc>().add(
+                                        OrderEvent.returnOrder(
+                                            orderId: orderId))
                                     : '';
                           },
                           child: Text(

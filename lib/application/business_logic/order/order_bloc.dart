@@ -48,8 +48,38 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             getOrderDetailsResponseModel: getOrderDetailResponseModel));
       });
     });
-    on<_CancelOrder>((event, emit) async {});
-    on<_ReturnOrder>((event, emit) async {});
+    on<_CancelOrder>((event, emit) async {
+      emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
+      final tokenModel = await SharedPref.getToken();
+      final result = await orderRepository.cancelOrder(
+          tokenModel: tokenModel, idQurrey: IdQurrey(id: event.orderId));
+      result.fold(
+          (failute) => emit(state.copyWith(
+              isLoading: false,
+              hasError: true,
+              message: 'order not canceled')), (success) {
+        emit(state.copyWith(
+            isLoading: false, isDone: true, message: 'order canceled'));
+        add(OrderEvent.getOrderDetail(orderId: event.orderId));
+        add(const OrderEvent.getOrders());
+      });
+    });
+    on<_ReturnOrder>((event, emit) async {
+      emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
+      final tokenModel = await SharedPref.getToken();
+      final result = await orderRepository.returnOrder(
+          tokenModel: tokenModel, idQurrey: IdQurrey(id: event.orderId));
+      result.fold(
+          (failute) => emit(state.copyWith(
+              isLoading: false,
+              hasError: true,
+              message: 'order not returned')), (success) {
+        emit(state.copyWith(
+            isLoading: false, isDone: true, message: 'order returned'));
+        add(OrderEvent.getOrderDetail(orderId: event.orderId));
+        add(const OrderEvent.getOrders());
+      });
+    });
     on<_PlaceOrder>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();

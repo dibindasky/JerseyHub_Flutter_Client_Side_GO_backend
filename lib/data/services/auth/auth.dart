@@ -56,6 +56,7 @@ class AuthApi implements AuthRepository {
       }
     } on DioException catch (dioError) {
       print('dio error => ${dioError.message}');
+      print('dio error => ${dioError.error.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     } catch (e) {
       log('dio error => ${e.toString()}');

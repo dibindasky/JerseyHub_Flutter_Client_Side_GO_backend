@@ -90,4 +90,42 @@ class OrderApi implements OrderRepository {
       return Left(Failure.serverFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, SuccessResponseModel>> cancelOrder(
+      {required TokenModel tokenModel, required IdQurrey idQurrey}) async{
+    try {
+      _dio.options.headers['Authorization'] = tokenModel.accessToken;
+      final response = await _dio.delete(
+          ApiEndPoints.cancelOrder,queryParameters: idQurrey.toJson());
+      if (response.statusCode == 200) {
+        return Right(SuccessResponseModel.fromJson(response.data));
+      } else if (response.statusCode == 500) {
+        return Left(Failure.serverFailure());
+      } else {
+        return Left(Failure.clientFailure());
+      }
+    } catch (e) {
+      return Left(Failure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, SuccessResponseModel>> returnOrder(
+      {required TokenModel tokenModel, required IdQurrey idQurrey}) async{
+    try {
+      _dio.options.headers['Authorization'] = tokenModel.accessToken;
+      final response = await _dio.put(
+          ApiEndPoints.returnOrder,queryParameters: idQurrey.toJson());
+      if (response.statusCode == 200) {
+        return Right(SuccessResponseModel.fromJson(response.data));
+      } else if (response.statusCode == 500) {
+        return Left(Failure.serverFailure());
+      } else {
+        return Left(Failure.clientFailure());
+      }
+    } catch (e) {
+      return Left(Failure.serverFailure());
+    }
+  }
 }
