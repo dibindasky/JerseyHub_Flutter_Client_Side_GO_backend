@@ -48,10 +48,10 @@ class OrderDetailItemTile extends StatelessWidget {
             Text('Quantity - ${product.quantity}'),
             Row(
               children: [
-                Text('Amount : '),
+                const Text('Amount : '),
                 Text(
                   '₹ ${product.amount}',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                 )
               ],
             ),

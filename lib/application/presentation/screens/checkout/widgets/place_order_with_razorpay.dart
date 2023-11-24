@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -96,7 +98,6 @@ class _PlaceOrderWithRazorpayState extends State<PlaceOrderWithRazorpay> {
   }
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
-    print('payment success');
     Fluttertoast.showToast(
         msg: "Payment Success : ${response.paymentId}",
         toastLength: Toast.LENGTH_SHORT,
@@ -112,7 +113,6 @@ class _PlaceOrderWithRazorpayState extends State<PlaceOrderWithRazorpay> {
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
-    print('payment failed');
     Fluttertoast.showToast(
         msg: "Payment  Failed Tryagain",
         toastLength: Toast.LENGTH_SHORT,
@@ -123,7 +123,6 @@ class _PlaceOrderWithRazorpayState extends State<PlaceOrderWithRazorpay> {
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
-    // Do something when an external wallet is selected
-    print('external handler');
+    log('external handler');
   }
 }

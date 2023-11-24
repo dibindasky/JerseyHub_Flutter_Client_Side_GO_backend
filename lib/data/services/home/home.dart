@@ -16,7 +16,6 @@ class HomeApi implements HomeRepository {
     try {
       _dio.options.headers['Authorization'] = tokenModel.accessToken;
       final response = await _dio.get(ApiEndPoints.banner);
-      print(' response => ${response.statusCode}');
       if (response.statusCode == 200) {
         return Right(GetBannerResponseModel.fromJson(response.data));
       } else if (response.statusCode == 401) {

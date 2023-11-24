@@ -44,7 +44,6 @@ class AuthApi implements AuthRepository {
   @override
   Future<Either<ErrorMsg, SignInResponseModel>> signIn(
       {required SignInModel signInModel}) async {
-    print(signInModel.toJson().toString());
     try {
       final response =
           await dio.post(ApiEndPoints.login, data: signInModel.toJson());
@@ -55,8 +54,7 @@ class AuthApi implements AuthRepository {
             message: SignInResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
-      print('dio error => ${dioError.message}');
-      print('dio error => ${dioError.error.toString()}');
+      dioError;
       return Left(ErrorMsg(message: errorMsg));
     } catch (e) {
       log('dio error => ${e.toString()}');
