@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jerseyhub/application/business_logic/cart/cart_bloc.dart';
 import 'package:jerseyhub/application/business_logic/order/order_bloc.dart';
 import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
 import 'package:jerseyhub/application/presentation/routes/routes.dart';
 import 'package:jerseyhub/application/presentation/screens/checkout/widgets/checkout_address_tile.dart';
 import 'package:jerseyhub/application/presentation/screens/checkout/widgets/choose_payment_method.dart';
+import 'package:jerseyhub/application/presentation/screens/checkout/widgets/place_order_with_razorpay.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 import 'package:jerseyhub/application/presentation/utils/snack_show/show_snack.dart';
 import 'package:jerseyhub/application/presentation/widgets/appbar.dart';
-import 'package:jerseyhub/domain/models/order/place_order_model/place_order_model.dart';
 
 class ScreenCheckout extends StatelessWidget {
   const ScreenCheckout({super.key});
@@ -110,42 +109,7 @@ class ScreenCheckout extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<OrderBloc, OrderState>(
-          builder: (context, state) {
-            return ElevatedButton(
-              onPressed: () async {
-                if (context.read<UserBloc>().defaultAddress == null) {
-                  showSnack(
-                      context: context, message: 'Add address and try again');
-                  return;
-                } else if (state.selectedPaymentmethod == null) {
-                  showSnack(
-                      context: context, message: 'Choose a payment option');
-                  return;
-                } else if (state.selectedPaymentmethod == 5) {
-                  context.read<OrderBloc>().add(OrderEvent.callRazorpay(
-                      placeOrderModel: PlaceOrderModel(
-                          addressId:
-                              context.read<UserBloc>().defaultAddress!.id!,
-                          couponId: context.read<CartBloc>().usedCouponId,
-                          paymentId: state.selectedPaymentmethod)));
-                } else {
-                  context.read<OrderBloc>().add(OrderEvent.placeOrder(
-                      placeOrderModel: PlaceOrderModel(
-                          addressId:
-                              context.read<UserBloc>().defaultAddress!.id!,
-                          couponId: context.read<CartBloc>().usedCouponId,
-                          paymentId: state.selectedPaymentmethod)));
-                }
-              },
-              style: elevatedButtonStyleBlack,
-              child: const Text('Place oreder'),
-            );
-          },
-        ),
-      ),
+      bottomNavigationBar: const PlaceOrderWithRazorpay(),
     );
   }
 }

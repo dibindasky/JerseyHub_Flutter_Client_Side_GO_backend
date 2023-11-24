@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
 import 'package:jerseyhub/domain/models/order/get_checkout_response_model/get_checkout_response_model.dart';
+import 'package:jerseyhub/domain/models/order/get_checkout_response_model/payment_method.dart';
 import 'package:jerseyhub/domain/models/order/get_order_details_response_model/get_order_details_response_model.dart';
 import 'package:jerseyhub/domain/models/order/get_order_response_model/get_order_response_model.dart';
 import 'package:jerseyhub/domain/models/order/place_order_model/place_order_model.dart';
@@ -15,6 +16,7 @@ part 'order_bloc.freezed.dart';
 
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final OrderRepository orderRepository;
+  Address? address;
 
   OrderBloc(this.orderRepository) : super(OrderState.initial()) {
     on<_GetOrders>((event, emit) async {
@@ -43,6 +45,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             hasError: true,
             message: 'something went wrong please try agiain'));
       }, (getOrderDetailResponseModel) {
+        // address = getOrderDetailResponseModel.data!.address;
         emit(state.copyWith(
             isLoading: false,
             getOrderDetailsResponseModel: getOrderDetailResponseModel));
@@ -110,11 +113,12 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             getCheckoutResponseModel: getCheckoutResponseModel));
       });
     });
+    on<_CallRazorpay>((event, emit) {});
     on<_SetAddress>((event, emit) {
       emit(state.copyWith(selectedAddress: event.address));
     });
     on<_SetPaymnetMethod>((event, emit) {
-      emit(state.copyWith(selectedPaymentmethod: event.paymentMethodId));
+      emit(state.copyWith(selectedPaymentmethod: event.paymentMethod));
     });
   }
 }

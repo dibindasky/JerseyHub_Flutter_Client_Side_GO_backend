@@ -43,11 +43,11 @@ class ChoosePaymentMethod extends StatelessWidget {
                       label: Text(methods[index].paymentName!),
                       selectedColor: kGreen,
                       selected: methods[index].id != null &&
-                          state.selectedPaymentmethod == methods[index].id,
+                          state.selectedPaymentmethod == methods[index],
                       onSelected: (bool selected) {
                         context.read<OrderBloc>().add(
                             OrderEvent.setPaymnetMethod(
-                                paymentMethodId: methods[index].id!));
+                                paymentMethod: methods[index]));
                       },
                     ),
                   );

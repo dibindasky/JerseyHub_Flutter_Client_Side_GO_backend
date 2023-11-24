@@ -60,7 +60,7 @@ class CartItemsList extends StatelessWidget {
                   ),
                 );
               } else {
-                return const Text('Your cart is empty3');
+                return const Text('Your cart is empty');
               }
             },
           ),

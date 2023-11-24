@@ -42,9 +42,9 @@ class OrderDetailViews extends StatelessWidget {
                 return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const OrderTraker(),
+                      OrderTraker(status: data!.orderStatus!),
                       const Divider(),
-                      data!.products != null || data.products!.isNotEmpty
+                      data.products != null || data.products!.isNotEmpty
                           ? ListView.separated(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),

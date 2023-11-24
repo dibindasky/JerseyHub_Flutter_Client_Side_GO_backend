@@ -23,9 +23,10 @@ mixin _$OrderEvent {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,9 +37,10 @@ mixin _$OrderEvent {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,9 +51,9 @@ mixin _$OrderEvent {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) =>
@@ -159,9 +161,10 @@ class _$_GetOrders implements _GetOrders {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
     return getOrders();
@@ -175,9 +178,10 @@ class _$_GetOrders implements _GetOrders {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
     return getOrders?.call();
@@ -191,9 +195,9 @@ class _$_GetOrders implements _GetOrders {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
@@ -329,9 +333,10 @@ class _$_GetOrderDetail implements _GetOrderDetail {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
     return getOrderDetail(orderId);
@@ -345,9 +350,10 @@ class _$_GetOrderDetail implements _GetOrderDetail {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
     return getOrderDetail?.call(orderId);
@@ -361,9 +367,9 @@ class _$_GetOrderDetail implements _GetOrderDetail {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
@@ -505,9 +511,10 @@ class _$_CancelOrder implements _CancelOrder {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
     return cancelOrder(orderId);
@@ -521,9 +528,10 @@ class _$_CancelOrder implements _CancelOrder {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
     return cancelOrder?.call(orderId);
@@ -537,9 +545,9 @@ class _$_CancelOrder implements _CancelOrder {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
@@ -680,9 +688,10 @@ class _$_ReturnOrder implements _ReturnOrder {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
     return returnOrder(orderId);
@@ -696,9 +705,10 @@ class _$_ReturnOrder implements _ReturnOrder {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
     return returnOrder?.call(orderId);
@@ -712,9 +722,9 @@ class _$_ReturnOrder implements _ReturnOrder {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
@@ -829,9 +839,10 @@ class _$_GetCheckout implements _GetCheckout {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
     return getCheckout();
@@ -845,9 +856,10 @@ class _$_GetCheckout implements _GetCheckout {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
     return getCheckout?.call();
@@ -861,9 +873,9 @@ class _$_GetCheckout implements _GetCheckout {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
@@ -936,7 +948,7 @@ abstract class _$$_CallRazorpayCopyWith<$Res> {
           _$_CallRazorpay value, $Res Function(_$_CallRazorpay) then) =
       __$$_CallRazorpayCopyWithImpl<$Res>;
   @useResult
-  $Res call({PlaceOrderModel placeOrderModel});
+  $Res call({PlaceOrderModel placeOrderModel, int amount});
 }
 
 /// @nodoc
@@ -951,12 +963,17 @@ class __$$_CallRazorpayCopyWithImpl<$Res>
   @override
   $Res call({
     Object? placeOrderModel = null,
+    Object? amount = null,
   }) {
     return _then(_$_CallRazorpay(
       placeOrderModel: null == placeOrderModel
           ? _value.placeOrderModel
           : placeOrderModel // ignore: cast_nullable_to_non_nullable
               as PlaceOrderModel,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -964,14 +981,16 @@ class __$$_CallRazorpayCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CallRazorpay implements _CallRazorpay {
-  const _$_CallRazorpay({required this.placeOrderModel});
+  const _$_CallRazorpay({required this.placeOrderModel, required this.amount});
 
   @override
   final PlaceOrderModel placeOrderModel;
+  @override
+  final int amount;
 
   @override
   String toString() {
-    return 'OrderEvent.callRazorpay(placeOrderModel: $placeOrderModel)';
+    return 'OrderEvent.callRazorpay(placeOrderModel: $placeOrderModel, amount: $amount)';
   }
 
   @override
@@ -980,11 +999,12 @@ class _$_CallRazorpay implements _CallRazorpay {
         (other.runtimeType == runtimeType &&
             other is _$_CallRazorpay &&
             (identical(other.placeOrderModel, placeOrderModel) ||
-                other.placeOrderModel == placeOrderModel));
+                other.placeOrderModel == placeOrderModel) &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, placeOrderModel);
+  int get hashCode => Object.hash(runtimeType, placeOrderModel, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -1000,12 +1020,13 @@ class _$_CallRazorpay implements _CallRazorpay {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
-    return callRazorpay(placeOrderModel);
+    return callRazorpay(placeOrderModel, amount);
   }
 
   @override
@@ -1016,12 +1037,13 @@ class _$_CallRazorpay implements _CallRazorpay {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
-    return callRazorpay?.call(placeOrderModel);
+    return callRazorpay?.call(placeOrderModel, amount);
   }
 
   @override
@@ -1032,14 +1054,14 @@ class _$_CallRazorpay implements _CallRazorpay {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
     if (callRazorpay != null) {
-      return callRazorpay(placeOrderModel);
+      return callRazorpay(placeOrderModel, amount);
     }
     return orElse();
   }
@@ -1099,9 +1121,11 @@ class _$_CallRazorpay implements _CallRazorpay {
 
 abstract class _CallRazorpay implements OrderEvent {
   const factory _CallRazorpay(
-      {required final PlaceOrderModel placeOrderModel}) = _$_CallRazorpay;
+      {required final PlaceOrderModel placeOrderModel,
+      required final int amount}) = _$_CallRazorpay;
 
   PlaceOrderModel get placeOrderModel;
+  int get amount;
   @JsonKey(ignore: true)
   _$$_CallRazorpayCopyWith<_$_CallRazorpay> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1177,9 +1201,10 @@ class _$_PlaceOrder implements _PlaceOrder {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
     return placeOrder(placeOrderModel);
@@ -1193,9 +1218,10 @@ class _$_PlaceOrder implements _PlaceOrder {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
     return placeOrder?.call(placeOrderModel);
@@ -1209,9 +1235,9 @@ class _$_PlaceOrder implements _PlaceOrder {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
@@ -1290,7 +1316,7 @@ abstract class _$$_SetPaymnetMethodCopyWith<$Res> {
           _$_SetPaymnetMethod value, $Res Function(_$_SetPaymnetMethod) then) =
       __$$_SetPaymnetMethodCopyWithImpl<$Res>;
   @useResult
-  $Res call({int paymentMethodId});
+  $Res call({PaymentMethod paymentMethod});
 }
 
 /// @nodoc
@@ -1304,13 +1330,13 @@ class __$$_SetPaymnetMethodCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? paymentMethodId = null,
+    Object? paymentMethod = null,
   }) {
     return _then(_$_SetPaymnetMethod(
-      paymentMethodId: null == paymentMethodId
-          ? _value.paymentMethodId
-          : paymentMethodId // ignore: cast_nullable_to_non_nullable
-              as int,
+      paymentMethod: null == paymentMethod
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as PaymentMethod,
     ));
   }
 }
@@ -1318,14 +1344,14 @@ class __$$_SetPaymnetMethodCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SetPaymnetMethod implements _SetPaymnetMethod {
-  const _$_SetPaymnetMethod({required this.paymentMethodId});
+  const _$_SetPaymnetMethod({required this.paymentMethod});
 
   @override
-  final int paymentMethodId;
+  final PaymentMethod paymentMethod;
 
   @override
   String toString() {
-    return 'OrderEvent.setPaymnetMethod(paymentMethodId: $paymentMethodId)';
+    return 'OrderEvent.setPaymnetMethod(paymentMethod: $paymentMethod)';
   }
 
   @override
@@ -1333,12 +1359,12 @@ class _$_SetPaymnetMethod implements _SetPaymnetMethod {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SetPaymnetMethod &&
-            (identical(other.paymentMethodId, paymentMethodId) ||
-                other.paymentMethodId == paymentMethodId));
+            (identical(other.paymentMethod, paymentMethod) ||
+                other.paymentMethod == paymentMethod));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, paymentMethodId);
+  int get hashCode => Object.hash(runtimeType, paymentMethod);
 
   @JsonKey(ignore: true)
   @override
@@ -1354,12 +1380,13 @@ class _$_SetPaymnetMethod implements _SetPaymnetMethod {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
-    return setPaymnetMethod(paymentMethodId);
+    return setPaymnetMethod(paymentMethod);
   }
 
   @override
@@ -1370,12 +1397,13 @@ class _$_SetPaymnetMethod implements _SetPaymnetMethod {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
-    return setPaymnetMethod?.call(paymentMethodId);
+    return setPaymnetMethod?.call(paymentMethod);
   }
 
   @override
@@ -1386,14 +1414,14 @@ class _$_SetPaymnetMethod implements _SetPaymnetMethod {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
     if (setPaymnetMethod != null) {
-      return setPaymnetMethod(paymentMethodId);
+      return setPaymnetMethod(paymentMethod);
     }
     return orElse();
   }
@@ -1452,10 +1480,10 @@ class _$_SetPaymnetMethod implements _SetPaymnetMethod {
 }
 
 abstract class _SetPaymnetMethod implements OrderEvent {
-  const factory _SetPaymnetMethod({required final int paymentMethodId}) =
-      _$_SetPaymnetMethod;
+  const factory _SetPaymnetMethod(
+      {required final PaymentMethod paymentMethod}) = _$_SetPaymnetMethod;
 
-  int get paymentMethodId;
+  PaymentMethod get paymentMethod;
   @JsonKey(ignore: true)
   _$$_SetPaymnetMethodCopyWith<_$_SetPaymnetMethod> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1530,9 +1558,10 @@ class _$_SetAddress implements _SetAddress {
     required TResult Function(int orderId) cancelOrder,
     required TResult Function(int orderId) returnOrder,
     required TResult Function() getCheckout,
-    required TResult Function(PlaceOrderModel placeOrderModel) callRazorpay,
+    required TResult Function(PlaceOrderModel placeOrderModel, int amount)
+        callRazorpay,
     required TResult Function(PlaceOrderModel placeOrderModel) placeOrder,
-    required TResult Function(int paymentMethodId) setPaymnetMethod,
+    required TResult Function(PaymentMethod paymentMethod) setPaymnetMethod,
     required TResult Function(Address address) setAddress,
   }) {
     return setAddress(address);
@@ -1546,9 +1575,10 @@ class _$_SetAddress implements _SetAddress {
     TResult? Function(int orderId)? cancelOrder,
     TResult? Function(int orderId)? returnOrder,
     TResult? Function()? getCheckout,
-    TResult? Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult? Function(PlaceOrderModel placeOrderModel, int amount)?
+        callRazorpay,
     TResult? Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult? Function(int paymentMethodId)? setPaymnetMethod,
+    TResult? Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult? Function(Address address)? setAddress,
   }) {
     return setAddress?.call(address);
@@ -1562,9 +1592,9 @@ class _$_SetAddress implements _SetAddress {
     TResult Function(int orderId)? cancelOrder,
     TResult Function(int orderId)? returnOrder,
     TResult Function()? getCheckout,
-    TResult Function(PlaceOrderModel placeOrderModel)? callRazorpay,
+    TResult Function(PlaceOrderModel placeOrderModel, int amount)? callRazorpay,
     TResult Function(PlaceOrderModel placeOrderModel)? placeOrder,
-    TResult Function(int paymentMethodId)? setPaymnetMethod,
+    TResult Function(PaymentMethod paymentMethod)? setPaymnetMethod,
     TResult Function(Address address)? setAddress,
     required TResult orElse(),
   }) {
@@ -1643,7 +1673,8 @@ mixin _$OrderState {
   bool get isDone => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   Address? get selectedAddress => throw _privateConstructorUsedError;
-  int? get selectedPaymentmethod => throw _privateConstructorUsedError;
+  PaymentMethod? get selectedPaymentmethod =>
+      throw _privateConstructorUsedError;
   GetCheckoutResponseModel? get getCheckoutResponseModel =>
       throw _privateConstructorUsedError;
   GetOrderResponseModel? get getOrderResponseModel =>
@@ -1668,7 +1699,7 @@ abstract class $OrderStateCopyWith<$Res> {
       bool isDone,
       String? message,
       Address? selectedAddress,
-      int? selectedPaymentmethod,
+      PaymentMethod? selectedPaymentmethod,
       GetCheckoutResponseModel? getCheckoutResponseModel,
       GetOrderResponseModel? getOrderResponseModel,
       GetOrderDetailsResponseModel? getOrderDetailsResponseModel});
@@ -1721,7 +1752,7 @@ class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
       selectedPaymentmethod: freezed == selectedPaymentmethod
           ? _value.selectedPaymentmethod
           : selectedPaymentmethod // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as PaymentMethod?,
       getCheckoutResponseModel: freezed == getCheckoutResponseModel
           ? _value.getCheckoutResponseModel
           : getCheckoutResponseModel // ignore: cast_nullable_to_non_nullable
@@ -1751,7 +1782,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $OrderStateCopyWith<$Res> {
       bool isDone,
       String? message,
       Address? selectedAddress,
-      int? selectedPaymentmethod,
+      PaymentMethod? selectedPaymentmethod,
       GetCheckoutResponseModel? getCheckoutResponseModel,
       GetOrderResponseModel? getOrderResponseModel,
       GetOrderDetailsResponseModel? getOrderDetailsResponseModel});
@@ -1801,7 +1832,7 @@ class __$$_InitialCopyWithImpl<$Res>
       selectedPaymentmethod: freezed == selectedPaymentmethod
           ? _value.selectedPaymentmethod
           : selectedPaymentmethod // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as PaymentMethod?,
       getCheckoutResponseModel: freezed == getCheckoutResponseModel
           ? _value.getCheckoutResponseModel
           : getCheckoutResponseModel // ignore: cast_nullable_to_non_nullable
@@ -1843,7 +1874,7 @@ class _$_Initial implements _Initial {
   @override
   final Address? selectedAddress;
   @override
-  final int? selectedPaymentmethod;
+  final PaymentMethod? selectedPaymentmethod;
   @override
   final GetCheckoutResponseModel? getCheckoutResponseModel;
   @override
@@ -1909,7 +1940,7 @@ abstract class _Initial implements OrderState {
           required final bool isDone,
           final String? message,
           final Address? selectedAddress,
-          final int? selectedPaymentmethod,
+          final PaymentMethod? selectedPaymentmethod,
           final GetCheckoutResponseModel? getCheckoutResponseModel,
           final GetOrderResponseModel? getOrderResponseModel,
           final GetOrderDetailsResponseModel? getOrderDetailsResponseModel}) =
@@ -1926,7 +1957,7 @@ abstract class _Initial implements OrderState {
   @override
   Address? get selectedAddress;
   @override
-  int? get selectedPaymentmethod;
+  PaymentMethod? get selectedPaymentmethod;
   @override
   GetCheckoutResponseModel? get getCheckoutResponseModel;
   @override

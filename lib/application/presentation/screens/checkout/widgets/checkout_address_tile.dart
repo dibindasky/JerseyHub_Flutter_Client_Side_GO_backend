@@ -27,7 +27,7 @@ class CheckOutAddressTile extends StatelessWidget {
                   child: Row(
                     children: [
                       defaultAddress == null
-                          ? kHeight50
+                          ? Text(' Add Address',style: kronOne(),)
                           : Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
