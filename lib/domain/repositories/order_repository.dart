@@ -11,6 +11,10 @@ import 'package:jerseyhub/domain/models/token/token_model.dart';
 abstract class OrderRepository {
   Future<Either<Failure, GetCheckoutResponseModel>> getCheckout(
       {required TokenModel tokenModel, required IdQurrey idQurrey});
+  Future<Either<Failure, SuccessResponseModel>> cancelOrder(
+      {required TokenModel tokenModel, required IdQurrey idQurrey});
+  Future<Either<Failure, SuccessResponseModel>> returnOrder(
+      {required TokenModel tokenModel, required IdQurrey idQurrey});
 
   Future<Either<Failure, SuccessResponseModel>> placeOrder(
       {required TokenModel tokenModel,

@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
 import 'package:jerseyhub/domain/models/order/get_checkout_response_model/get_checkout_response_model.dart';
+import 'package:jerseyhub/domain/models/order/get_checkout_response_model/payment_method.dart';
 import 'package:jerseyhub/domain/models/order/get_order_details_response_model/get_order_details_response_model.dart';
 import 'package:jerseyhub/domain/models/order/get_order_response_model/get_order_response_model.dart';
 import 'package:jerseyhub/domain/models/order/place_order_model/place_order_model.dart';
@@ -15,6 +16,7 @@ part 'order_bloc.freezed.dart';
 
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final OrderRepository orderRepository;
+  Address? address;
 
   OrderBloc(this.orderRepository) : super(OrderState.initial()) {
     on<_GetOrders>((event, emit) async {
@@ -43,13 +45,44 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             hasError: true,
             message: 'something went wrong please try agiain'));
       }, (getOrderDetailResponseModel) {
+        // address = getOrderDetailResponseModel.data!.address;
         emit(state.copyWith(
             isLoading: false,
             getOrderDetailsResponseModel: getOrderDetailResponseModel));
       });
     });
-    on<_CancelOrder>((event, emit) async {});
-    on<_ReturnOrder>((event, emit) async {});
+    on<_CancelOrder>((event, emit) async {
+      emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
+      final tokenModel = await SharedPref.getToken();
+      final result = await orderRepository.cancelOrder(
+          tokenModel: tokenModel, idQurrey: IdQurrey(id: event.orderId));
+      result.fold(
+          (failute) => emit(state.copyWith(
+              isLoading: false,
+              hasError: true,
+              message: 'order not canceled')), (success) {
+        emit(state.copyWith(
+            isLoading: false, isDone: true, message: 'order canceled'));
+        add(OrderEvent.getOrderDetail(orderId: event.orderId));
+        add(const OrderEvent.getOrders());
+      });
+    });
+    on<_ReturnOrder>((event, emit) async {
+      emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
+      final tokenModel = await SharedPref.getToken();
+      final result = await orderRepository.returnOrder(
+          tokenModel: tokenModel, idQurrey: IdQurrey(id: event.orderId));
+      result.fold(
+          (failute) => emit(state.copyWith(
+              isLoading: false,
+              hasError: true,
+              message: 'order not returned')), (success) {
+        emit(state.copyWith(
+            isLoading: false, isDone: true, message: 'order returned'));
+        add(OrderEvent.getOrderDetail(orderId: event.orderId));
+        add(const OrderEvent.getOrders());
+      });
+    });
     on<_PlaceOrder>((event, emit) async {
       emit(state.copyWith(isLoading: true, hasError: false, isDone: false));
       final tokenModel = await SharedPref.getToken();
@@ -80,11 +113,12 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
             getCheckoutResponseModel: getCheckoutResponseModel));
       });
     });
+    on<_CallRazorpay>((event, emit) {});
     on<_SetAddress>((event, emit) {
       emit(state.copyWith(selectedAddress: event.address));
     });
     on<_SetPaymnetMethod>((event, emit) {
-      emit(state.copyWith(selectedPaymentmethod: event.paymentMethodId));
+      emit(state.copyWith(selectedPaymentmethod: event.paymentMethod));
     });
   }
 }

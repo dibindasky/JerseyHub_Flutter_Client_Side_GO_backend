@@ -4,6 +4,9 @@ import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
 import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/validator_functions/validartors.dart';
+import 'package:jerseyhub/domain/models/user/details/change_email/change_email.dart';
+import 'package:jerseyhub/domain/models/user/details/change_name/change_name.dart';
+import 'package:jerseyhub/domain/models/user/details/change_phone_number/change_phone_number.dart';
 
 class ChangeDetailWidget extends StatelessWidget {
   const ChangeDetailWidget({
@@ -69,7 +72,33 @@ class ChangeDetailWidget extends StatelessWidget {
         Align(
             alignment: Alignment.centerRight,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if (detail == 'Name') {
+                  context.read<UserBloc>().add(UserEvent.changeName(
+                      changeName: ChangeName(
+                          name: context
+                              .read<UserBloc>()
+                              .changeNameController
+                              .text
+                              .trim())));
+                } else if (detail == 'Email') {
+                  context.read<UserBloc>().add(UserEvent.changeEmail(
+                      changeEmail: ChangeEmail(
+                          email: context
+                              .read<UserBloc>()
+                              .changeEmailController
+                              .text
+                              .trim())));
+                } else if (detail == 'Phone') {
+                  context.read<UserBloc>().add(UserEvent.changePhone(
+                      changePhone: ChangePhoneNumber(
+                          phone: context
+                              .read<UserBloc>()
+                              .changePhoneController
+                              .text
+                              .trim())));
+                }
+              },
               style: elevatedButtonStyleBlack,
               child: Text('Change $detail'),
             )),

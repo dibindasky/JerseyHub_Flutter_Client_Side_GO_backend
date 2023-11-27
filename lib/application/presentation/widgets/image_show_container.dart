@@ -19,7 +19,16 @@ class ImageShowContainer extends StatelessWidget {
       height: sWidth * width,
       decoration: const BoxDecoration(
           color: kGrey, borderRadius: BorderRadius.all(kRadius10)),
-      child: SizedBox(width: double.infinity, child: Image.network(image)),
+      child: SizedBox(
+          width: double.infinity,
+          child: Image.network(
+            image,
+            // loadingBuilder: (BuildContext context, Widget child,
+            //     ImageChunkEvent? loadingProgress) {
+            //   return Placeholder();
+            // },
+            
+          )),
     );
   }
 }

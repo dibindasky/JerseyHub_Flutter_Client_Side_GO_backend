@@ -10,6 +10,7 @@ import 'package:jerseyhub/application/presentation/screens/coupon/coupon_screen.
 import 'package:jerseyhub/application/presentation/screens/inventory/inventory_details.dart';
 import 'package:jerseyhub/application/presentation/screens/orders/order_detils.dart';
 import 'package:jerseyhub/application/presentation/screens/orders/order_screen.dart';
+import 'package:jerseyhub/application/presentation/screens/profile/widgets/about_screen.dart';
 import 'package:jerseyhub/application/presentation/screens/security/edit_profile.dart';
 import 'package:jerseyhub/domain/models/inventory/get_inventory_response_model/inventory.dart';
 
@@ -45,6 +46,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => const ScreenCart());
       case Routes.userDetailScreen:
         return MaterialPageRoute(builder: (ctx) => const ScreenEditProfile());
+      case Routes.aboouAndPolicyScreen:
+        return MaterialPageRoute(builder: (ctx) => const About());
       case Routes.inventoryDetailScreen:
         return arguments is Inventory
             ? MaterialPageRoute(

@@ -40,7 +40,7 @@ class PopularGridView extends StatelessWidget {
                 }
               },
               buildWhen: (previous, current) =>
-                  previous.inventories != current.inventories,
+                  previous.inventories == null && current.inventories != null,
               builder: (context, state) {
                 if (state.isLoading) {
                   return const LoadingAnimation(width: 0.20);

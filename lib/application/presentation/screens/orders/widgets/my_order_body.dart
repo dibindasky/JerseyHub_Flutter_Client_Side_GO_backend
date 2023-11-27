@@ -4,6 +4,7 @@ import 'package:jerseyhub/application/business_logic/order/order_bloc.dart';
 import 'package:jerseyhub/application/presentation/routes/routes.dart';
 import 'package:jerseyhub/application/presentation/screens/orders/widgets/my_order_list_tile.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
+import 'package:lottie/lottie.dart';
 
 class MyOrderBody extends StatelessWidget {
   const MyOrderBody({
@@ -26,8 +27,8 @@ class MyOrderBody extends StatelessWidget {
             if (state.getOrderResponseModel == null ||
                 state.getOrderResponseModel!.data == null ||
                 state.getOrderResponseModel!.data!.isEmpty) {
-              return const Center(
-                child: Text('you dont have any orders to show'),
+              return Center(
+                child: Lottie.asset('assets/animation/cart_empty.json'),
               );
             }
             return ListView.builder(

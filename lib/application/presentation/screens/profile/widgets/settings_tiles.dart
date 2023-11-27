@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:jerseyhub/application/business_logic/Auth/auth_bloc.dart';
 import 'package:jerseyhub/application/presentation/routes/routes.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/show_dialoge/show_dialoge.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsList extends StatelessWidget {
   const SettingsList({
@@ -37,28 +39,41 @@ class SettingsList extends StatelessWidget {
             },
           ),
           const Divider(),
-          const ListTile(
-            title: Text('Share'),
-            trailing: Icon(
+          ListTile(
+            title: const Text('Share'),
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),
+            onTap: () async {
+              await _onShare(context);
+            },
           ),
           const Divider(),
-          const ListTile(
-            title: Text('About'),
-            trailing: Icon(
+          ListTile(
+            title: const Text('About'),
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),
+            onTap: () {
+              Navigator.pushNamed(context, Routes.aboouAndPolicyScreen);
+            },
           ),
           const Divider(),
-          const ListTile(
-            title: Text('Privacy Policy'),
-            trailing: Icon(
+          ListTile(
+            title: const Text('Privacy Policy'),
+            trailing: const Icon(
               Icons.arrow_forward_ios_outlined,
               size: 15,
             ),
+            onTap: () async {
+              final Uri url = Uri.parse(
+                  'https://www.freeprivacypolicy.com/live/7513d31f-21ec-4122-9bd3-02265eeeab61');
+              if (!await launchUrl(url)) {
+                Fluttertoast.showToast(msg: 'cannot open url');
+              }
+            },
           ),
           const Divider(),
           ListTile(
@@ -83,5 +98,13 @@ class SettingsList extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _onShare(context) async {
+    // final box = context.findRenderObject() as RenderBox?;
+    // await Share.share(
+    //     'https://play.google.com/store/apps/details?id=com.dibin.jerseyhub',
+    //     subject: '',
+    //     sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
   }
 }

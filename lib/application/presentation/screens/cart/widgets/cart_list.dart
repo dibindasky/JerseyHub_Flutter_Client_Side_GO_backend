@@ -6,6 +6,7 @@ import 'package:jerseyhub/application/presentation/utils/colors.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/application/presentation/utils/loading_indicator/loading_indicator.dart';
 import 'package:jerseyhub/application/presentation/utils/snack_show/show_snack.dart';
+import 'package:lottie/lottie.dart';
 
 class CartItemsList extends StatelessWidget {
   const CartItemsList({
@@ -36,7 +37,9 @@ class CartItemsList extends StatelessWidget {
                   state.getCartResponseModel!.data == null ||
                   state.getCartResponseModel!.data!.data == null ||
                   state.getCartResponseModel!.data!.data!.isEmpty) {
-                return const Center(child: Text('Your cart is empty'));
+                return Center(
+                  child:  Lottie.asset('assets/animation/cart_empty.json'),
+                );
               } else if (state.getCartResponseModel != null &&
                   state.getCartResponseModel!.data!.data!.isNotEmpty) {
                 return ListView.builder(
@@ -57,7 +60,7 @@ class CartItemsList extends StatelessWidget {
                   ),
                 );
               } else {
-                return const Text('Your cart is empty3');
+                return const Text('Your cart is empty');
               }
             },
           ),

@@ -8,7 +8,7 @@ class OrderState with _$OrderState {
       required bool isDone,
       String? message,
       Address? selectedAddress,
-      int? selectedPaymentmethod,
+      PaymentMethod? selectedPaymentmethod, 
       GetCheckoutResponseModel? getCheckoutResponseModel,
       GetOrderResponseModel? getOrderResponseModel,
       GetOrderDetailsResponseModel? getOrderDetailsResponseModel}) = _Initial;

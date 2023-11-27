@@ -8,7 +8,7 @@ import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/domain/models/cart/get_cart_response_model/inventory_cart.dart';
 
 class QuantityAdder extends StatelessWidget {
-  QuantityAdder({
+  const QuantityAdder({
     super.key,
     required this.inventoryCart,
   });

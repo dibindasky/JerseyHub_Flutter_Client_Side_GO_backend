@@ -19,7 +19,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final tokenModel = await SharedPref.getToken();
       final result = await homeRepository.getBanners(tokenModel: tokenModel);
       result.fold((failure) {
-        print('failure => () ${failure.statusCode}');
         if (failure.statusCode == 401) {
           return emit(state.copyWith(expired: true));
         }
