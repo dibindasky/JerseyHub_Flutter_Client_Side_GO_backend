@@ -25,7 +25,6 @@ class ApiEndPoints {
   static String editPhone = '/users/profile/edit/phone';
   static String getReferalLink = '/users/profile/get-link';
   static String getOrders = '/users/profile/orders';
-  //use order_id in the end of the url by replacing {id}
   static String orderDetails = '/users/profile/orders/{id}';
   static String cancelOrder = '/users/profile/orders';
   static String returnOrder = '/users/profile/orders/return';
