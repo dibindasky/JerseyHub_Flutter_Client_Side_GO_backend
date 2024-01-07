@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:jerseyhub/domain/core/failure/failures.dart';
 import 'package:jerseyhub/domain/models/cart/add_to_cart_model/add_to_cart_model.dart';
@@ -12,6 +13,8 @@ import 'package:jerseyhub/domain/models/success_response_model/success_response_
 import 'package:jerseyhub/domain/models/token/token_model.dart';
 import 'package:jerseyhub/domain/repositories/cart_repository.dart';
 
+@LazySingleton(as: CartRepository)
+@injectable
 class CartApi implements CartRepository {
   final Dio _dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
 

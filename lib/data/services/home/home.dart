@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:jerseyhub/domain/core/failure/failures.dart';
 import 'package:jerseyhub/domain/models/banner/get_banner_response_model/get_banner_response_model.dart';
@@ -7,6 +8,8 @@ import 'package:jerseyhub/domain/models/category/get_category_response_model/get
 import 'package:jerseyhub/domain/models/token/token_model.dart';
 import 'package:jerseyhub/domain/repositories/home_repository.dart';
 
+@LazySingleton(as: HomeRepository)
+@injectable
 class HomeApi implements HomeRepository {
   final Dio _dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
 

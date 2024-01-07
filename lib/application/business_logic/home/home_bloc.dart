@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/banner/get_banner_response_model/banner.dart';
 import 'package:jerseyhub/domain/models/category/get_category_response_model/category.dart';
@@ -9,6 +10,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 part 'home_bloc.freezed.dart';
 
+@injectable
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final HomeRepository homeRepository;
   Map<String, int> categoryMap = {};

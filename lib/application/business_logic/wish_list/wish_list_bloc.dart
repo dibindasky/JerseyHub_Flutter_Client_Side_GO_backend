@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
 import 'package:jerseyhub/domain/models/wish_list/add_to_wish_list/add_to_wish_list.dart';
@@ -11,6 +12,7 @@ part 'wish_list_event.dart';
 part 'wish_list_state.dart';
 part 'wish_list_bloc.freezed.dart';
 
+@injectable
 class WishListBloc extends Bloc<WishListEvent, WishListState> {
   final WishListRepository wishListRepository;
 

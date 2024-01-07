@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:jerseyhub/domain/core/failure/failures.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
@@ -10,6 +11,8 @@ import 'package:jerseyhub/domain/models/inventory/search_model/search_model.dart
 import 'package:jerseyhub/domain/models/token/token_model.dart';
 import 'package:jerseyhub/domain/repositories/inventory_repository.dart';
 
+@LazySingleton(as: InventoryRepository)
+@injectable
 class InventoryApi implements InventoryRepository {
   final Dio _dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
 

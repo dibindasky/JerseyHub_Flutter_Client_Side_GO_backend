@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:jerseyhub/domain/core/failure/failures.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
@@ -10,6 +11,8 @@ import 'package:jerseyhub/domain/models/wish_list/get_wishlist_response_model/ge
 import 'package:jerseyhub/domain/models/wish_list/remove_from_wish_list_qurrey/remove_from_wish_list_qurrey.dart';
 import 'package:jerseyhub/domain/repositories/wish_list_repository.dart';
 
+@LazySingleton(as: WishListRepository)
+@injectable
 class WishListApi implements WishListRepository {
   final Dio _dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
 

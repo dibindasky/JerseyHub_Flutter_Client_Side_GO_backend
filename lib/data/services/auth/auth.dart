@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/application/presentation/utils/constant.dart';
 import 'package:jerseyhub/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:jerseyhub/domain/core/failure/error_msg.dart';
@@ -15,6 +16,8 @@ import 'package:jerseyhub/domain/models/auth/verify_otp_model/verify_otp_model.d
 import 'package:jerseyhub/domain/models/auth/verify_otp_response_model/verify_otp_response_model.dart';
 import 'package:jerseyhub/domain/repositories/auth_repository.dart';
 
+@LazySingleton(as: AuthRepository)
+@injectable
 class AuthApi implements AuthRepository {
   final Dio dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
 
