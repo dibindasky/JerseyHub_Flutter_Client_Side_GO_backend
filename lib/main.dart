@@ -8,18 +8,13 @@ import 'package:jerseyhub/application/business_logic/inventory/inventory_bloc.da
 import 'package:jerseyhub/application/business_logic/order/order_bloc.dart';
 import 'package:jerseyhub/application/business_logic/user/user_bloc.dart';
 import 'package:jerseyhub/application/business_logic/wish_list/wish_list_bloc.dart';
-import 'package:jerseyhub/data/services/auth/auth.dart';
-import 'package:jerseyhub/data/services/cart/cart.dart';
-import 'package:jerseyhub/data/services/home/home.dart';
-import 'package:jerseyhub/data/services/inventory/inventory.dart';
-import 'package:jerseyhub/data/services/order/order.dart';
-import 'package:jerseyhub/data/services/user/user.dart';
-import 'package:jerseyhub/data/services/wish_list/wish_list.dart';
+import 'package:jerseyhub/domain/core/di/dipendency_injection.dart';
 
 import 'application/presentation/routes/routes.dart';
 import 'application/presentation/routes/routes_generator.dart';
 
-void main() {
+Future<void> main() async{
+  await configuteInjection();
   runApp(JerseyHubUser());
 }
 
@@ -32,30 +27,14 @@ class JerseyHubUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => BottomBarCubitCubit(),
-        ),
-        BlocProvider(
-          create: (context) => AuthBloc(AuthApi()),
-        ),
-        BlocProvider(
-          create: (context) => WishListBloc(WishListApi()),
-        ),
-        BlocProvider(
-          create: (context) => InventoryBloc(InventoryApi()),
-        ),
-        BlocProvider(
-          create: (context) => UserBloc(UserApi()),
-        ),
-        BlocProvider(
-          create: (context) => CartBloc(CartApi()),
-        ),
-        BlocProvider(
-          create: (context) => OrderBloc(OrderApi()),
-        ),
-        BlocProvider(
-          create: (context) => HomeBloc(HomeApi()),
-        ),
+        BlocProvider(create: (context) => BottomBarCubitCubit()),
+        BlocProvider(create: (context) => getIt<AuthBloc>()),
+        BlocProvider(create: (context) => getIt<WishListBloc>()),
+        BlocProvider(create: (context) => getIt<InventoryBloc>()),
+        BlocProvider(create: (context) => getIt<UserBloc>()),
+        BlocProvider(create: (context) => getIt<CartBloc>()),
+        BlocProvider(create: (context) => getIt<OrderBloc>()),
+        BlocProvider(create: (context) => getIt<HomeBloc>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

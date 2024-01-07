@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
 import 'package:jerseyhub/domain/models/order/get_checkout_response_model/get_checkout_response_model.dart';
@@ -14,6 +15,7 @@ part 'order_event.dart';
 part 'order_state.dart';
 part 'order_bloc.freezed.dart';
 
+@injectable
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final OrderRepository orderRepository;
   Address? address;

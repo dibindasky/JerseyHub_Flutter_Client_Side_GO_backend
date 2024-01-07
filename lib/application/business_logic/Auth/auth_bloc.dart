@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/auth/phone_number_model/phone_number_model.dart';
 import 'package:jerseyhub/domain/models/auth/phone_number_otp_response_model/phone_number_otp_response_model.dart';
@@ -17,6 +18,7 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 part 'auth_bloc.freezed.dart';
 
+@injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();

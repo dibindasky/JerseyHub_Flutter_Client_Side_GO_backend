@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:jerseyhub/domain/core/failure/failures.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
@@ -14,6 +15,8 @@ import 'package:jerseyhub/domain/models/user/security/change_password/change_pas
 import 'package:jerseyhub/domain/models/user/user_details_response_model/user_details_response_model.dart';
 import 'package:jerseyhub/domain/repositories/user_repository.dart';
 
+@LazySingleton(as: UserRepository)
+@injectable
 class UserApi implements UserRepository {
   final Dio _dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
 

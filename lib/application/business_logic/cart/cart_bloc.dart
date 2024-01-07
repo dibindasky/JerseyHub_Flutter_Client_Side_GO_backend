@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/cart/add_to_cart_model/add_to_cart_model.dart';
 import 'package:jerseyhub/domain/models/cart/cart_quantity_update_qurrey/cart_quantity_update_qurrey.dart';
@@ -14,6 +15,7 @@ part 'cart_event.dart';
 part 'cart_state.dart';
 part 'cart_bloc.freezed.dart';
 
+@injectable
 class CartBloc extends Bloc<CartEvent, CartState> {
   final CartRepository cartRepository;
   int cartID = 0;

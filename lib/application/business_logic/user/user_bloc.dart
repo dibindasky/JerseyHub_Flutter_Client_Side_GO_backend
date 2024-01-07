@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:jerseyhub/data/shared_preference/shared_pref.dart';
 import 'package:jerseyhub/domain/models/id_qurrey/id_qurrey.dart';
 import 'package:jerseyhub/domain/models/user/address/add_address_model/add_address_model.dart';
@@ -16,6 +17,7 @@ part 'user_event.dart';
 part 'user_state.dart';
 part 'user_bloc.freezed.dart';
 
+@injectable
 class UserBloc extends Bloc<UserEvent, UserState> {
   final TextEditingController changeNameController = TextEditingController();
   final TextEditingController changeEmailController = TextEditingController();
